@@ -12,6 +12,10 @@ export const Main = styled.main`
   margin-bottom: 2rem;
   border-radius: 1rem;
 
+  &:focus {
+    border: 5px dashed ${props => props.theme.backgrounds.darkest};
+  }
+
   button {
     display: flex;
     align-items: center;

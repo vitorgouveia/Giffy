@@ -8,7 +8,7 @@ export const RecordArea: FC = () => {
   const [isLoading, setIsLoading] = useState(false)
 
   return (
-    <Main>
+    <Main tabIndex={0}>
       <Button
         onClick={() => setIsLoading(!isLoading)}
         hasIcon={true}
