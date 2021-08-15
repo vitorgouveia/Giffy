@@ -4,6 +4,7 @@ import { FiSettings, FiLogOut } from 'react-icons/fi'
 import Header from './Header'
 import { History } from './History'
 import { RecordArea } from './Main'
+import { Settings } from './Settings'
 import { Container, Content } from './styles'
 import { Tutorial } from './Tutorial'
 
@@ -35,6 +36,7 @@ const Screen: FC = () => {
               className="settings"
               onClick={() => setShowSettings(!showSettings)}
             />
+            <Settings />
           </>
         ) : (
           <>

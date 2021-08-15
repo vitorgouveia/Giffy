@@ -23,9 +23,18 @@ export const Content = styled.div<ContentProps>`
   display: grid;
   padding: 1rem 0;
   ${props =>
-    props.isTutorial === true || props.showSettings === true
+    props.isTutorial === true &&
+    css`
+      padding: 0;
+      grid-template-columns: 1fr;
+      grid-auto-columns: 50%;
+      grid-auto-flow: column;
+    `}
+
+  ${props =>
+    props.showSettings === true
       ? css`
-          grid-template-columns: 1fr;
+          grid-template-columns: 1fr 6fr 1fr;
           grid-auto-columns: 50%;
           grid-auto-flow: column;
         `
