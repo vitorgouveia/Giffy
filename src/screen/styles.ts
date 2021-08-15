@@ -13,6 +13,7 @@ export const Container = styled.div`
 
 interface ContentProps {
   isTutorial: boolean
+  showSettings: boolean
 }
 
 export const Content = styled.div<ContentProps>`
@@ -22,7 +23,7 @@ export const Content = styled.div<ContentProps>`
   display: grid;
   padding: 1rem 0;
   ${props =>
-    props.isTutorial === true
+    props.isTutorial === true || props.showSettings === true
       ? css`
           grid-template-columns: 1fr;
           grid-auto-columns: 50%;
@@ -33,4 +34,20 @@ export const Content = styled.div<ContentProps>`
             '. main .'
             '. history .';
         `}
+
+  svg {
+    &.settings {
+      width: 1.4rem;
+      height: 1.4rem;
+      position: absolute;
+      right: 2rem;
+      transition: all 200ms;
+
+      &:hover,
+      &:focus {
+        cursor: pointer;
+        stroke: ${props => props.theme.colors.green};
+      }
+    }
+  }
 `

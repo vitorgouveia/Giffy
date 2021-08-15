@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useState } from 'react'
+import { FiSettings, FiLogOut } from 'react-icons/fi'
 
 import Header from './Header'
 import { History } from './History'
@@ -7,6 +8,7 @@ import { Container, Content } from './styles'
 import { Tutorial } from './Tutorial'
 
 const Screen: FC = () => {
+  const [showSettings, setShowSettings] = useState(false)
   const [isFirstUser, setIsFirstUser] = useState(false)
 
   useEffect(() => {
@@ -23,13 +25,26 @@ const Screen: FC = () => {
   return (
     <Container>
       <Header title="Giffy - Main" />
-      <Content isTutorial={isFirstUser}>
-        {isFirstUser ? (
-          <Tutorial />
+      <Content isTutorial={isFirstUser} showSettings={showSettings}>
+        {isFirstUser && <Tutorial />}
+
+        {showSettings ? (
+          <>
+            <FiLogOut
+              tabIndex={0}
+              className="settings"
+              onClick={() => setShowSettings(!showSettings)}
+            />
+          </>
         ) : (
           <>
             <RecordArea />
             <History />
+            <FiSettings
+              tabIndex={0}
+              className="settings"
+              onClick={() => setShowSettings(!showSettings)}
+            />
           </>
         )}
       </Content>
