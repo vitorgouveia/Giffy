@@ -50,8 +50,9 @@ export const Container = styled.button<ContainerProps>`
     filter: brightness(40%);
   }
 
-  &:hover {
-    opacity: 0.8;
+  &:hover,
+  &:focus {
+    opacity: 0.5;
   }
 `
 
