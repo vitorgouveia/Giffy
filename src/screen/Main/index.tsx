@@ -1,14 +1,44 @@
 import React, { FC, useState } from 'react'
+import { AiFillCaretDown } from 'react-icons/ai'
 import { BsCameraVideoFill } from 'react-icons/bs'
 
+import { DesktopCapturer, remote } from 'electron'
+
 import Button from '../../components/Button'
-import { Main, Section } from './styles'
+import Modal from '../../components/Modal'
+import {
+  Main,
+  Section,
+  Dropdown,
+  DropdownItem,
+  DropdownItemContainer
+} from './styles'
 
 export const RecordArea: FC = () => {
   const [isLoading, setIsLoading] = useState(false)
+  const [isDropdown, setIsDropdown] = useState(false)
+
+  // const getVideoSources = async () => {
+  //   const { Menu } = remote
+
+  //   const inputSources = await DesktopCapturer.getSources({
+  //     types: ['window', 'screen']
+  //   })
+
+  //   const videoOptionsMenu = Menu.buildFromTemplate(
+  //     inputSources.map(source => {
+  //       label: source.name,
+  //       // click: () => selectSource(source)
+  //     })
+  //   )
+  // }
+
+  console.log('-----------------------------')
+  // console.log(getVideoSources())
+  console.log('-----------------------------')
 
   return (
-    <Main tabIndex={0}>
+    <Main>
       <Button
         onClick={() => setIsLoading(!isLoading)}
         hasIcon={true}
@@ -62,8 +92,28 @@ export const RecordArea: FC = () => {
         </svg>
         New Gif
       </Button>
-
-      <Section>a</Section>
+      <Dropdown onClick={() => setIsDropdown(!isDropdown)} tabIndex={1}>
+        <section>
+          Windows
+          <AiFillCaretDown />
+        </section>
+        {isDropdown && (
+          <Modal visible={isDropdown}>
+            <DropdownItemContainer>
+              <DropdownItem onClick={() => setIsDropdown(!isDropdown)}>
+                Chrome - BRave
+              </DropdownItem>
+              <DropdownItem onClick={() => setIsDropdown(!isDropdown)}>
+                Chrome - BRave
+              </DropdownItem>
+              <DropdownItem onClick={() => setIsDropdown(!isDropdown)}>
+                Chrome - BRave
+              </DropdownItem>
+            </DropdownItemContainer>
+          </Modal>
+        )}
+      </Dropdown>
+      <Section></Section>
     </Main>
   )
 }

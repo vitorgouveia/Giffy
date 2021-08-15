@@ -55,7 +55,7 @@ export const GlobalStyle = createGlobalStyle`
     left: 0;
     bottom: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.6);
 
     display: flex;
     justify-content: center;
@@ -68,7 +68,7 @@ export const GlobalStyle = createGlobalStyle`
     border: 1px solid #322D41;
     padding: 16px;
     border-radius: 4px;
-    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.9);
 
     &:focus {
       outline: 0;
@@ -81,11 +81,11 @@ export const GlobalStyle = createGlobalStyle`
     border-radius: 4px;
     background: rgba(255, 255, 255, 0.05);
   }
-  
+
   ::-webkit-scrollbar-track {
     border-radius: 4px;
   }
-  
+
   ::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 4px;
