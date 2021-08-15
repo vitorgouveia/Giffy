@@ -4,7 +4,7 @@ import { defaultTheme } from '../../styles/theme'
 
 export const Container = styled.header`
   width: 100%;
-  height: 35px;
+  padding: 0.8rem;
   position: relative;
 
   -webkit-user-select: none;
@@ -17,9 +17,14 @@ export const Container = styled.header`
   border-bottom: 1px solid ${props => props.theme.backgrounds.lightest};
 
   strong {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 600;
-    color: ${props => props.theme.colors.grey};
+    color: ${props => props.theme.colors.white};
+  }
+
+  svg.logo {
+    position: absolute;
+    right: 16px;
   }
 `
 
