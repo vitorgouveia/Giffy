@@ -20,6 +20,7 @@ export const Content = styled.div<ContentProps>`
   height: 100%;
   overflow: auto;
   display: grid;
+  padding: 1rem 0;
   ${props =>
     props.isTutorial === true
       ? css`

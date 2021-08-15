@@ -18,7 +18,7 @@ const Screen: FC = () => {
       localStorage.setItem('tookTutorial', 'true')
       setIsFirstUser(true)
     }
-    setIsFirstUser(true)
+    // setIsFirstUser(true)
   }, [])
   return (
     <Container>

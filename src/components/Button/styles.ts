@@ -12,9 +12,14 @@ export const Container = styled.button<ContainerProps>`
   border-radius: 4px;
   color: #fff;
 
+  position: relative;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  height: 50px;
+  padding: 0;
 
   font-weight: 600;
   font-size: 14px;
@@ -22,13 +27,27 @@ export const Container = styled.button<ContainerProps>`
   cursor: pointer;
   transition: opacity 0.2s;
 
+  .icon,
+  .text {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 24px;
+    color: #fff;
+    height: 100%;
+  }
+
+  .icon {
+    font-size: 1.5em;
+    background: rgba(0, 0, 0, 0.08);
+  }
+
   svg {
     margin-right: 8px;
   }
 
   &:disabled {
     cursor: not-allowed;
-    opacity: 0.5 !important;
+    filter: brightness(40%);
   }
 
   &:hover {
@@ -53,11 +72,17 @@ export const Loading = styled.div`
   justify-content: center;
   align-items: center;
 
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+
   animation: ${rotate} 2s linear infinite;
 
   svg {
     margin: 0;
-    height: 16px;
-    width: 16px;
+    height: 1.2rem;
+    width: 1.2rem;
   }
 `
