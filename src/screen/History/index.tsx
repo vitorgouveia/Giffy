@@ -6,7 +6,7 @@ export const History: FC = () => {
   return (
     <HistoryContainer>
       <h1>Your gif history</h1>
-      <Card tabIndex={0}>
+      <Card tabIndex={1}>
         <header>
           <div className="img"></div>
           <h5>name of the file</h5>
@@ -14,7 +14,7 @@ export const History: FC = () => {
         </header>
         <small>file://dawee</small>
       </Card>
-      <Card tabIndex={0}>
+      <Card tabIndex={1}>
         <header>
           <div className="img"></div>
           <h5>name of the file</h5>
@@ -22,7 +22,7 @@ export const History: FC = () => {
         </header>
         <small>file://dawee</small>
       </Card>
-      <Card tabIndex={0}>
+      <Card tabIndex={1}>
         <header>
           <div className="img"></div>
           <h5>name of the file</h5>
@@ -30,7 +30,7 @@ export const History: FC = () => {
         </header>
         <small>file://dawee</small>
       </Card>
-      <Card tabIndex={0}>
+      <Card tabIndex={1}>
         <header>
           <div className="img"></div>
           <h5>name of the file</h5>
@@ -38,7 +38,7 @@ export const History: FC = () => {
         </header>
         <small>file://dawee</small>
       </Card>
-      <Card tabIndex={0}>
+      <Card tabIndex={1}>
         <header>
           <div className="img"></div>
           <h5>name of the file</h5>
@@ -46,7 +46,7 @@ export const History: FC = () => {
         </header>
         <small>file://dawee</small>
       </Card>
-      <Card tabIndex={0}>
+      <Card tabIndex={1}>
         <header>
           <div className="img"></div>
           <h5>name of the file</h5>
@@ -54,7 +54,7 @@ export const History: FC = () => {
         </header>
         <small>file://dawee</small>
       </Card>
-      <Card tabIndex={0}>
+      <Card tabIndex={1}>
         <header>
           <div className="img"></div>
           <h5>name of the file</h5>
@@ -62,7 +62,7 @@ export const History: FC = () => {
         </header>
         <small>file://dawee</small>
       </Card>
-      <Card tabIndex={0}>
+      <Card tabIndex={1}>
         <header>
           <div className="img"></div>
           <h5>name of the file</h5>
