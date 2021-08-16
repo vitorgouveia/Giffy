@@ -1,34 +1,35 @@
-<p align="center">
-  <img src="https://storage.googleapis.com/golden-wind/rocketredis/logo.png" width="200" />
-</p>
+---
+description: Welcome to Giffy documentation
+---
 
-<h1 align="center">
-  Rocket Redis
-</h1>
+# README
 
-Rocket Redis is a Graphic User Interface for managing Redis databases with ease.
+![Making the best gifs for you](.gitbook/assets/group-2.jpg)
 
-🚧 **Rocket Redis is under development** 🚧
+![](.gitbook/assets/group.jpg)
 
-## Layout
+##  Giffy
 
-You can find the application UI design here: https://www.figma.com/file/YRor24p0TmTxcjl5L86jGb/Rocket-Redis?node-id=1%3A2
+Giffy is a Graphic User Interface for creating GIFs with ease.
 
-![Rocket Redis](/.github/layout.png)
+🚧 **Giffy is under development** 🚧
 
-## Contributing
+### Contributing
 
 This repository is currently under development. If you want to contribute please fork the repository and get your hands dirty, and make the changes as you'd like and submit the Pull request.
 
-## Building
+### Building
 
 You'll need [Node.js](https://nodejs.org) installed on your computer in order to build this app.
 
 ```bash
-git clone https://github.com/diego3g/rocketredis.git
-$ cd rocketredis
-$ yarn install
-$ yarn dev
+git clone https://github.com/VitorGouveia/giffy.git
+
+cd giffy
+yarn
+yarn dev
 ```
 
-Runs the app in the development mode.<br/>
+Runs the app in the development mode.  
+
+
