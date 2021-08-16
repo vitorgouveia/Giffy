@@ -3,6 +3,7 @@ import { AiFillCaretDown } from 'react-icons/ai'
 import { BsCameraVideoFill } from 'react-icons/bs'
 
 import { desktopCapturer, remote } from 'electron'
+import RecordRTCPromisesHandler, { invokeSaveAsDialog } from 'recordrtc'
 
 import Button from '../../components/Button'
 import Modal from '../../components/Modal'
@@ -35,6 +36,9 @@ export const RecordArea: FC = () => {
     setVideoSources(inputSources)
     return inputSources
   }
+
+  const screenWidth = remote.screen.getPrimaryDisplay().workAreaSize.width
+  const screenHeight = remote.screen.getPrimaryDisplay().workAreaSize.height
 
   const selectSource = async (source: Electron.DesktopCapturerSource) => {
     const constraints: any = {
@@ -72,9 +76,6 @@ export const RecordArea: FC = () => {
     }
   }
 
-  const screenWidth = remote.screen.getPrimaryDisplay().workAreaSize.width
-  const screenHeight = remote.screen.getPrimaryDisplay().workAreaSize.height
-
   useEffect(() => {
     getVideoSources()
   }, [isDropdown])
@@ -83,12 +84,27 @@ export const RecordArea: FC = () => {
     <Main>
       <Button
         onClick={() => {
+          setIsLoading(!isLoading)
+          const recorder = new RecordRTCPromisesHandler(videoStream, {
+            type: 'gif',
+            video: {
+              width: 500,
+              height: 700
+            }
+          })
+          recorder.startRecording()
+
+          setTimeout(() => {
+            recorder.stopRecording()
+            setIsLoading(!isLoading)
+            const blob = recorder.getBlob()
+            invokeSaveAsDialog(blob, 'video.gif')
+          }, 10000)
           addToast({
             title: 'Gif Recording',
             description: 'Started recording your gif.',
             type: 'success'
           })
-          setIsLoading(!isLoading)
         }}
         hasIcon={true}
         loading={isLoading}
