@@ -1,8 +1,8 @@
-import React, { FC, useState, useEffect } from 'react'
+import React, { FC, useState, useEffect, useRef } from 'react'
 import { AiFillCaretDown } from 'react-icons/ai'
 import { BsCameraVideoFill } from 'react-icons/bs'
 
-import { desktopCapturer } from 'electron'
+import { desktopCapturer, remote } from 'electron'
 
 import Button from '../../components/Button'
 import Modal from '../../components/Modal'
@@ -15,8 +15,10 @@ import {
 } from './styles'
 
 export const RecordArea: FC = () => {
+  const videoElement = useRef<HTMLVideoElement>(null)
   const [isLoading, setIsLoading] = useState(false)
   const [isDropdown, setIsDropdown] = useState(false)
+  const [videoStream, setVideoStream] = useState<any>('')
   const [defaultWindowMessage, setDefaultWindowMessage] = useState(
     'select a window'
   )
@@ -31,6 +33,27 @@ export const RecordArea: FC = () => {
     setVideoSources(inputSources)
     return inputSources
   }
+
+  const selectSource = async (source: Electron.DesktopCapturerSource) => {
+    const constraints: any = {
+      audio: false,
+      video: {
+        mandatory: {
+          chromeMediaSource: 'desktop',
+          chromeMediaSourceId: String(source.id)
+        }
+      }
+    }
+
+    const stream = await navigator.mediaDevices.getUserMedia(constraints)
+    setVideoStream(stream)
+    videoElement.current!.srcObject = stream
+    videoElement.current?.play()
+    return stream
+  }
+
+  const screenWidth = remote.screen.getPrimaryDisplay().workAreaSize.width
+  const screenHeight = remote.screen.getPrimaryDisplay().workAreaSize.height
 
   useEffect(() => {
     getVideoSources()
@@ -107,6 +130,7 @@ export const RecordArea: FC = () => {
                       // console.log(event.target.innerText)
                       setDefaultWindowMessage(event.target.innerText)
                       setIsDropdown(!isDropdown)
+                      selectSource(video)
                     }}
                   >
                     {video.name}
@@ -117,7 +141,15 @@ export const RecordArea: FC = () => {
           </Modal>
         )}
       </Dropdown>
-      <Section></Section>
+
+      <Section
+        style={{
+          width: `${screenWidth / 4.5}px`,
+          height: `${screenHeight / 4.5}px`
+        }}
+      >
+        <video ref={videoElement} src={videoStream} autoPlay={true}></video>
+      </Section>
     </Main>
   )
 }

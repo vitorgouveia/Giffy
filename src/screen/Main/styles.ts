@@ -55,11 +55,15 @@ export const Main = styled.main`
 `
 
 export const Section = styled.section`
-  width: 400px;
-  height: 50%;
-  padding: 1rem 0;
   border-radius: 0.5rem;
   background: ${props => props.theme.backgrounds.darkest};
+  border: 1px solid #322d41;
+  bottom: 1rem;
+
+  video {
+    width: 100%;
+    height: auto;
+  }
 `
 export const Dropdown = styled.nav`
   width: 60%;
