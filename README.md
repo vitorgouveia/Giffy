@@ -2,7 +2,7 @@
 description: Welcome to Giffy documentation
 ---
 
-# README
+# Giffy
 
 ![Making the best gifs for you](.gitbook/assets/group-2.jpg)
 
