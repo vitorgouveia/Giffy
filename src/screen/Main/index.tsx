@@ -1,8 +1,8 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import { AiFillCaretDown } from 'react-icons/ai'
 import { BsCameraVideoFill } from 'react-icons/bs'
 
-import { DesktopCapturer, remote } from 'electron'
+import { desktopCapturer } from 'electron'
 
 import Button from '../../components/Button'
 import Modal from '../../components/Modal'
@@ -17,25 +17,24 @@ import {
 export const RecordArea: FC = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [isDropdown, setIsDropdown] = useState(false)
+  const [defaultWindowMessage, setDefaultWindowMessage] = useState(
+    'select a window'
+  )
+  const [videoSources, setVideoSources] = useState<
+    Electron.DesktopCapturerSource[]
+  >([])
 
-  // const getVideoSources = async () => {
-  //   const { Menu } = remote
+  const getVideoSources = async () => {
+    const inputSources = await desktopCapturer.getSources({
+      types: ['window', 'screen']
+    })
+    setVideoSources(inputSources)
+    return inputSources
+  }
 
-  //   const inputSources = await DesktopCapturer.getSources({
-  //     types: ['window', 'screen']
-  //   })
-
-  //   const videoOptionsMenu = Menu.buildFromTemplate(
-  //     inputSources.map(source => {
-  //       label: source.name,
-  //       // click: () => selectSource(source)
-  //     })
-  //   )
-  // }
-
-  console.log('-----------------------------')
-  // console.log(getVideoSources())
-  console.log('-----------------------------')
+  useEffect(() => {
+    getVideoSources()
+  }, [isDropdown])
 
   return (
     <Main>
@@ -94,21 +93,26 @@ export const RecordArea: FC = () => {
       </Button>
       <Dropdown onClick={() => setIsDropdown(!isDropdown)} tabIndex={1}>
         <section>
-          Windows
+          {defaultWindowMessage}
           <AiFillCaretDown />
         </section>
         {isDropdown && (
           <Modal visible={isDropdown}>
             <DropdownItemContainer>
-              <DropdownItem onClick={() => setIsDropdown(!isDropdown)}>
-                Chrome - BRave
-              </DropdownItem>
-              <DropdownItem onClick={() => setIsDropdown(!isDropdown)}>
-                Chrome - BRave
-              </DropdownItem>
-              <DropdownItem onClick={() => setIsDropdown(!isDropdown)}>
-                Chrome - BRave
-              </DropdownItem>
+              {videoSources.map(video => {
+                return (
+                  <DropdownItem
+                    key={video.name}
+                    onClick={(event: any) => {
+                      // console.log(event.target.innerText)
+                      setDefaultWindowMessage(event.target.innerText)
+                      setIsDropdown(!isDropdown)
+                    }}
+                  >
+                    {video.name}
+                  </DropdownItem>
+                )
+              })}
             </DropdownItemContainer>
           </Modal>
         )}

@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const Main = styled.main`
   width: 100%;
+  padding: 1rem 0;
   height: 60vh;
   grid-area: main;
   display: flex;
@@ -54,14 +55,14 @@ export const Main = styled.main`
 `
 
 export const Section = styled.section`
-  width: 90%;
+  width: 400px;
   height: 50%;
   padding: 1rem 0;
   border-radius: 0.5rem;
   background: ${props => props.theme.backgrounds.darkest};
 `
 export const Dropdown = styled.nav`
-  width: 40%;
+  width: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;
