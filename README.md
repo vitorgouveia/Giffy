@@ -4,9 +4,9 @@ description: Welcome to Giffy documentation
 
 # Giffy
 
-![Making the best gifs for you](.gitbook/assets/group-2.jpg)
+![](.gitbook/assets/group-2.png)
 
-![](.gitbook/assets/group.jpg)
+![](.gitbook/assets/group.png)
 
 ##  Giffy
 
