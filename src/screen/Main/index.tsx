@@ -6,6 +6,7 @@ import { desktopCapturer, remote } from 'electron'
 
 import Button from '../../components/Button'
 import Modal from '../../components/Modal'
+import { useToast } from '../../context/toast'
 import {
   Main,
   Section,
@@ -19,6 +20,7 @@ export const RecordArea: FC = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [isDropdown, setIsDropdown] = useState(false)
   const [videoStream, setVideoStream] = useState<any>('')
+  const { addToast } = useToast()
   const [defaultWindowMessage, setDefaultWindowMessage] = useState(
     'select a window'
   )
@@ -48,8 +50,26 @@ export const RecordArea: FC = () => {
     const stream = await navigator.mediaDevices.getUserMedia(constraints)
     setVideoStream(stream)
     videoElement.current!.srcObject = stream
-    videoElement.current?.play()
-    return stream
+    const playPromise = videoElement.current?.play()
+
+    if (playPromise !== undefined) {
+      playPromise
+        .then(_ => {
+          // Automatic playback started!
+          // Show playing UI.
+          return stream
+        })
+        .catch(error => {
+          // Auto-play was prevented
+          // Show paused UI.
+          console.log(error)
+          addToast({
+            title: 'Something went wrong',
+            description: 'We failed to reproduce the input video.',
+            type: 'error'
+          })
+        })
+    }
   }
 
   const screenWidth = remote.screen.getPrimaryDisplay().workAreaSize.width
@@ -62,7 +82,14 @@ export const RecordArea: FC = () => {
   return (
     <Main>
       <Button
-        onClick={() => setIsLoading(!isLoading)}
+        onClick={() => {
+          addToast({
+            title: 'Gif Recording',
+            description: 'Started recording your gif.',
+            type: 'success'
+          })
+          setIsLoading(!isLoading)
+        }}
         hasIcon={true}
         loading={isLoading}
         icon={<BsCameraVideoFill />}

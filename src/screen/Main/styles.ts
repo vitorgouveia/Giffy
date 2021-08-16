@@ -64,6 +64,10 @@ export const Section = styled.section`
     width: 100%;
     height: auto;
   }
+
+  &:hover {
+    cursor: zoom-in;
+  }
 `
 export const Dropdown = styled.nav`
   width: 60%;
