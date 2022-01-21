@@ -1,0 +1,30 @@
+{
+  "name": "@giffy/styles",
+  "version": "0.0.1",
+  "description": "The CSS implementation of Giffy's Design System",
+  "author": "Vitor Gouveia <vitorneves.gouveia10@gmail.com>",
+  "repository": "https://github.com/VitorGouveia/Giffy",
+  "license": "MIT",
+  "private": true,
+  "packageManager": "yarn@3.1.1",
+  "scripts": {
+    "rmFolder": "rimraf dist",
+    "compile": "postcss ./dist/build.css -o compiled.css",
+    "dev": "npm run rmFolder && sass ./src/index.scss ./dist/build.css --watch --quiet --no-source-map"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.2",
+    "cssnano": "^5.0.15",
+    "oldie": "^1.3.0",
+    "postcss": "^8.4.5",
+    "postcss-at-else": "^2.0.1",
+    "postcss-cli": "^9.1.0",
+    "postcss-color-hsla-fallback": "^1.0.0",
+    "postcss-preset-env": "^7.2.3",
+    "postcss-reporter": "^7.0.5",
+    "postcss-scss": "^4.0.3",
+    "rimraf": "^3.0.2",
+    "sanitize.css": "^13.0.0",
+    "sass": "^1.49.0"
+  }
+}
