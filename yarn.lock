@@ -1775,6 +1775,7 @@ __metadata:
     "@storybook/addon-docs": ^6.4.14
     "@storybook/addon-essentials": ^6.4.14
     "@storybook/addon-links": ^6.4.14
+    "@storybook/addon-viewport": ^6.4.14
     "@storybook/addons": ^6.4.14
     "@storybook/react": ^6.4.14
     "@storybook/theming": ^6.4.14
@@ -2539,7 +2540,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-viewport@npm:6.4.14":
+"@storybook/addon-viewport@npm:6.4.14, @storybook/addon-viewport@npm:^6.4.14":
   version: 6.4.14
   resolution: "@storybook/addon-viewport@npm:6.4.14"
   dependencies:
