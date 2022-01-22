@@ -10,7 +10,8 @@
   "scripts": {
     "rmFolder": "rimraf dist",
     "compile": "postcss ./dist/build.css -o compiled.css",
-    "dev": "npm run rmFolder && sass ./src/index.scss ./dist/build.css --watch --quiet --no-source-map"
+    "dev": "npm run rmFolder && sass ./src/index.scss ./dist/build.css --watch --quiet --no-source-map",
+    "release": "release-it"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.2",
@@ -26,5 +27,8 @@
     "rimraf": "^3.0.2",
     "sanitize.css": "^13.0.0",
     "sass": "^1.49.0"
+  },
+  "dependencies": {
+    "release-it": "^14.12.3"
   }
 }
