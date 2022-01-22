@@ -1,0 +1,80 @@
+@import "../lib/font.scss";
+@import "../lib/transition.scss";
+
+.input-container {
+  width: 180px;
+  position: relative;
+
+  &[data-disabled="true"] {
+    .input-search-icon {
+      cursor: not-allowed;
+    }
+  }
+
+  &:not([data-disabled="true"]) {
+    &:hover .input-search-icon {
+      color: var(--accent);
+    }
+
+    .input-search-icon:hover + input {
+      color: var(--accent);
+      border-color: var(--accent);
+  
+      &::placeholder {
+        color: var(--accent);
+      }
+    }
+  }
+}
+
+.input {
+  width: 100%;
+
+  @include Transition();
+
+  @include Font(11px, 500, 13px);
+
+  color: var(--white);
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+
+  border: 1px solid var(--stroke);
+  background: var(--black);
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &::placeholder {
+    @include Font(11px, 500, 13px);
+    @include Transition();
+    color: var(--stroke);
+  }
+
+  &:not(:disabled):hover, &:not(:disabled):active, &:not(:disabled):focus {
+    border-color: var(--accent);
+    
+    &::placeholder {
+      color: var(--accent);
+    }
+  }
+}
+
+.input-search-icon {
+  position: absolute;
+
+  @include Transition();
+
+  top: 50%;
+  right: 14px;
+  cursor: pointer;
+
+  transform: translateY(-50%);
+
+  color: var(--stroke);
+
+  &.focused {
+    color: var(--accent);
+  }
+}

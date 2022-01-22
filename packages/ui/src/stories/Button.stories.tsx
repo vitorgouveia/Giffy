@@ -15,6 +15,17 @@ const Template: ComponentStory<typeof Button> = (args: ButtonProps) => (
 
 export const Primary = Template.bind({})
 Primary.args = {
-  primary: true,
-  label: 'Button',
+  label: 'Giffy',
+}
+
+export const Outlined = Template.bind({})
+Outlined.args = {
+  label: 'Giffy',
+  variant: 'outlined',
+}
+
+export const Ghost = Template.bind({})
+Ghost.args = {
+  label: 'Giffy',
+  variant: 'ghost',
 }

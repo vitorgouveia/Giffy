@@ -1,5 +1,14 @@
 @use '_reset';
+@use "./lib/font.scss";
+@use "./lib/colors.scss";
 
-@use '../../../node_modules/sanitize.css/sanitize.css';
-@use '../../../node_modules/sanitize.css/forms.css';
-@use '../../../node_modules/sanitize.css/typography.css';
+@use "./components/button.scss";
+@use "./components/input.scss";
+
+@import url("https://cdn.skypack.dev/-/sanitize.css@v13.0.0-9hf8PtILaGjq3949IzOc/dist=es2019,mode=raw/sanitize.css");
+@import url("https://unpkg.com/sanitize.css/forms.css");
+@import url("https://unpkg.com/sanitize.css/assets.css");
+@import url("https://unpkg.com/sanitize.css/typography.css");
+@import url("https://unpkg.com/sanitize.css/reduce-motion.css");
+@import url("https://unpkg.com/sanitize.css/system-ui.css");
+@import url("https://unpkg.com/sanitize.css/ui-monospace.css");

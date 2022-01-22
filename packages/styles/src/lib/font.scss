@@ -1,0 +1,7 @@
+@mixin Font($fontSize, $fontWeight, $lineHeight) {
+  font-family: "Rubik", sans-serif;
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  line-height: $lineHeight;
+  letter-spacing: -0.005em;
+}

@@ -5,13 +5,6 @@
     "@babel/preset-typescript",
     "minify"
   ],
-  "plugins": [
-    ["babel-plugin-styled-components", {
-      "ssr": false,
-      "minify": true,
-      "pure": true,
-      "transpileTemplateLiterals": true
-    }]
-  ],
+  "plugins": [],
   "ignore": ["**/stories/**/*.stories.tsx"]
 }

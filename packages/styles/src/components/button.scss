@@ -1,0 +1,54 @@
+@import "../lib/font.scss";
+@import "../lib/transition.scss";
+
+.button {
+  @include Font(16px, 600, 15px);
+  @include Transition();
+
+  color: var(--white);
+  padding: 8px 19px;
+  border-radius: 6px;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &[data-variant="primary"] {
+    background: var(--accent);
+
+    &:hover, &:active, &:focus {
+      background: var(--accent-light);
+    }
+
+    &:disabled {
+      color: rgba(255, 255, 255, 0.5);
+      background: var(--accent-dark);
+    }
+  }
+
+  &[data-variant="outlined"] {
+    background: transparent;
+    border: 1px solid var(--white);
+
+     &:hover, &:active, &:focus {
+      color: var(--black);
+      background: var(--white);
+    }
+
+    &:disabled {
+      border: 1px dashed var(--stroke);
+      background: transparent;
+      color: var(--stroke);
+    }
+  }
+
+  &[data-variant="ghost"] {
+    color: var(--black);
+    background: rgba(0, 0, 0, 0.3);
+
+    &:hover, &:active, &:focus {
+      background: rgba(0, 0, 0, 0.49);
+    }
+  }
+}

@@ -1,17 +1,19 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { ButtonHTMLAttributes } from 'react'
 
-export type ButtonProps = {
-  primary: boolean
-  label: string
+export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  label?: string
+  variant?: 'primary' | 'outlined' | 'ghost'
 }
-const Container = styled.button`
-  padding: 12px 20px;
-  border-radius: 6px;
-  color: white;
-  background: purple;
-`
 
-export const Button: React.FC<ButtonProps> = ({ label, primary }) => {
-  return <Container data-primary={primary}>{label}</Container>
+export const Button: React.FC<ButtonProps> = ({
+  label,
+  variant = 'primary',
+  children,
+  ...rest
+}) => {
+  return (
+    <button className="button" data-variant={variant} {...rest}>
+      {label || children}
+    </button>
+  )
 }
