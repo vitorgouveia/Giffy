@@ -11,7 +11,7 @@
   "scripts": {
     "dev": "rimraf dist && tsc -w",
     "tsc": "rimraf dist && tsc",
-    "build": "rimraf build && babel src --extensions \".js,.ts,.tsx\" --out-dir build --copy-files --no-copy-ignored",
+    "build": "rimraf build && babel src --extensions \".js,.ts,.tsx\" --out-dir build --copy-files --no-copy-ignored && tsc",
     "bundle": "webpack",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
