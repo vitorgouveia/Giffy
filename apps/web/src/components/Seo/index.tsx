@@ -11,7 +11,7 @@ const Link: React.FC<MetaProps> = ({ rel, theme, href, ...rest }) => {
     <link
       media={`(prefers-color-scheme: ${theme})`}
       rel={rel}
-      href={`/${theme}/${href}`}
+      href={`/Giffy/${theme}/${href}`}
       {...rest}
     />
   )
