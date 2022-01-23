@@ -6,6 +6,8 @@
   position: relative;
 
   &[data-disabled="true"] {
+    opacity: 0.5;
+
     .input-search-icon {
       cursor: not-allowed;
     }
@@ -23,6 +25,26 @@
       &::placeholder {
         color: var(--accent);
       }
+    }
+  }
+
+  &[data-iconPosition="left"] {
+    .input {
+      padding-left: 36px;
+    }
+
+    .input-search-icon {
+      left: 14px;
+    }
+  }
+
+  &[data-iconPosition="right"] {
+    .input {
+      padding-left: 14px;
+    }
+
+    .input-search-icon {
+      right: 14px;
     }
   }
 }
@@ -67,7 +89,6 @@
   @include Transition();
 
   top: 50%;
-  right: 14px;
   cursor: pointer;
 
   transform: translateY(-50%);

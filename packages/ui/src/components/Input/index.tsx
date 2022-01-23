@@ -1,7 +1,7 @@
 import React, { InputHTMLAttributes } from 'react'
 import { FiSearch } from 'react-icons/fi'
 import { IconType } from 'react-icons'
-import { useEffect, useRef } from '@storybook/addons'
+// import { useEffect, useRef } from '@storybook/addons'
 
 export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   placeholder: string
@@ -12,7 +12,7 @@ export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
 
 export const Input: React.FC<InputProps> = ({
   icon: Icon = FiSearch,
-  iconPosition,
+  iconPosition = 'right',
   id,
   disabled,
   ...rest

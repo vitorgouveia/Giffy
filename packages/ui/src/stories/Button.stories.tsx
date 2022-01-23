@@ -29,3 +29,10 @@ Ghost.args = {
   label: 'Giffy',
   variant: 'ghost',
 }
+
+export const Disabled = Template.bind({})
+Disabled.args = {
+  label: 'Giffy',
+  variant: 'primary',
+  disabled: true,
+}
