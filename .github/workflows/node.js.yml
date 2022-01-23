@@ -1,0 +1,61 @@
+name: Deploy Nextjs to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "apps/web/**"
+      - "packages/styles/**"
+      - "packages/ui/**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - name: Get files
+        uses: actions/checkout@v2
+        
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+        
+      - name: Install packages
+        working-directory: ./apps/web
+        run: yarn
+        
+      - name: Build @giffy/styles
+        working-directory: ./packages/styles
+        run: yarn build
+        
+      - name: Compile @giffy/styles
+        working-directory: ./packages/styles
+        run: yarn start
+        
+      - name: Build @giffy/ui
+        working-directory: ./packages/ui
+        run: yarn build
+        
+      - name: Build @giffy/web
+        working-directory: ./apps/web
+        run: yarn build
+        
+      - name: Export static files
+        working-directory: ./apps/web
+        run: yarn export
+        
+      - name: Add .nojekyll file
+        working-directory: ./apps/web
+        run: touch ./out/.nojekyll
+        
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4.1.1
+        with:
+          branch: gh-pages
+          folder: ./apps/web/out
