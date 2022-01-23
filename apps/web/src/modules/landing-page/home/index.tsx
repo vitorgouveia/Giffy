@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <React.Fragment>
       <Head>
-        <title>Home | Giffy</title>
+        <title>Giffy: Open Source GIF Recording App | Giffy</title>
       </Head>
 
       <DefaultLayout>d</DefaultLayout>
