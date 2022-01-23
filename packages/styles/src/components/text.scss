@@ -1,0 +1,6 @@
+@import "../lib/font.scss";
+
+p {
+  @include Font(20px, 400, 24px);
+  color: var(--white);
+}

@@ -1,0 +1,16 @@
+@import "../lib/font.scss";
+
+.heading-h1, h1 {
+  @include Font(56px, 700, 66px);
+  color: var(--white);
+}
+
+.heading-h2, h2 {
+  @include Font(30px, 600,  35px);
+  color: var(--white);
+}
+
+.heading-h3, h3 {
+  @include Font(24px, 700, 28px);
+  color: var(--white);
+}
