@@ -1,0 +1,29 @@
+@import "../lib/font.scss";
+@import "../lib/transition.scss";
+
+.link {
+  @include Font(16px, 400, 18px);
+  @include Transition();
+  
+  cursor: pointer;
+  color: var(--accent);
+
+  padding-bottom: 0px;
+
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-image: linear-gradient(var(--accent-light), var(--accent-light));
+
+  &:hover, &:focus, &:active {
+    color: var(--accent-light);
+
+    background-size: 100% 1px;
+  }
+
+  &:visited, &[data-visited=true] {
+    color: var(--accent-dark);
+    background-image: linear-gradient(var(--accent-dark), var(--accent-dark));
+    background-size: 100% 1px;
+  }
+}
