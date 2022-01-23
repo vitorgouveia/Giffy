@@ -1849,6 +1849,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@giffy/web@workspace:apps/web"
   dependencies:
+    "@giffy/styles": "*"
     "@giffy/ui": "*"
     "@types/node": 17.0.10
     "@types/react": 17.0.38
