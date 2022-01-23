@@ -11,6 +11,8 @@
     "rmFolder": "rimraf dist",
     "compile": "postcss -w ./dist/build.css -o main.css",
     "dev": "npm run rmFolder && sass ./src/index.scss ./dist/build.css --watch --quiet --no-source-map",
+    "build": "npm run rmFolder && sass ./src/index.scss ./dist/build.css --quiet --no-source-map",
+    "start": "npm run build && postcss ./dist/build.css -o main.css",
     "release": "release-it"
   },
   "devDependencies": {
