@@ -1,0 +1,34 @@
+@import "../lib/font.scss";
+@import "../lib/transition.scss";
+
+.tab-link {
+  @include Font(13px, 600, 15px);
+  @include Transition();
+
+  cursor: pointer;
+  color: var(--white);
+
+  background: transparent;
+
+  background-size: 100% 0px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-image: linear-gradient(var(--accent-dark), var(--accent-light));
+
+  &[data-hover="underline"] {
+    padding-bottom: 6px;
+
+    &:hover, &:focus, &:active, &[data-active=true] {
+      background-size: 100% 0.2em;
+    }
+  }
+
+  &[data-hover="block"] {
+    padding: 3px 10px;
+    border-radius: 6px;
+
+    &:hover, &:focus, &:active, &[data-active=true] {
+      background: hsla(0, 0%, 100%, 0.1);
+    }
+  }
+}
