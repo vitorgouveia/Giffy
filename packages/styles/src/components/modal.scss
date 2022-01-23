@@ -1,0 +1,12 @@
+.modal-container {
+  width: max-content;
+  padding: 30px;
+
+  border-radius: 6px;
+  background: var(--black);
+  border: 2px solid var(--stroke);
+
+  &:hover {
+    border-color: var(--accent);
+  }
+}
