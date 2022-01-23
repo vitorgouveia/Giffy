@@ -6,7 +6,7 @@
   "repository": "https://github.com/VitorGouveia/Giffy",
   "license": "MIT",
   "private": true,
-  "main": "./dist/index.js",
+  "main": "./build/index.js",
   "packageManager": "yarn@3.1.1",
   "scripts": {
     "dev": "rimraf dist && tsc -w",
