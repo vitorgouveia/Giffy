@@ -1,4 +1,5 @@
 import React, { LinkHTMLAttributes } from 'react'
+import { __isProd__ } from 'lib/constants'
 
 type MetaProps = LinkHTMLAttributes<HTMLLinkElement> & {
   rel: 'icon' | 'shortcut icon' | 'manifest' | 'stylesheet' | 'apple-touch-icon'
@@ -11,7 +12,7 @@ const Link: React.FC<MetaProps> = ({ rel, theme, href, ...rest }) => {
     <link
       media={`(prefers-color-scheme: ${theme})`}
       rel={rel}
-      href={`/Giffy/${theme}/${href}`}
+      href={`/${__isProd__ ? 'Giffy/' : '/'}${theme}/${href}`}
       {...rest}
     />
   )
