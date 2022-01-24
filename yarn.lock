@@ -1851,15 +1851,15 @@ __metadata:
   dependencies:
     "@giffy/styles": "*"
     "@giffy/ui": "*"
-    "@prisma/client": ^3.8.1
     "@types/node": 17.0.10
     "@types/react": 17.0.38
     eslint: 8.7.0
     eslint-config-next: 12.0.8
+    gray-matter: ^4.0.3
     next: 12.0.8
+    next-mdx-remote: ^3.0.8
     preact: ^10.6.4
     preact-render-to-string: ^5.1.19
-    prisma: ^3.8.1
     react: 17.0.2
     react-dom: 17.0.2
     release-it: ^14.12.3
@@ -2353,34 +2353,6 @@ __metadata:
   version: 2.11.2
   resolution: "@popperjs/core@npm:2.11.2"
   checksum: 5695bf020eda54636e16a62dc9b5fdd92beaf7b2d19f62fcef049d57c5cff92773562d80cbf760b217c3ec928da310eb24994ab6a00fd39dffa0af9b5dfc01a6
-  languageName: node
-  linkType: hard
-
-"@prisma/client@npm:^3.8.1":
-  version: 3.8.1
-  resolution: "@prisma/client@npm:3.8.1"
-  dependencies:
-    "@prisma/engines-version": 3.8.0-43.34df67547cf5598f5a6cd3eb45f14ee70c3fb86f
-  peerDependencies:
-    prisma: "*"
-  peerDependenciesMeta:
-    prisma:
-      optional: true
-  checksum: 7139bbfad7cc1c1e235b02925e171e68370f50c1112e72ecacca0d13651ba808f1a63391dbbb11916b459a6fe9de699a4f7a8a12e390aa3ba394747890729496
-  languageName: node
-  linkType: hard
-
-"@prisma/engines-version@npm:3.8.0-43.34df67547cf5598f5a6cd3eb45f14ee70c3fb86f":
-  version: 3.8.0-43.34df67547cf5598f5a6cd3eb45f14ee70c3fb86f
-  resolution: "@prisma/engines-version@npm:3.8.0-43.34df67547cf5598f5a6cd3eb45f14ee70c3fb86f"
-  checksum: b41892214631a0f51a422ada47c7357cf757337bc17af4ad5f43ce2943f32c2eddc7f0517f57b95ff541f696ced8de373a46e22a91c6918262d2b28455aa733f
-  languageName: node
-  linkType: hard
-
-"@prisma/engines@npm:3.8.0-43.34df67547cf5598f5a6cd3eb45f14ee70c3fb86f":
-  version: 3.8.0-43.34df67547cf5598f5a6cd3eb45f14ee70c3fb86f
-  resolution: "@prisma/engines@npm:3.8.0-43.34df67547cf5598f5a6cd3eb45f14ee70c3fb86f"
-  checksum: 569496142dec78fb36ccfe55be72599cd45b84876089132491fbd3133040cbed7b9517e967bf370173ee8d66f06129f10912e1d7d8248f890817aa97fcb0cb14
   languageName: node
   linkType: hard
 
@@ -7865,6 +7837,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esbuild@npm:^0.12.9":
+  version: 0.12.29
+  resolution: "esbuild@npm:0.12.29"
+  bin:
+    esbuild: bin/esbuild
+  checksum: 06a6e84eff02899b45c7d4441199f7bbc824a9f5a2d0332bfe9873963751213c71bcb03b8db96babbc45ef31c140580ff64317ee7600983fc88b84c2d9788bbf
+  languageName: node
+  linkType: hard
+
 "escalade@npm:^3.1.1":
   version: 3.1.1
   resolution: "escalade@npm:3.1.1"
@@ -9394,6 +9375,18 @@ __metadata:
   version: 4.2.9
   resolution: "graceful-fs@npm:4.2.9"
   checksum: 68ea4e07ff2c041ada184f9278b830375f8e0b75154e3f080af6b70f66172fabb4108d19b3863a96b53fc068a310b9b6493d86d1291acc5f3861eb4b79d26ad6
+  languageName: node
+  linkType: hard
+
+"gray-matter@npm:^4.0.3":
+  version: 4.0.3
+  resolution: "gray-matter@npm:4.0.3"
+  dependencies:
+    js-yaml: ^3.13.1
+    kind-of: ^6.0.2
+    section-matter: ^1.0.0
+    strip-bom-string: ^1.0.0
+  checksum: 37717bd424344487d655392251ce8d8878a1275ee087003e61208fba3bfd59cbb73a85b2159abf742ae95e23db04964813fdc33ae18b074208428b2528205222
   languageName: node
   linkType: hard
 
@@ -12045,6 +12038,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"next-mdx-remote@npm:^3.0.8":
+  version: 3.0.8
+  resolution: "next-mdx-remote@npm:3.0.8"
+  dependencies:
+    "@mdx-js/mdx": ^1.6.22
+    "@mdx-js/react": ^1.6.22
+    esbuild: ^0.12.9
+    pkg-dir: ^5.0.0
+  peerDependencies:
+    react: ">=16.x <=17.x"
+    react-dom: ">=16.x <=17.x"
+  checksum: de372708085c7f48ec1c8fb48a9a79cd261235b2d328df0900c9983530d659619f30acc37f5c28eb9813797257ff604449c673b4fba9d17c93af149f436ced6b
+  languageName: node
+  linkType: hard
+
 "next@npm:12.0.8":
   version: 12.0.8
   resolution: "next@npm:12.0.8"
@@ -14196,18 +14204,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prisma@npm:^3.8.1":
-  version: 3.8.1
-  resolution: "prisma@npm:3.8.1"
-  dependencies:
-    "@prisma/engines": 3.8.0-43.34df67547cf5598f5a6cd3eb45f14ee70c3fb86f
-  bin:
-    prisma: build/index.js
-    prisma2: build/index.js
-  checksum: dfd6cefa70b953a49e5c447719d16ac6aea7ac7e7a30544c4a522c9563d2b476a09fecf420c77b6e44632cd1b7a8cb0dc59ac6247810ec78611ac3e883caec77
-  languageName: node
-  linkType: hard
-
 "prismjs@npm:^1.21.0":
   version: 1.26.0
   resolution: "prismjs@npm:1.26.0"
@@ -15596,6 +15592,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"section-matter@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "section-matter@npm:1.0.0"
+  dependencies:
+    extend-shallow: ^2.0.1
+    kind-of: ^6.0.0
+  checksum: 3cc4131705493b2955729b075dcf562359bba66183debb0332752dc9cad35616f6da7a23e42b6cab45cd2e4bb5cda113e9e84c8f05aee77adb6b0289a0229101
+  languageName: node
+  linkType: hard
+
 "semver-diff@npm:^3.1.1":
   version: 3.1.1
   resolution: "semver-diff@npm:3.1.1"
@@ -16304,6 +16310,13 @@ __metadata:
   dependencies:
     ansi-regex: ^5.0.1
   checksum: f3cd25890aef3ba6e1a74e20896c21a46f482e93df4a06567cebf2b57edabb15133f1f94e57434e0a958d61186087b1008e89c94875d019910a213181a14fc8c
+  languageName: node
+  linkType: hard
+
+"strip-bom-string@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "strip-bom-string@npm:1.0.0"
+  checksum: 5635a3656d8512a2c194d6c8d5dee7ef0dde6802f7be9413b91e201981ad4132506656d9cf14137f019fd50f0269390d91c7f6a2601b1bee039a4859cfce4934
   languageName: node
   linkType: hard
 

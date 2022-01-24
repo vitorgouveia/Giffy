@@ -15,19 +15,3 @@ export default function Home() {
     </React.Fragment>
   )
 }
-
-export const getStaticProps: GetStaticProps = async () => {
-  const { prisma } = await import('@lib/prisma')
-  await prisma.post.create({
-    data: {
-      slug: 'hello-world',
-      title: 'Hello world',
-      body: 'disdaosdjad',
-      views: 3048943256290,
-    },
-  })
-
-  return {
-    props: {},
-  }
-}
