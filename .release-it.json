@@ -3,6 +3,11 @@
     "commitMessage": "chore: release v${version}"
   },
   "github": {
-    "release": true
+    "release": true,
+    "assets": [
+      "./packages/styles/main.css",
+      "web.zip",
+      "ui.zip"
+    ]
   }
 }

@@ -9099,6 +9099,8 @@ __metadata:
   resolution: "giffy@workspace:."
   dependencies:
     dotenv-cli: ^4.1.1
+    node-zip: ^1.1.1
+    npm-run-all: ^4.1.5
     release-it: ^14.12.3
     typescript: ^4.5.5
   languageName: unknown
@@ -10991,6 +10993,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jszip@npm:2.5.0":
+  version: 2.5.0
+  resolution: "jszip@npm:2.5.0"
+  dependencies:
+    pako: ~0.2.5
+  checksum: 8b70c9207fd87d4b8f453132da39873559a1f5ad70deb106d4b1aa9f849f86c0ec6fcd87b1778705bdca6cf59cd0fc2aa7ce7e2fe48ef402c1db4a77bfa6b0f6
+  languageName: node
+  linkType: hard
+
 "junk@npm:^3.1.0":
   version: 3.1.0
   resolution: "junk@npm:3.1.0"
@@ -12194,6 +12205,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"node-zip@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "node-zip@npm:1.1.1"
+  dependencies:
+    jszip: 2.5.0
+  bin:
+    nodezip: bin/nodezip
+  checksum: 46cc8a19acc3836185d48055834cef5421e490786eb5b1d06449c4901144f161ae27d94baa3b677551b013b35143ae807b0de47e2ba459e9684a1682a73d043f
+  languageName: node
+  linkType: hard
+
 "nopt@npm:^5.0.0":
   version: 5.0.0
   resolution: "nopt@npm:5.0.0"
@@ -12763,6 +12785,13 @@ __metadata:
     registry-url: ^5.0.0
     semver: ^6.2.0
   checksum: cc9f890d3667d7610e6184decf543278b87f657d1ace0deb4a9c9155feca738ef88f660c82200763d3348010f4e42e9c7adc91e96ab0f86a770955995b5351e2
+  languageName: node
+  linkType: hard
+
+"pako@npm:~0.2.5":
+  version: 0.2.9
+  resolution: "pako@npm:0.2.9"
+  checksum: 055f9487cd57fbb78df84315873bbdd089ba286f3499daed47d2effdc6253e981f5db6898c23486de76d4a781559f890d643bd3a49f70f1b4a18019c98aa5125
   languageName: node
   linkType: hard
 
