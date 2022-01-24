@@ -8,8 +8,8 @@ const nextConfig = {
   swcMinify: true,
   optimizeFonts: true,
 
-  basePath: __isProd__ ? '/Giffy' : '/',
-  assetPrefix: __isProd__ ? '/Giffy/' : '/',
+  basePath: __isProd__ ? '/Giffy' : '',
+  assetPrefix: __isProd__ ? '/Giffy/' : '',
 
   webpack: (config, { dev, isServer }) => {
     // Replace React with Preact only in client production build

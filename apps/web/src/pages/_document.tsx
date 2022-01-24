@@ -22,7 +22,7 @@ export default class AppDocument extends Document {
           <meta name="description" content={description} />
 
           <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
-          <meta name="viewport" content="width=device-width,initial-scale=1" />
+          {/* <meta name="viewport" content="width=device-width,initial-scale=1" /> */}
 
           <meta itemProp="name" content={title} />
           <meta itemProp="description" content={description} />

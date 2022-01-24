@@ -14,14 +14,17 @@
     "export": "next export",
     "start": "next start",
     "lint": "next lint",
+    "migrate": "prisma generate && prisma db push",
     "release": "release-it"
   },
   "dependencies": {
     "@giffy/styles": "*",
     "@giffy/ui": "*",
+    "@prisma/client": "^3.8.1",
     "next": "12.0.8",
     "preact": "^10.6.4",
     "preact-render-to-string": "^5.1.19",
+    "prisma": "^3.8.1",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
