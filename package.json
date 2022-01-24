@@ -20,7 +20,7 @@
     "zip:web": "npx node-zip -c web.zip ./apps/web/out",
     "zip:ui": "npx node-zip -c ui.zip ./packages/ui/build",
     "prerelease": "npm-run-all 'styles:*' && npm-run-all 'ui:*' && npm-run-all 'web:*' && npm-run-all 'zip:*'",
-    "release": " prerelease && dotenv release-it --"
+    "release": "npm run prerelease && dotenv release-it --"
   },
   "devDependencies": {
     "dotenv-cli": "^4.1.1",
