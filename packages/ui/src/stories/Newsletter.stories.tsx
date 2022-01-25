@@ -13,5 +13,5 @@ const Template: ComponentStory<typeof Newsletter> = (args: NewsletterProps) => (
   <Newsletter {...args} />
 )
 
-export const Primary = Template.bind({})
-Primary.args = {}
+export const Default = Template.bind({})
+Default.args = {}
