@@ -1,0 +1,22 @@
+@import "../../lib/hooks/useMediaQuery.scss";
+
+.blog-footer {
+  width: 100%;
+  background: var(--background);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px 40px;
+
+  strong {
+    display: none;
+  }
+
+  @include useMediaQuery(tablet) {
+    strong {
+      display: block;
+    }
+  }
+}
