@@ -1,11 +1,11 @@
 import React, { FormEvent } from 'react'
 import { FiMail } from 'react-icons/fi'
 
-import Mailbox from '../../assets/mailbox.svg'
-import { Heading } from '../Heading'
-import { Text } from '../Text'
-import { Input } from '../Input'
-import { Button } from '../Button'
+import Mailbox from '../../../assets/mailbox.svg'
+import { Heading } from '../../Heading'
+import { Text } from '../../Text'
+import { Input } from '../../Input'
+import { Button } from '../../Button'
 
 type FormSchema = {
   email: string

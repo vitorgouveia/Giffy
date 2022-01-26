@@ -1,0 +1,86 @@
+@import "../../lib/font.scss";
+@import "../../lib/hooks/useMediaQuery.scss";
+
+.blog-header {
+  width: 100%;
+
+  position: relative;
+
+  padding: 20px 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: var(--background);
+
+  &-tabs {
+    display: none;
+  }
+
+  &-logo {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    strong {
+      display: none;
+    }
+  }
+
+  &-tab {
+    @include Font(15px, 700, 17px)
+  }
+
+  &-toggle {
+    display: none;
+  }
+
+  @include useMediaQuery(tablet) {
+    &-logo {
+      strong {
+        display: block;
+      }
+    }
+
+    &-tabs {
+      display: flex ;
+      align-items: center;
+    }
+
+    &-toggle {
+      display: block;
+
+      button {
+        svg {
+          transition: all 200ms ease-in;
+          color: var(--white);
+
+          circle {
+            transition: all 120ms  ease-in-out;
+          }
+        }
+
+        &:hover, &:focus, &:active {
+          svg {
+            color: var(--accent);
+          }
+        }
+
+        &[data-active="true"] {
+          svg circle {
+            cx: 16;
+          }
+        }
+
+        &[data-active="false"] {
+          svg circle {
+            cx: 8;
+          }
+        }
+      }
+    }
+  }
+}

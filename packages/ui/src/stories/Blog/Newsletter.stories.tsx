@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Newsletter, NewsletterProps } from '../components/Newsletter'
+import { Newsletter, NewsletterProps } from '../../components/Blog/Newsletter'
 
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
