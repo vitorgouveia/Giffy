@@ -14,7 +14,7 @@
   }
 
   &-heading {
-    color: var(--white);
+    color: var(--accent);
     @include Font(24px, 700, 28px);
   }
 }
