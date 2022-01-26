@@ -1832,6 +1832,7 @@ __metadata:
     "@types/react-dom": ^17.0.11
     babel-loader: ^8.2.3
     babel-preset-minify: ^0.5.1
+    date-fns: ^2.28.0
     npm-run-all: ^4.1.5
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -7132,6 +7133,13 @@ __metadata:
   version: 1.0.8
   resolution: "damerau-levenshtein@npm:1.0.8"
   checksum: d240b7757544460ae0586a341a53110ab0a61126570ef2d8c731e3eab3f0cb6e488e2609e6a69b46727635de49be20b071688698744417ff1b6c1d7ccd03e0de
+  languageName: node
+  linkType: hard
+
+"date-fns@npm:^2.28.0":
+  version: 2.28.0
+  resolution: "date-fns@npm:2.28.0"
+  checksum: a0516b2e4f99b8bffc6cc5193349f185f195398385bdcaf07f17c2c4a24473c99d933eb0018be4142a86a6d46cb0b06be6440ad874f15e795acbedd6fd727a1f
   languageName: node
   linkType: hard
 

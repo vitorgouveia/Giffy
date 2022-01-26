@@ -1,0 +1,176 @@
+@import "../../lib/font.scss";
+@import "../../lib/hooks/useMediaQuery.scss";
+
+.blog-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: var(--black);
+
+  gap: 128px;
+
+  &-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 60%;
+
+    gap: 32px;
+    
+    &-heading {
+      &-sub {
+        color: var(--accent);
+      }
+
+      &-main {
+        text-align: center;
+      }
+    }
+
+    &-buttons {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      gap: 16px;
+
+      > * button {
+        height: 40px;
+        width: 100%;
+      }
+    }
+  }
+
+  &-content {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-post {
+      width: 100%;
+      height: auto;
+
+      gap: 16px;
+
+      display: flex;
+      flex-direction: column-reverse;
+
+      &-image {
+        width: 100%;
+        height: 437px;
+
+        background: var(--stroke);
+      }
+
+      &-information {
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 16px;
+        
+        padding: 0 30px;
+
+        &-main {
+          width: 100%;
+          height: 80%;
+
+          display: flex;
+          flex-direction: column;
+
+          align-items: flex-start;
+
+          gap: 22px;
+
+          &-tags {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+          }
+
+          &-description {
+            &-normal {
+              display: none;
+            }
+
+            &-small {
+              display: block;
+            }
+          }
+        }
+
+        &-footer {
+          display: flex;
+          align-items: flex-end;
+          justify-content: flex-start;
+          height: 20%;
+          p {
+            @include Font(20px, 400, 24px);
+            color: var(--white);
+          }
+        }
+      }
+    }
+  }
+
+  @include useMediaQuery(tablet) {
+    &-header {
+      &-buttons {
+        width: max-content;
+        flex-direction: row;
+        align-items: center;
+
+        > * button {
+          width: max-content;
+        }
+      }
+    }
+
+    &-content {
+      &-post {
+        &-information {
+          &-main {
+            &-description {
+              &-normal {
+                display: block;
+              }
+
+              &-small {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include useMediaQuery(laptop) {
+    &-content {
+      &-post {
+        height: 430px;
+
+        gap: 0;
+
+        flex-direction: row;
+
+        &-information {
+          width: 30%;
+
+          gap: 0;
+        }
+
+        &-image {
+          width: 70%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}

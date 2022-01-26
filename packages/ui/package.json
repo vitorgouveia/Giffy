@@ -50,6 +50,7 @@
   },
   "dependencies": {
     "@giffy/styles": "*",
+    "date-fns": "^2.28.0",
     "release-it": "^14.12.3",
     "rimraf": "^3.0.2"
   }
