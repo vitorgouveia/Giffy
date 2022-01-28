@@ -43,6 +43,10 @@ jobs:
         working-directory: ./packages/ui
         run: yarn build
 
+      - name: Build Storybook
+        working-directory: ./packages/ui
+        run: yarn build-storybook-nextjs
+
       - name: Build @giffy/web
         working-directory: ./apps/web
         run: yarn build
