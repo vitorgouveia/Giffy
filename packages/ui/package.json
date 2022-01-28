@@ -15,6 +15,7 @@
     "bundle": "webpack",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
+    "build-storybook-nextjs": "build-storybook -o ../../apps/web/public/storybook --docs",
     "release": "release-it"
   },
   "devDependencies": {
@@ -50,6 +51,7 @@
   },
   "dependencies": {
     "@giffy/styles": "*",
+    "date-fns": "^2.28.0",
     "release-it": "^14.12.3",
     "rimraf": "^3.0.2"
   }

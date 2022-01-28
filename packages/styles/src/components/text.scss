@@ -1,6 +1,7 @@
 @import "../lib/font.scss";
 
-p {
+.text {
   @include Font(20px, 400, 24px);
   color: var(--white);
+  filter: brightness(0.8);
 }

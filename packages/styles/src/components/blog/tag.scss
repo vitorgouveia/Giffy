@@ -1,0 +1,24 @@
+@import "../../lib/font.scss";
+
+.tag {
+  width: max-content;
+  padding: 4px;
+  border-radius: 2px;
+  background: #FF6666;
+
+  cursor:  pointer;
+  transition: filter 200ms;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover, &:focus, &:active {
+    filter: brightness(0.8);
+  }
+
+  strong {
+    color: var(--white);
+    @include Font(9px, 700, 11px);
+  }
+}

@@ -39,7 +39,7 @@ export const Input: React.FC<InputProps> = ({
           })
         }}
       >
-        <Icon width={18} height={18} />
+        <Icon />
       </div>
       <input
         onFocus={() => {

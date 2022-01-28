@@ -11,13 +11,15 @@ export const Tab: React.FC<TabProps> = ({
   children,
   underline,
   active,
+  className,
   ...rest
 }) => {
   return (
     <a
+      tabIndex={0}
       data-hover={underline ? 'underline' : 'block'}
       data-active={active}
-      className="tab-link"
+      className={`tab-link ${className}`}
       {...rest}
     >
       {label || children}

@@ -1,0 +1,14 @@
+$breakpoints: (
+  tablet: 42em,  // 672 px
+  laptop: 60em,  // 960 px
+  desktop: 81em, // 1296px
+);
+
+@mixin useMediaQuery($breakpoint) {
+  // Breakpoint is one of the values inside Breakpoints variable. Ex.: small: 556px <-- Breakpoint
+  $size: map-get($breakpoints, $breakpoint);
+
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}
