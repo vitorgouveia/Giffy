@@ -15,6 +15,7 @@
     "bundle": "webpack",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
+    "build-storybook-nextjs": "build-storybook -o ../../apps/web/public/storybook --docs",
     "release": "release-it"
   },
   "devDependencies": {
