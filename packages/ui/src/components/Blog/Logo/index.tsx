@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { AnchorHTMLAttributes } from 'react'
 
 import { Logo } from '../../Logo'
 
-export const BlogLogo: React.FC = () => {
+export type BlogLogoProps = AnchorHTMLAttributes<HTMLAnchorElement> & {}
+
+export const BlogLogo: React.FC<BlogLogoProps> = ({ href, ...rest }) => {
   return (
-    <div className="blog-logo">
+    <a href={href} tabIndex={0} className="blog-logo" {...rest}>
       <Logo />
 
       <strong className="blog-logo-heading">Blog</strong>
-    </div>
+    </a>
   )
 }

@@ -33,10 +33,12 @@ const Template: ComponentStory<typeof Header> = (args: HeaderProps) => (
 
 export const Default = Template.bind({})
 Default.args = {
+  id: 'Default',
   toggle: true,
 }
 
 export const False = Template.bind({})
 False.args = {
+  id: 'False',
   toggle: false,
 }

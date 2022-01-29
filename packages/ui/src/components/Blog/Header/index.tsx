@@ -10,6 +10,7 @@ type Tab = {
 }
 
 export type HeaderProps = {
+  id: string
   homepage: string
   tabs: Tab[]
   toggle: boolean
@@ -18,14 +19,13 @@ export type HeaderProps = {
 
 export const Header: React.FC<HeaderProps> = ({
   homepage,
+  id,
   tabs,
   toggle,
   handleToggle,
 }) => {
   const handleButtonToggle = () => {
-    const button = document.querySelector<HTMLButtonElement>(
-      '.blog-header-toggle button'
-    )
+    const button = document.querySelector<HTMLButtonElement>(`#${id} button`)
 
     const current = button?.getAttribute('data-active')
     const result = handleToggle(current === 'true' ? true : false)
@@ -34,7 +34,7 @@ export const Header: React.FC<HeaderProps> = ({
   }
 
   return (
-    <header className="blog-header">
+    <header id={id} className="blog-header">
       <ul className="blog-header-tabs">
         {tabs.map(tab => (
           <li>
@@ -43,9 +43,9 @@ export const Header: React.FC<HeaderProps> = ({
         ))}
       </ul>
 
-      <a tabIndex={0} href={homepage} className="blog-header-logo">
-        <BlogLogo />
-      </a>
+      <div tabIndex={0} className="blog-header-logo">
+        <BlogLogo href={homepage} />
+      </div>
 
       <div className="blog-header-toggle">
         <button onClick={handleButtonToggle} data-active={`${toggle}`}>

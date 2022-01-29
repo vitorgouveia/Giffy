@@ -8,7 +8,7 @@
 
   cursor: pointer;
 
-  &:hover {
+  &:hover, &:focus, &:active {
     transition: all 200ms;
     filter: brightness(0.8);
   }
