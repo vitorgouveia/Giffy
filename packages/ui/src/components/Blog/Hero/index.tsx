@@ -77,14 +77,14 @@ export const Hero: React.FC<HeroProps> = ({
               </ul>
 
               <Heading variant="h2" as="h2" label={post.title} />
-              <Text
-                className="blog-hero-content-post-information-main-description-normal"
-                label={formattedDescription}
-              />
-              <Text
-                className="blog-hero-content-post-information-main-description-small"
-                label={smallFormattedDescription}
-              />
+
+              <div className="blog-hero-content-post-information-main-description-normal">
+                <Text label={formattedDescription} />
+              </div>
+
+              <div className="blog-hero-content-post-information-main-description-small">
+                <Text label={smallFormattedDescription} />
+              </div>
             </div>
 
             <div className="blog-hero-content-post-information-footer">
