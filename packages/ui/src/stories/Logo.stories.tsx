@@ -1,5 +1,4 @@
 import React from 'react'
-import { FiMail, FiLock } from 'react-icons/fi'
 
 import { Logo } from '../components/Logo'
 import { LargeLogo } from '../components/LargeLogo'
