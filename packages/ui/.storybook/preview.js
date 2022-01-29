@@ -1,7 +1,6 @@
 import { themes } from '@storybook/theming'
 
-const __prod__ = process.env.NODE_ENV === 'production'
-require(__prod__ ? '@giffy/styles' : '@giffy/styles/dist/build.css')
+import '@giffy/styles'
 
 export const parameters = {
   docs: {
