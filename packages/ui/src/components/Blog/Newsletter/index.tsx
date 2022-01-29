@@ -7,6 +7,8 @@ import { Text } from '../../Text'
 import { Input } from '../../Input'
 import { Button } from '../../Button'
 
+import { Form } from '../../../lib/Form'
+
 type FormSchema = {
   email: string
 }
@@ -24,18 +26,15 @@ export const Newsletter: React.FC<NewsletterProps> = ({
 }) => {
   const emailFieldId = 'newsletter-email'
 
-  const handleFormSubmit = (event: FormEvent) => {
-    event.preventDefault()
-
-    const emailField = document.querySelector<HTMLInputElement>(
-      `#${emailFieldId}`
-    )
-
-    if (!emailField) {
-      return onSubmit({ email: '' })
+  async function handleFormSubmit(data: FormSchema) {
+    const { email } = data
+    console.log(data)
+    if (!email) {
+      // return error
+      return await onSubmit({ email: '' })
     }
 
-    return onSubmit({ email: emailField?.value })
+    return await onSubmit({ email })
   }
 
   return (
@@ -47,11 +46,12 @@ export const Newsletter: React.FC<NewsletterProps> = ({
 
         <Text>{description}</Text>
 
-        <form onSubmit={handleFormSubmit}>
+        <Form<FormSchema> onSubmit={handleFormSubmit}>
           <Input
             required
             id={emailFieldId}
             placeholder="E-mail"
+            name="email"
             iconPosition="left"
             icon={FiMail}
           />
@@ -59,7 +59,7 @@ export const Newsletter: React.FC<NewsletterProps> = ({
           <Button type="submit" variant="primary">
             Subscribe
           </Button>
-        </form>
+        </Form>
       </header>
 
       <img
