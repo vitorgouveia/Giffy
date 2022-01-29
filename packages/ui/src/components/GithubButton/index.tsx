@@ -10,5 +10,5 @@ export const GithubButton: React.FC<GithubButtonProps> = ({
   label,
   children,
 }) => {
-  return <GithubButton>{label || children}</GithubButton>
+  return <GithubBtn href={''}>{label || children}</GithubBtn>
 }
