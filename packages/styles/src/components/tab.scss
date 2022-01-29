@@ -28,7 +28,8 @@
     border-radius: 6px;
 
     &:hover, &:focus, &:active, &[data-active=true] {
-      background: hsla(0, 0%, 100%, 0.1);
+      background: #ffffff21;
+      background: hsla(0, 0%, 100%, 0.192);
     }
   }
 }
