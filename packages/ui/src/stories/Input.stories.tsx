@@ -24,7 +24,7 @@ SearchInput.args = {
 
 export const EmailInput = Template.bind({})
 EmailInput.args = {
-  id: 'someId',
+  id: 'EmailField',
   disabled: false,
   icon: FiMail,
   type: 'email',
@@ -34,17 +34,17 @@ EmailInput.args = {
 
 export const PasswordInput = Template.bind({})
 PasswordInput.args = {
-  id: 'someId',
+  id: 'PasswordField',
   disabled: false,
   icon: FiLock,
-  type: 'passport',
+  type: 'password',
   placeholder: 'Password',
   iconPosition: 'left',
 }
 
 export const Disabled = Template.bind({})
 Disabled.args = {
-  id: 'someId',
+  id: 'Disabled',
   disabled: true,
   placeholder: 'Pesquise...',
 }
