@@ -52,8 +52,9 @@
 
     &-toggle {
       display: block;
-
+      
       button {
+        cursor: pointer;
         svg {
           transition: all 200ms ease-in;
           color: var(--white);
