@@ -1,4 +1,4 @@
-import React, { FormEvent } from 'react'
+import React from 'react'
 import { FiMail } from 'react-icons/fi'
 
 import Mailbox from '../../../assets/mailbox.svg'
