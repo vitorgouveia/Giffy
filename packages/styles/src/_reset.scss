@@ -69,8 +69,26 @@ input,
 textarea {
   outline: 0;
   border: 0;
+	appearance: none;
 }
 
 a:focus {
 	outline: 0;
+}
+
+input:-internal-autofill-selected {
+	color: var(--white);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+	-webkit-text-fill-color:	var(--white);
+	-webkit-box-shadow: 0 0 0 30px var(--black) inset !important;
+}
+
+input[data-autocompleted] {
+	color: var(--white);
+	background-color: transparent !important;
 }
