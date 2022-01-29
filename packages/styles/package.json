@@ -1,6 +1,6 @@
 {
   "name": "@giffy/styles",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "The CSS implementation of Giffy's Design System",
   "author": "Vitor Gouveia <vitorneves.gouveia10@gmail.com>",
   "repository": "https://github.com/VitorGouveia/Giffy",
@@ -27,6 +27,7 @@
     "postcss-at-else": "^2.0.1",
     "postcss-cli": "^9.1.0",
     "postcss-color-hsla-fallback": "^1.0.0",
+    "postcss-prefixer": "^2.1.3",
     "postcss-preset-env": "^7.2.3",
     "postcss-reporter": "^7.0.5",
     "postcss-scss": "^4.0.3",
