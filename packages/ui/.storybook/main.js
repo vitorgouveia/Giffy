@@ -6,6 +6,7 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-viewport',
+    '@storybook/addon-actions',
   ],
   framework: '@storybook/react',
   webpackFinal: async (config, { configType }) => {
