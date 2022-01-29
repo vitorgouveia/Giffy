@@ -5,6 +5,7 @@
   border-radius: 6px;
   background: var(--black);
   border: 2px solid var(--stroke);
+  transition: all 200ms;
 
   &:hover {
     border-color: var(--accent);
