@@ -12,7 +12,7 @@ export const Link: React.FC<LinkProps> = ({
   ...rest
 }) => {
   return (
-    <a data-visited={visited} className="link" {...rest}>
+    <a tabIndex={0} data-visited={visited} className="link" {...rest}>
       {label || children}
     </a>
   )
