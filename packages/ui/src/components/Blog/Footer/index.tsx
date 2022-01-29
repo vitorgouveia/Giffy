@@ -9,9 +9,7 @@ export type FooterProps = {
 export const Footer: React.FC<FooterProps> = ({ homepage }) => {
   return (
     <footer className="blog-footer">
-      <a tabIndex={0} href={homepage}>
-        <BlogLogo />
-      </a>
+      <BlogLogo href={homepage} />
     </footer>
   )
 }
