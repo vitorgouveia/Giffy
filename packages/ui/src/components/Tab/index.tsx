@@ -19,7 +19,7 @@ export const Tab: React.FC<TabProps> = ({
       tabIndex={0}
       data-hover={underline ? 'underline' : 'block'}
       data-active={active}
-      className={`tab-link ${className}`}
+      className="tab-link"
       {...rest}
     >
       {label || children}

@@ -11,7 +11,7 @@ export const Tag: React.FC<TagProps> = ({
   ...rest
 }) => {
   return (
-    <a tabIndex={0} {...rest} className={`tag ${className}`}>
+    <a tabIndex={0} {...rest} className="tag">
       <strong>{label || children}</strong>
     </a>
   )

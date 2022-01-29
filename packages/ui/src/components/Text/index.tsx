@@ -4,14 +4,9 @@ export type TextProps = React.HTMLAttributes<HTMLParagraphElement> & {
   label?: string
 }
 
-export const Text: React.FC<TextProps> = ({
-  label,
-  children,
-  className,
-  ...rest
-}) => {
+export const Text: React.FC<TextProps> = ({ label, children, ...rest }) => {
   return (
-    <p className={`text ${className}`} {...rest}>
+    <p className="text" {...rest}>
       {label || children}
     </p>
   )
