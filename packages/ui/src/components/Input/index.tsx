@@ -1,12 +1,12 @@
 import React, { InputHTMLAttributes } from 'react'
 import { FiSearch } from 'react-icons/fi'
 import { IconType } from 'react-icons'
-// import { useEffect, useRef } from '@storybook/addons'
 
 export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   placeholder: string
   icon: IconType
   id: string
+  name: string
   iconPosition: 'left' | 'right'
 }
 
@@ -14,6 +14,7 @@ export const Input: React.FC<InputProps> = ({
   icon: Icon = FiSearch,
   iconPosition = 'right',
   id,
+  name,
   disabled,
   ...rest
 }) => {
@@ -21,18 +22,14 @@ export const Input: React.FC<InputProps> = ({
     <div
       id={id}
       data-disabled={disabled}
-      data-iconPosition={iconPosition}
+      data-iconposition={iconPosition}
       className="input-container"
     >
       <div
-        className="input-search-icon"
+        className="input-container-search-icon"
         onClick={() => {
-          const icon = document.querySelector<HTMLDivElement>(
-            `#${id} .input-search-icon`
-          )
-          const input = document.querySelector<HTMLInputElement>(
-            `#${id} .input`
-          )
+          const icon = document.querySelector<HTMLDivElement>(`#${id} div`)
+          const input = document.querySelector<HTMLInputElement>(`#${id} input`)
 
           icon?.addEventListener('click', () => {
             input?.focus()
@@ -41,23 +38,21 @@ export const Input: React.FC<InputProps> = ({
       >
         <Icon />
       </div>
+
       <input
         onFocus={() => {
-          const icon = document.querySelector<HTMLDivElement>(
-            `#${id} .input-search-icon`
-          )
+          const icon = document.querySelector<HTMLDivElement>(`#${id}`)
 
-          icon?.classList.add('focused')
+          icon?.setAttribute('data-focused', 'true')
         }}
         onBlur={() => {
-          const icon = document.querySelector<HTMLDivElement>(
-            `#${id} .input-search-icon`
-          )
+          const icon = document.querySelector<HTMLDivElement>(`#${id}`)
 
-          icon?.classList.remove('focused')
+          icon?.setAttribute('data-focused', 'false')
         }}
-        className="input"
+        className="input-container-input"
         disabled={disabled}
+        name={name}
         {...rest}
       />
     </div>
