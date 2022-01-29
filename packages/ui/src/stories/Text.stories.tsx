@@ -1,12 +1,17 @@
 import React from 'react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 import { Text, TextProps } from '../components/Text'
-
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import Documentation from './Text.mdx'
 
 export default {
   title: 'Text',
   component: Text,
+  parameters: {
+    docs: {
+      page: Documentation,
+    },
+  },
 } as ComponentMeta<typeof Text>
 
 const Template: ComponentStory<typeof Text> = (args: TextProps) => (
