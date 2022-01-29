@@ -5,6 +5,5 @@
     "@babel/preset-typescript",
     "minify"
   ],
-  "plugins": [],
-  "ignore": ["**/stories/**/*.stories.tsx"]
+  "ignore": ["node_modules", "./src/stories", "src/**/*.mdx", "./src/@types"]
 }
