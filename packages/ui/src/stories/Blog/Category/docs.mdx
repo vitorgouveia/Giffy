@@ -1,0 +1,36 @@
+import { Story } from '@storybook/addon-docs'
+
+# Category
+
+The `Category` component is meant to be used in the sidebar, as a trigger for the user.
+Here are some suggestions:
+
+- Top Tags(Categories)
+- Top Posts
+- Favorite Posts (Posts favorited by the user)
+
+[Figma Frame](https://www.figma.com/file/JrvfChRpuKFnxZopbbAi3M/Giffy?node-id=69%3A1037)
+
+<Canvas>
+  <Story id="blog-category--top-categories" />
+  <br />
+  <Story id="blog-category--top-posts" />
+</Canvas>
+
+<br />
+<br />
+<br />
+
+## Props
+
+The `Category` component only requires three props
+
+- label, the title of the card itself
+- tags, an array containing Tags
+- links, an array containing Links
+
+| _Prop_ | _Type_   | Required |
+| ------ | -------- | -------- |
+| label  | _string_ | true     |
+| tags   | _array_  | false    |
+| links  | _array_  | false    |

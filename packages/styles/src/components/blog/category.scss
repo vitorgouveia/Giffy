@@ -1,0 +1,35 @@
+.category {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 16px;
+
+  &-heading {
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+  
+  &-content {
+    display: flex;
+
+    a {
+      color: var(--stroke);
+
+      &:hover, &:focus, &:active {
+        color: var(--white);
+      }
+    }
+    
+    &[data-content="links"] {
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    &[data-content="tags"] {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+  }
+}
