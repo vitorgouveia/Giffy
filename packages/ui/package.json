@@ -9,7 +9,7 @@
   "main": "./build/index.js",
   "packageManager": "yarn@3.1.1",
   "scripts": {
-    "build": "rimraf build && babel src --extensions \".ts,.tsx,.mdx\" --out-dir build --copy-files --no-copy-ignored && tsc",
+    "build": "rimraf build && babel src --extensions \".ts,.tsx,.mdx\" --out-dir build --copy-files --no-copy-ignored && tsc -p tsconfig.prod.json",
     "bundle": "rimraf dist && webpack --config webpack.config.js",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
