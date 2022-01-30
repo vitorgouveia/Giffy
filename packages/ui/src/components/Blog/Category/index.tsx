@@ -5,6 +5,8 @@ import { Link, LinkProps } from '../../Link'
 import { Heading } from '../../Heading'
 import { Modal } from '../../Modal'
 
+import { List } from '../../../lib/List'
+
 export type CategoryProps = {
   label: string
   tags?: TagProps[]
@@ -30,9 +32,17 @@ export const Category: React.FC<CategoryProps> = ({
           data-content={links.length === 0 ? 'tags' : 'links'}
           className="category-content"
         >
-          {links && links.map(({ ...rest }) => <Link {...rest} />)}
+          {links && (
+            <List<LinkProps> data={links} keyExtractor={({ label }) => label!}>
+              {({ ...rest }) => <Link {...rest} />}
+            </List>
+          )}
 
-          {tags && tags.map(({ ...rest }) => <Tag {...rest} />)}
+          {tags && (
+            <List<TagProps> data={tags} keyExtractor={({ label }) => label!}>
+              {({ ...rest }) => <Tag {...rest} />}
+            </List>
+          )}
         </main>
       </div>
     </Modal>

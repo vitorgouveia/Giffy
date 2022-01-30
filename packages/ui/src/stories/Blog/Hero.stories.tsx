@@ -21,16 +21,24 @@ const Template: ComponentStory<typeof Hero> = (args: HeroProps) => (
       {
         href: '/get-started',
         label: 'Get Started',
+        onClick: () => {},
       },
       {
         href: '/subscribe',
         label: 'Subscribe',
+        onClick: () => {},
       },
     ]}
     post={{
       createdAt: '2022-01-26T05:03:52.518Z',
       readTime: '10 min',
-      tags: ['javascript', 'graphql', 'reactjs', 'html', 'jsx'],
+      tags: [
+        { label: 'javascript' },
+        { label: 'graphql' },
+        { label: 'reactjs' },
+        { label: 'html' },
+        { label: 'jsx' },
+      ],
       title: 'This is my first post uhuuuu',
       description: `
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.

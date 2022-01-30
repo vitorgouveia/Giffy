@@ -4,6 +4,8 @@ import { FiToggleLeft } from 'react-icons/fi'
 import { BlogLogo } from '../Logo'
 import { Tab } from '../../Tab'
 
+import { List } from '../../../lib/List'
+
 type Tab = {
   href: string
   label: string
@@ -36,11 +38,13 @@ export const Header: React.FC<HeaderProps> = ({
   return (
     <header id={id} className="blog-header">
       <ul className="blog-header-tabs">
-        {tabs.map(tab => (
-          <li>
-            <Tab className="blog-header-tab">{tab.label}</Tab>
-          </li>
-        ))}
+        <List<Tab> data={tabs} keyExtractor={({ label }) => label}>
+          {({ ...rest }) => (
+            <li>
+              <Tab {...rest} />
+            </li>
+          )}
+        </List>
       </ul>
 
       <div tabIndex={0} className="blog-header-logo">
