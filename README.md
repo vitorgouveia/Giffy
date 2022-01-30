@@ -4,6 +4,12 @@
   </a>
 </div>
 
+<div align="center">
+  <a href="https://www.figma.com/file/JrvfChRpuKFnxZopbbAi3M/Giffy?node-id=2%3A20">
+  figma
+  </a>
+</div>
+
 <br />
 
 <div align="center">
