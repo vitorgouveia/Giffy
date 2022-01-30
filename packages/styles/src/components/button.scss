@@ -14,6 +14,14 @@
     cursor: not-allowed;
   }
 
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  &[data-iconposition="left"] {
+    flex-direction: row-reverse;
+  }
+
   &[data-variant="primary"] {
     background: var(--accent);
 
