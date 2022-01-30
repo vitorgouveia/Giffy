@@ -9,6 +9,7 @@ import { dateToString } from '../../../utils/dateToString'
 type Button = {
   label: string
   href: string
+  onClick: () => void | Promise<void>
 }
 
 type Post = {
@@ -50,11 +51,11 @@ export const Hero: React.FC<HeroProps> = ({
         </Heading>
 
         <footer className="blog-hero-header-buttons">
-          {labels?.map(({ label, href }, index) => (
-            <a tabIndex={0} href={href}>
+          {labels?.map(({ label, href, onClick }, index) => (
+            <a key={href} tabIndex={0} href={href}>
               <Button
+                onClick={onClick}
                 label={label}
-                key={href}
                 variant={index === 0 ? 'primary' : 'outlined'}
               />
             </a>

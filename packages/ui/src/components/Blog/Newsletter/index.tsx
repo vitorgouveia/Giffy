@@ -56,7 +56,7 @@ export const Newsletter: React.FC<NewsletterProps> = ({
             icon={FiMail}
           />
 
-          <Button type="submit" variant="primary">
+          <Button onClick={() => {}} type="submit" variant="primary">
             Subscribe
           </Button>
         </Form>
