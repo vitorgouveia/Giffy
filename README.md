@@ -1,8 +1,8 @@
-<center>
+<div align="center">
   <a href="https://vitorgouveia.github.io/Giffy">
     <img src=".github/assets/logo.png" />
   </a>
-</center>
+</div>
 
 <br />
 
