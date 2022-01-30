@@ -425,6 +425,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/parser@npm:^7.0.0":
+  version: 7.16.12
+  resolution: "@babel/parser@npm:7.16.12"
+  bin:
+    parser: ./bin/babel-parser.js
+  checksum: af287f0f3dfa564958a7dddfeb62e08c0de9ce9bd8447fcde0997da26ec477bf19f37161b9d970e2c7e0d1f77e441258907d3347beddd0d42cae85ed46947703
+  languageName: node
+  linkType: hard
+
 "@babel/parser@npm:^7.12.11, @babel/parser@npm:^7.12.7, @babel/parser@npm:^7.14.7, @babel/parser@npm:^7.16.10, @babel/parser@npm:^7.16.7":
   version: 7.16.10
   resolution: "@babel/parser@npm:7.16.10"
@@ -1833,6 +1842,7 @@ __metadata:
     "@types/react-dom": ^17.0.11
     "@types/webpack-node-externals": ^2.5.3
     babel-loader: ^8.2.3
+    babel-plugin-inline-react-svg: ^2.0.1
     babel-preset-minify: ^0.5.1
     date-fns: ^2.28.0
     file-loader: ^6.2.0
@@ -5429,6 +5439,21 @@ __metadata:
   dependencies:
     "@babel/helper-plugin-utils": 7.10.4
   checksum: 145ccf09c96d36411d340e78086555f8d4d5924ea39fcb0eca461c066cfa98bc4344982bb35eb85d054ef88f8d4dfc0205ba27370c1d8fcc78191b02908d044d
+  languageName: node
+  linkType: hard
+
+"babel-plugin-inline-react-svg@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "babel-plugin-inline-react-svg@npm:2.0.1"
+  dependencies:
+    "@babel/helper-plugin-utils": ^7.0.0
+    "@babel/parser": ^7.0.0
+    lodash.isplainobject: ^4.0.6
+    resolve: ^1.20.0
+    svgo: ^2.0.3
+  peerDependencies:
+    "@babel/core": ^7.0.0
+  checksum: aa41d72283655d7579ec6622ba8c71c791e7ec9c8885d49e522a7ebea202d37e81de0ba438ee0fcce5822d210002e60451d3fb9e660661e21e52728f3e94da12
   languageName: node
   linkType: hard
 
@@ -11530,6 +11555,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash.isplainobject@npm:^4.0.6":
+  version: 4.0.6
+  resolution: "lodash.isplainobject@npm:4.0.6"
+  checksum: 29c6351f281e0d9a1d58f1a4c8f4400924b4c79f18dfc4613624d7d54784df07efaff97c1ff2659f3e085ecf4fff493300adc4837553104cef2634110b0d5337
+  languageName: node
+  linkType: hard
+
 "lodash.memoize@npm:^4.1.2":
   version: 4.1.2
   resolution: "lodash.memoize@npm:4.1.2"
@@ -16738,7 +16770,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svgo@npm:^2.7.0":
+"svgo@npm:^2.0.3, svgo@npm:^2.7.0":
   version: 2.8.0
   resolution: "svgo@npm:2.8.0"
   dependencies:
