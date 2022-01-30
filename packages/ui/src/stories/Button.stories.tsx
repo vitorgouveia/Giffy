@@ -1,8 +1,8 @@
 import React from 'react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { FiGithub } from 'react-icons/fi'
 
 import { Button, ButtonProps } from '../components/Button'
-
-import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 export default {
   title: 'Button',
@@ -33,6 +33,12 @@ Ghost.args = {
 export const Disabled = Template.bind({})
 Disabled.args = {
   label: 'Giffy',
-  variant: 'primary',
   disabled: true,
+}
+
+export const WithIcon = Template.bind({})
+WithIcon.args = {
+  label: 'Giffy',
+  icon: <FiGithub />,
+  iconPosition: 'left',
 }
