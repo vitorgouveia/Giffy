@@ -2,7 +2,7 @@ import React, { HTMLAttributes } from 'react'
 
 export type HeadingProps = HTMLAttributes<HTMLHeadingElement> & {
   variant: 'h1' | 'h2' | 'h3'
-  as: 'h1' | 'h2' | 'h3'
+  as: 'h1' | 'h2' | 'h3' | 'strong'
   label?: string
 }
 
@@ -37,6 +37,14 @@ export const Heading: React.FC<HeadingProps> = ({
       <h3 className={`${prefix}-heading-${variant} ${className}`} {...rest}>
         {label || children}
       </h3>
+    )
+  }
+
+  if (as === 'strong') {
+    return (
+      <strong className={`${prefix}-heading-${variant} ${className}`} {...rest}>
+        {label || children}
+      </strong>
     )
   }
 
