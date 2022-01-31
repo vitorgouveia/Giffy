@@ -1857,6 +1857,7 @@ __metadata:
     rollup: ^2.66.1
     rollup-plugin-babel: ^4.4.0
     rollup-plugin-peer-deps-external: ^2.2.4
+    rollup-plugin-progress: ^1.1.2
     rollup-plugin-terser: ^7.0.2
   peerDependencies:
     "@giffy/styles": "*"
@@ -1881,7 +1882,6 @@ __metadata:
     preact: ^10.6.4
     preact-render-to-string: ^5.1.19
     react: 17.0.2
-    react-classname-prefix-loader: ^1.0.8
     react-dom: 17.0.2
     typescript: ^4.5.5
   languageName: unknown
@@ -6258,7 +6258,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:^2.0.0, chalk@npm:^2.4.1":
+"chalk@npm:^2.0.0, chalk@npm:^2.4.1, chalk@npm:^2.4.2":
   version: 2.4.2
   resolution: "chalk@npm:2.4.2"
   dependencies:
@@ -15516,6 +15516,15 @@ __metadata:
   peerDependencies:
     rollup: "*"
   checksum: 597bc7631f4e3cfc066a7da4e09e507258aba932008148328c1a4b48e7ffa755592ef4bcf0165320bbd5019afbdd326f569cd0c68406d820da9ab52e971c009b
+  languageName: node
+  linkType: hard
+
+"rollup-plugin-progress@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "rollup-plugin-progress@npm:1.1.2"
+  dependencies:
+    chalk: ^2.4.2
+  checksum: 236b95a2291cae6d52e52ec2f9ae88419b9cb637743ba4a0fd7d4ad3ee369a46bb3d3ef8afc2d6c3dd76ad297ae325c6d3999512eae716f2dcdef32ce3f8cba3
   languageName: node
   linkType: hard
 
