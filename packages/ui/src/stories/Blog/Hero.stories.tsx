@@ -12,7 +12,6 @@ export default {
 const Template: ComponentStory<typeof Hero> = (args: HeroProps) => (
   <Hero
     {...args}
-    tagsPath="/blog/tags"
     headings={{
       sub: 'Our Blog',
       main: 'Enjoy the latest in content from our team.',
@@ -33,11 +32,11 @@ const Template: ComponentStory<typeof Hero> = (args: HeroProps) => (
       createdAt: '2022-01-26T05:03:52.518Z',
       readTime: '10 min',
       tags: [
-        { label: 'javascript' },
-        { label: 'graphql' },
-        { label: 'reactjs' },
-        { label: 'html' },
-        { label: 'jsx' },
+        { label: 'javascript', tagsPath: '/blog/tags' },
+        { label: 'graphql', tagsPath: '/blog/tags' },
+        { label: 'reactjs', tagsPath: '/blog/tags' },
+        { label: 'html', tagsPath: '/blog/tags' },
+        { label: 'jsx', tagsPath: '/blog/tags' },
       ],
       title: 'This is my first post uhuuuu',
       description: `

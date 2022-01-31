@@ -1,0 +1,107 @@
+@import "../../lib/hooks/useMediaQuery.scss";
+@import "../../lib/font.scss";
+
+.featured-post {
+  width: 100%;
+  height: auto;
+
+  gap: 16px;
+
+  display: flex;
+  flex-direction: column-reverse;
+
+  &-image {
+    width: 100%;
+    height: 437px;
+    
+    border-radius: 6px;
+
+    background: var(--stroke);
+  }
+
+  &-information {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 16px;
+    
+    padding: 0 30px;
+
+    &-main {
+      width: 100%;
+      height: 80%;
+
+      display: flex;
+      flex-direction: column;
+
+      align-items: flex-start;
+
+      gap: 22px;
+
+      &-tags {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      &-description {
+        &-normal {
+          display: none;
+        }
+
+        &-small {
+          display: block;
+        }
+      }
+    }
+
+    &-footer {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      height: 20%;
+      p {
+        @include Font(20px, 400, 24px);
+        color: var(--white);
+      }
+    }
+  }
+
+  @include useMediaQuery(tablet) {
+    &-information {
+      &-main {
+        &-description {
+          &-normal {
+            display: block;
+          }
+
+          &-small {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  @include useMediaQuery(laptop) {
+    height: 430px;
+
+    gap: 0;
+
+    flex-direction: row;
+
+    &-information {
+      width: 30%;
+
+      gap: 0;
+    }
+
+    &-image {
+      width: 70%;
+      height: 100%;
+    }
+  }
+}
