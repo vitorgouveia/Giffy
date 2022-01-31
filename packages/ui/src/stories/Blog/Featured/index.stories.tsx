@@ -21,6 +21,7 @@ const Template: ComponentStory<typeof Featured> = (args: FeaturedProps) => (
 export const Default = Template.bind({})
 Default.args = {
   createdAt: '2022-01-26T05:03:52.518Z',
+  type: 'post',
   readTime: '10 min',
   tags: [
     { label: 'javascript', tagsPath: '/blog/tags' },

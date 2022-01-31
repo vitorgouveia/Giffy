@@ -9,6 +9,7 @@ import { Tag, TagProps } from '../Tag'
 export type FeaturedProps = {
   tags: TagProps[]
   title: string
+  type: string
   description: string
   createdAt: string
   readTime: string
@@ -18,13 +19,16 @@ export type FeaturedProps = {
 export const Featured: React.FC<FeaturedProps> = ({
   tags,
   tagsPath,
+  type,
   title,
   description,
   createdAt,
   readTime,
 }) => {
   const smallFormattedDescription = `${description.substr(0, 120)}...`
-  const formattedDescription = `${description.substr(0, 320)}...`
+  const formattedDescription = `${description.substr(0, 500)}...`
+
+  const formattedDate = dateToString(createdAt)
 
   return (
     <div className="featured-post">
@@ -38,17 +42,6 @@ export const Featured: React.FC<FeaturedProps> = ({
               keyExtractor={({ label }) => label!}
             >
               {({ key, label }) => (
-                <li data-size="big" key={key}>
-                  <Tag tagsPath={tagsPath} href={label} label={label!} />
-                </li>
-              )}
-            </List>
-
-            <List<TagProps>
-              data={tags.slice(0, 10)}
-              keyExtractor={({ label }) => label!}
-            >
-              {({ key, label }) => (
                 <li data-size="small" key={key}>
                   <Tag tagsPath={tagsPath} href={label} label={label!} />
                 </li>
@@ -56,21 +49,54 @@ export const Featured: React.FC<FeaturedProps> = ({
             </List>
           </ul>
 
+          <div
+            data-size="small"
+            className="featured-post-information-main-type"
+          >
+            <strong>{type}</strong>
+          </div>
+
+          <div
+            data-size="medium"
+            className="featured-post-information-main-type"
+          >
+            <strong>
+              {type} · <span>{formattedDate}</span>
+            </strong>
+          </div>
+
           <Heading variant="h2" as="h2" label={title} />
 
-          <div className="featured-post-information-main-description-normal">
+          <div
+            data-size="medium"
+            className="featured-post-information-main-description"
+          >
             <Text label={formattedDescription} />
           </div>
 
-          <div className="featured-post-information-main-description-small">
+          <div
+            data-size="small"
+            className="featured-post-information-main-description"
+          >
             <Text label={smallFormattedDescription} />
           </div>
         </div>
 
         <div className="featured-post-information-footer">
-          <p>
-            {dateToString(createdAt)} · {readTime} read
-          </p>
+          <ul>
+            <List<TagProps>
+              data={tags.slice(0, 4)}
+              keyExtractor={({ label }) => label!}
+            >
+              {({ key, ...rest }) => (
+                <li key={key}>
+                  <Tag {...rest} />
+                </li>
+              )}
+            </List>
+          </ul>
+
+          <Text label={`${dateToString(createdAt)} · ${readTime} read`} />
         </div>
       </header>
     </div>

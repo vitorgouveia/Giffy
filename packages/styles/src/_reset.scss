@@ -45,15 +45,15 @@ table {
 
 html,
 body,
-#__next {
-  height: 100%;
-  width: 100%;
+#__next,
+#root {
+  height: 100% !important;
+  width: 100% !important;
 
 	background: var(--background);
 
   font-family: 'Rubik', sans-serif;
 }
-
 
 a {
   color: inherit;
