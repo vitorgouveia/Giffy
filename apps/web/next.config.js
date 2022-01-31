@@ -5,7 +5,6 @@ const nextConfig = {
   reactStrictMode: true,
   compress: true,
   cleanDistDir: true,
-  swcMinify: true,
   optimizeFonts: true,
 
   basePath: __isProd__ ? '/Giffy' : '',

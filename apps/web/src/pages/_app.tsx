@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 
+import { prefixClassNames } from '@utils/prefixClassNames'
 import '@giffy/styles'
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
+  useEffect(() => {
+    prefixClassNames()
+  }, [])
+
   return (
     <React.Fragment>
       <Head>
