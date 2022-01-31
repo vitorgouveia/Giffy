@@ -5,7 +5,6 @@ const nextConfig = {
   reactStrictMode: true,
   compress: true,
   cleanDistDir: true,
-  swcMinify: true,
   optimizeFonts: true,
 
   basePath: __isProd__ ? '/Giffy' : '',
@@ -21,6 +20,30 @@ const nextConfig = {
       })
     }
 
+    if (!isServer) {
+      config.module.rules.push({
+        test: /\.(js)x?$/,
+        exclude: /node_modules/,
+
+        use: [
+          {
+            loader: 'react-classname-prefix-loader?prefix=giffy_css',
+          },
+        ],
+      })
+
+      config.module.rules.push({
+        test: /\.tsx$/,
+        exclude: /node_modules/,
+
+        use: [
+          {
+            loader: 'react-classname-prefix-loader?prefix=giffy_css',
+          },
+        ],
+      })
+    }
+    console.log(config.resolve)
     return config
   },
 }
