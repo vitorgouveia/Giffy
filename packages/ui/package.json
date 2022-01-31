@@ -9,8 +9,9 @@
   "main": "./dist/index.js",
   "packageManager": "yarn@3.1.1",
   "scripts": {
-    "build": "rimraf build && babel src --extensions \".ts,.tsx,.mdx\" --out-dir build --copy-files --no-copy-ignored && tsc -p tsconfig.prod.json",
-    "build:lib": "rollup -c",
+    "build:deprecated": "rimraf build && babel src --extensions \".ts,.tsx,.mdx\" --out-dir build --copy-files --no-copy-ignored && tsc -p tsconfig.prod.json",
+    "build": "rimraf dist && rollup -c",
+    "dev": "rimraf dist && rollup -w -c && tsc -p tsconfig.prod.json",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "build-storybook-nextjs": "build-storybook -o ../../apps/web/public/storybook --docs",
@@ -50,6 +51,7 @@
     "rollup": "^2.66.1",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-progress": "^1.1.2",
     "rollup-plugin-terser": "^7.0.2"
   },
   "peerDependencies": {

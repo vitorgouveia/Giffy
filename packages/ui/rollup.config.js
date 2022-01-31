@@ -4,6 +4,7 @@ import external from 'rollup-plugin-peer-deps-external'
 import typescript from '@rollup/plugin-typescript'
 import files from '@rollup/plugin-image'
 import { terser } from 'rollup-plugin-terser'
+import progress from 'rollup-plugin-progress'
 
 export default [
   {
@@ -14,6 +15,14 @@ export default [
         format: 'cjs',
       },
     ],
-    plugins: [babel(), external(), resolve(), typescript(), files(), terser()],
+    plugins: [
+      babel(),
+      external(),
+      resolve(),
+      typescript(),
+      files(),
+      terser(),
+      progress(),
+    ],
   },
 ]
