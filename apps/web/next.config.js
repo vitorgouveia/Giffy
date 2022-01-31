@@ -6,6 +6,9 @@ const nextConfig = {
   compress: true,
   cleanDistDir: true,
   optimizeFonts: true,
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 
   basePath: __isProd__ ? '/Giffy' : '',
   assetPrefix: __isProd__ ? '/Giffy/' : '',
