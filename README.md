@@ -42,7 +42,96 @@
 
 <br />
 
-# Development
+## Tecnologies
+
+<br />
+
+<a href="https://yarnpkg.com">
+  <img src="https://img.shields.io/badge/Yarn-2C8EBB?style=for-the-badge&logo=yarn&logoColor=ffffff" />
+</a>
+
+<a href="https://www.w3.org/html">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
+</a>
+
+<a href="https://sass-lang.com">
+  <img src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white" />
+</a>
+
+<a href="https://postcss.org/">
+  <img src="https://img.shields.io/badge/Postcss-DD3A0A?style=for-the-badge&logo=postcss&logoColor=white" />
+</a>
+
+<a href="https://reactjs.org/">
+  <img src="https://img.shields.io/badge/React-20232a?style=for-the-badge&logo=react" />
+</a>
+
+<a href="https://nextjs.org/">
+  <img src="https://img.shields.io/badge/Next-000000?style=for-the-badge&logo=next.js" />
+</a>
+
+<a href="https://storybook.js.org/">
+  <img src="https://img.shields.io/badge/Storybook-FF4785?style=for-the-badge&logo=storybook&logoColor=white" />
+</a>
+
+<a href="https://www.typescriptlang.org/">
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
+</a>
+
+<a href="https://babeljs.io/">
+  <img src="https://img.shields.io/badge/Babel-323330?style=for-the-badge&logo=babel&logoColor=F9DC3E" />
+</a>
+
+<a href="https://webpack.js.org/">
+  <img src="https://img.shields.io/badge/Webpack-2b3a42?style=for-the-badge&logo=webpack" />
+</a>
+
+<a href="https://github.com/features/actions">
+  <img src="https://img.shields.io/badge/Github Actions-000000?style=for-the-badge&logo=github-actions" />
+</a>
+
+<a href="https://eslint.org/">
+  <img src="https://img.shields.io/badge/Eslint-4B32C3?style=for-the-badge&logo=eslint" />
+</a>
+
+<a href="https://prettier.io/">
+  <img src="https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=000" />
+</a>
+
+<br />
+<br />
+<br />
+
+### 🛠️ Adjusts and Updates
+
+The project is still in development and the next updates will be:
+
+- [ ] Blog
+- [ ] Landing Page
+- [ ] Desktop and Mobile App
+- [ ] Account System
+- [ ] 💸 Monetization
+
+---
+
+🚧 Giffy is under development and not ready yet to be downloaded 🚧
+
+---
+
+## 📫 Contributing to Giffy
+
+Before contributing, check if you attend the requirements:
+
+1. Choose a [issue](https://github.com/VitorGouveia/Giffy/issues), if there are none, create your own issue
+2. Fork this repository.
+3. Create a branch with the name of your feature/bug fix.
+4. Commit your changes.
+5. Merge the new branch into the _master_ branch.
+6. Make a pull request.
+
+<br />
+
+## Development
 
 to get started in development first clone the repo
 
@@ -64,6 +153,10 @@ then, install the dependencies
 ```bash
 yarn
 ```
+
+## Issues
+
+before developing take a look at [issues](#https://github.com/VitorGouveia/Giffy/issues) and choose one you wanna solve,
 
 <br />
 
@@ -150,100 +243,6 @@ yarn dev
 ```
 
 <br />
-
-<br />
-
-## Tecnologies
-
-<br />
-
-<a href="https://yarnpkg.com">
-  <img src="https://img.shields.io/badge/Yarn-2C8EBB?style=for-the-badge&logo=yarn&logoColor=ffffff" />
-</a>
-
-<a href="https://www.w3.org/html">
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
-</a>
-
-<a href="https://sass-lang.com">
-  <img src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white" />
-</a>
-
-<a href="https://postcss.org/">
-  <img src="https://img.shields.io/badge/Postcss-DD3A0A?style=for-the-badge&logo=postcss&logoColor=white" />
-</a>
-
-<a href="https://reactjs.org/">
-  <img src="https://img.shields.io/badge/React-20232a?style=for-the-badge&logo=react" />
-</a>
-
-<a href="https://nextjs.org/">
-  <img src="https://img.shields.io/badge/Next-000000?style=for-the-badge&logo=next.js" />
-</a>
-
-<a href="https://storybook.js.org/">
-  <img src="https://img.shields.io/badge/Storybook-FF4785?style=for-the-badge&logo=storybook&logoColor=white" />
-</a>
-
-<a href="https://www.typescriptlang.org/">
-  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
-</a>
-
-<a href="https://babeljs.io/">
-  <img src="https://img.shields.io/badge/Babel-323330?style=for-the-badge&logo=babel&logoColor=F9DC3E" />
-</a>
-
-<a href="https://webpack.js.org/">
-  <img src="https://img.shields.io/badge/Webpack-2b3a42?style=for-the-badge&logo=webpack" />
-</a>
-
-<a href="https://github.com/features/actions">
-  <img src="https://img.shields.io/badge/Github Actions-000000?style=for-the-badge&logo=github-actions" />
-</a>
-
-<a href="https://eslint.org/">
-  <img src="https://img.shields.io/badge/Eslint-4B32C3?style=for-the-badge&logo=eslint" />
-</a>
-
-<a href="https://prettier.io/">
-  <img src="https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=000" />
-</a>
-
-<br />
-<br />
-<br />
-
-### 🛠️ Adjusts and Updates
-
-The project is still in development and the next updates will be:
-
-- [ ] Blog
-- [ ] Landing Page
-- [ ] Desktop and Mobile App
-- [ ] Account System
-- [ ] 💸 Monetization
-
----
-
-🚧 Giffy is under development and not ready yet to be downloaded 🚧
-
----
-
-## 📫 Contributing to Giffy
-
-Before contributing, check if you attend the requirements:
-
-- [ ] Have a node version above 14.x
-- [ ] Have knowledge in React and Typescript
-
-if so, continue
-
-1. Choose a [issue](https://github.com/VitorGouveia/Giffy/issues), if there are none, create your own issue
-2. Fork this repository.
-3. Create a branch with the name of your feature/bug fix.
-4. Commit your changes.
-5. Merge the new branch into the _master_ branch.
-6. Make a pull request.
 
 ## 🤝 Colaborators
 
