@@ -42,7 +42,7 @@ jobs:
 
       - name: Build @giffy/ui
         working-directory: ./packages/ui
-        run: yarn gh-build
+        run: yarn build
 
       - name: Build Storybook
         working-directory: ./packages/ui
@@ -50,9 +50,7 @@ jobs:
 
       - name: Build @giffy/web
         working-directory: ./apps/web
-        run: yarn build
-        env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: yarn gh-build
 
       - name: Export static files
         working-directory: ./apps/web
