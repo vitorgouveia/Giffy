@@ -14,8 +14,7 @@
     "dev": "rimraf dist && rollup -w -c && tsc -p tsconfig.prod.json",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "build-storybook-nextjs": "build-storybook -o ../../apps/web/public/storybook --docs",
-    "release": "release-it"
+    "build-storybook-nextjs": "build-storybook -o ../../apps/web/public/storybook --docs"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.8",

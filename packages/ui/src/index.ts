@@ -5,6 +5,8 @@ export * from './components/Blog/Hero'
 export * from './components/Blog/Logo'
 export * from './components/Blog/Newsletter'
 export * from './components/Blog/Tag'
+export * from './components/Blog/Featured'
+export * from './components/Blog/Post'
 
 export * from './components/Button'
 export * from './components/Divider'

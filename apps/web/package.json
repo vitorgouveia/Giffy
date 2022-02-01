@@ -14,8 +14,7 @@
     "export": "next export",
     "start": "next start",
     "lint": "next lint",
-    "migrate": "prisma generate && prisma db push",
-    "release": "release-it"
+    "migrate": "prisma generate && prisma db push"
   },
   "dependencies": {
     "@giffy/styles": "*",
