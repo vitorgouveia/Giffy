@@ -19,7 +19,7 @@
     "web:build": "yarn workspace @giffy/web build",
     "web:export": "yarn workspace @giffy/web export",
     "zip:web": "npx node-zip -c web.zip ./apps/web/out",
-    "zip:ui": "npx node-zip -c ui.zip ./packages/ui/build",
+    "zip:ui": "npx node-zip -c ui.zip ./packages/ui/dist",
     "prerelease": "npm-run-all 'styles:*' && npm-run-all 'ui:*' && npm-run-all 'web:*' && npm-run-all 'zip:*'",
     "release": "npm run prerelease && dotenv release-it --"
   },
