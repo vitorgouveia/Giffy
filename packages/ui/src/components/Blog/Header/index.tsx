@@ -39,9 +39,9 @@ export const Header: React.FC<HeaderProps> = ({
     <header id={id} className="blog-header">
       <ul className="blog-header-tabs">
         <List<Tab> data={tabs} keyExtractor={({ label }) => label}>
-          {({ ...rest }) => (
-            <li>
-              <Tab {...rest} />
+          {({ href, ...rest }) => (
+            <li key={href}>
+              <Tab href={`${homepage}${href}`} {...rest} />
             </li>
           )}
         </List>
