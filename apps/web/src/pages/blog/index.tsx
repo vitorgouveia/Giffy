@@ -1,22 +1,8 @@
-import fs from 'fs'
-import path from 'path'
-import grayMatter from 'gray-matter'
 import React from 'react'
 import { GetStaticProps } from 'next'
+import Link from 'next/link'
 
-type Metadata = {
-  title: string
-  createdAt: number
-  description: string
-  thumbnailUrl: string
-  tags: string[]
-}
-
-type Post = {
-  content: any
-
-  metadata: Metadata
-}
+import { getAllPosts, Post } from '@lib/posts'
 
 type HomeBlogProps = {
   posts: Post[]
@@ -29,7 +15,9 @@ const HomeBlog: React.FC<HomeBlogProps> = ({ posts }) => {
 
       <ul>
         {posts.map(({ metadata }) => (
-          <li key={metadata.createdAt}>{metadata.title}</li>
+          <li key={metadata.createdAt}>
+            <Link href={`/blog/post/${metadata.slug}`}>{metadata.title}</Link>
+          </li>
         ))}
       </ul>
     </div>
@@ -39,20 +27,7 @@ const HomeBlog: React.FC<HomeBlogProps> = ({ posts }) => {
 export default HomeBlog
 
 export const getStaticProps: GetStaticProps = async () => {
-  const files = fs.readdirSync('./src/posts')
-
-  const posts = files.map(filename => {
-    const fileContent = fs.readFileSync(`./src/posts/${filename}`, 'utf-8')
-    const { content, data: metadata } = grayMatter(fileContent)
-
-    return {
-      content,
-      metadata: {
-        ...metadata,
-        slug: filename.replace('.mdx', ''),
-      },
-    }
-  })
+  const { posts } = getAllPosts()
 
   return {
     props: {

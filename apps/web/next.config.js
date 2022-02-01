@@ -1,4 +1,6 @@
-const __isProd__ = process.env.NODE_ENV === 'production'
+const Plugins = require('next-compose-plugins')
+
+const __isGithub__ = process.env.GH_PAGES === 'true'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -6,12 +8,15 @@ const nextConfig = {
   compress: true,
   cleanDistDir: true,
   optimizeFonts: true,
+
+  pageExtensions: ['tsx', 'mdx'],
+
+  basePath: __isGithub__ ? '/Giffy' : '',
+  assetPrefix: __isGithub__ ? '/Giffy/' : '',
+
   typescript: {
     ignoreBuildErrors: true,
   },
-
-  basePath: __isProd__ ? '/Giffy' : '',
-  assetPrefix: __isProd__ ? '/Giffy/' : '',
 
   webpack: (config, { dev, isServer }) => {
     // Replace React with Preact only in client production build
@@ -27,4 +32,4 @@ const nextConfig = {
   },
 }
 
-module.exports = nextConfig
+module.exports = Plugins([], nextConfig)

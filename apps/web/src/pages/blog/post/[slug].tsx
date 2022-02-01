@@ -1,29 +1,25 @@
 import React from 'react'
-
 import { GetStaticPaths, GetStaticProps } from 'next'
-import fs from 'fs'
-import grayMatter from 'gray-matter'
+import { MDXRemote } from 'next-mdx-remote'
 
-import { serialize } from 'next-mdx-remote/serialize'
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
-
-type Metadata = {
-  title: string
-  createdAt: number
-  description: string
-  thumbnailUrl: string
-  tags: string[]
-}
+import { Post, getAllPosts, getPostBySlug, MDX } from '@lib/posts'
 
 type PostProps = {
-  mdx: MDXRemoteSerializeResult<Record<string, unknown>>
-  metadata: Metadata
-  content: any
+  mdx: MDX
+  post: Post
 }
 
-const components = {}
+export const Title = () => {
+  return <h1>hello world</h1>
+}
 
-const Post: React.FC<PostProps> = ({ metadata, mdx }) => {
+const components = {
+  Title,
+}
+
+export default function PostPage({ post, mdx }: PostProps) {
+  const { metadata } = post
+
   return (
     <div>
       <p>{metadata.title}</p>
@@ -33,14 +29,11 @@ const Post: React.FC<PostProps> = ({ metadata, mdx }) => {
   )
 }
 
-export default Post
-
 export const getStaticPaths: GetStaticPaths = async () => {
-  const files = fs.readdirSync('./src/posts')
-
-  const paths = files.map(file => ({
+  const { posts } = getAllPosts()
+  const paths = posts.map(({ metadata }) => ({
     params: {
-      slug: file.replace('.mdx', ''),
+      slug: metadata.slug,
     },
   }))
 
@@ -51,10 +44,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const slug = params?.slug
-  const file = fs.readFileSync(`./src/posts/${slug}.mdx`, 'utf-8')
+  const slug = params?.slug as string
 
-  if (!file) {
+  const { mdx, post } = await getPostBySlug({ slug })
+
+  if (!post || !mdx) {
     return {
       redirect: {
         destination: '/blog',
@@ -63,17 +57,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     }
   }
 
-  const { content, data: metadata } = grayMatter(file)
-  const mdx = await serialize(content)
-
   return {
     props: {
       mdx,
-      content,
-      metadata: {
-        ...metadata,
-        slug,
-      },
+      post,
     },
   }
 }

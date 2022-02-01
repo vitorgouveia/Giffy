@@ -1810,11 +1810,8 @@ __metadata:
     postcss-preset-env: ^7.2.3
     postcss-reporter: ^7.0.5
     postcss-scss: ^4.0.3
-    release-it: ^14.12.3
     rimraf: ^3.0.2
     sass: ^1.49.0
-  peerDependencies:
-    postcss: ^8.4.5
   languageName: unknown
   linkType: soft
 
@@ -1880,6 +1877,7 @@ __metadata:
     eslint-config-next: 12.0.8
     gray-matter: ^4.0.3
     next: 12.0.8
+    next-compose-plugins: ^2.2.1
     next-mdx-remote: ^3.0.8
     preact: ^10.6.4
     preact-render-to-string: ^5.1.19
@@ -12105,6 +12103,13 @@ __metadata:
   dependencies:
     type-fest: ^0.4.1
   checksum: 70c8d2fe9b12e3b045cc4e7f57be227686daa55be4697e95439de120b5872c1e3c0f6bc8ea7e0435a107fefc7aadf1b9b985524168ae166c92c3322d9901b68f
+  languageName: node
+  linkType: hard
+
+"next-compose-plugins@npm:^2.2.1":
+  version: 2.2.1
+  resolution: "next-compose-plugins@npm:2.2.1"
+  checksum: 771762fda2b12b81daf10431cbb494816cff96be02b44009692c6c0eefbacd62cbf51ddb93af8d3380ec00254c6a95d64d10f744d4b9ddadefc21efee7dc69fc
   languageName: node
   linkType: hard
 

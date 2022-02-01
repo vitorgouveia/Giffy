@@ -42,7 +42,7 @@ jobs:
 
       - name: Build @giffy/ui
         working-directory: ./packages/ui
-        run: yarn build
+        run: yarn gh-build
 
       - name: Build Storybook
         working-directory: ./packages/ui
