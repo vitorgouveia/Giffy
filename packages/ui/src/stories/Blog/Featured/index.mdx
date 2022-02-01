@@ -1,0 +1,57 @@
+import { Story } from '@storybook/addon-docs'
+
+# Featured
+
+The `Featured` component is meant to be used in the homepage, showing to highlight a post, but it can be used in other places.
+
+[Figma Frame](https://www.figma.com/file/JrvfChRpuKFnxZopbbAi3M/Giffy?node-id=117%3A257)
+
+<Canvas>
+  <Story id="blog-featured--default" />
+</Canvas>
+
+<br />
+<br />
+<br />
+
+## Props
+
+The `Featured` component has 8 props
+
+- tags, an array of [tags](#tags-type)
+- title, the title of the post
+- type, the type of the post
+- description, the description of the post
+- createdAt, a [ISO string Date](#iso-date-javascript) of when the post was created
+- readTime, an approximate of how much it would take to read the post
+- tagsPath, tags page url
+- variant, the size variant of the post
+
+<br />
+
+<h3 id="tags-type">ISO String Date</h3>
+
+```ts
+type Tag = {
+  label: string
+}
+```
+
+<br />
+
+<h3 id="iso-date-javascript">ISO String Date</h3>
+
+```js
+const date = new Date().toISOString()
+```
+
+| _Prop_                            | _Type_   | Required |
+| --------------------------------- | -------- | -------- |
+| [tags](#tags-type)                | _array_  | true     |
+| title                             | _string_ | true     |
+| type                              | _string_ | true     |
+| description                       | _string_ | true     |
+| [createdAt](#iso-date-javascript) | _string_ | true     |
+| readTime                          | _string_ | true     |
+| tagsPath                          | _string_ | true     |
+| variant                           | _string_ | false    |

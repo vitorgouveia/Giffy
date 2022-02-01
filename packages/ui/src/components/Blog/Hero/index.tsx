@@ -82,7 +82,7 @@ export const Hero: React.FC<HeroProps> = ({
                 >
                   {({ key, label }) => (
                     <li key={key}>
-                      <Tag href={`${tagsPath}/${label}`} label={label!} />
+                      <Tag tagsPath={tagsPath} label={label!} />
                     </li>
                   )}
                 </List>

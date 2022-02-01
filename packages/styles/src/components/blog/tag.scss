@@ -19,6 +19,7 @@
 
   strong {
     color: var(--white);
-    @include Font(9px, 700, 11px);
+    @include Font(11px, 700, auto);
+    line-height: normal;
   }
 }

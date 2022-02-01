@@ -19,6 +19,7 @@
 @use "./components/blog/tag.scss";
 @use "./components/blog/category.scss";
 @use "./components/download-button.scss";
+@use "./components/blog/post.scss";
 
 @import url("https://cdn.skypack.dev/-/sanitize.css@v13.0.0-9hf8PtILaGjq3949IzOc/dist=es2019,mode=raw/sanitize.css");
 @import url("https://unpkg.com/sanitize.css/forms.css");
