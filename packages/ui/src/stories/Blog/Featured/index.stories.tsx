@@ -57,18 +57,3 @@ const Template: ComponentStory<typeof Featured> = (args: FeaturedProps) => (
 
 export const Default = Template.bind({})
 Default.args = {} as FeaturedProps
-
-export const Small = Template.bind({})
-Small.args = {
-  variant: 'small',
-} as FeaturedProps
-
-export const Medium = Template.bind({})
-Medium.args = {
-  variant: 'medium',
-} as FeaturedProps
-
-export const Large = Template.bind({})
-Large.args = {
-  variant: 'large',
-} as FeaturedProps

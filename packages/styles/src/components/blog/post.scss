@@ -218,22 +218,22 @@
   }
 }
 
-.small.featured-post {
+.small.post {
   @include small();
 }
 
-.medium.featured-post {
+.medium.post {
   @include small();
   @include medium();
 }
 
-.large.featured-post {
+.large.post {
   @include small();
   @include medium();
   @include large();
 }
 
-.featured-post {
+.post {
   @include small();
 
   @include useMediaQuery(tablet) {
