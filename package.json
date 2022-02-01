@@ -16,7 +16,7 @@
     "styles:start": "yarn workspace @giffy/styles start",
     "ui:build": "yarn workspace @giffy/ui build",
     "web:storybook": "yarn workspace @giffy/ui build-storybook-nextjs",
-    "web:build": "yarn workspace @giffy/web build",
+    "web:build": "yarn workspace @giffy/web gh-build",
     "web:export": "yarn workspace @giffy/web export",
     "zip:web": "npx node-zip -c web.zip ./apps/web/out",
     "zip:ui": "npx node-zip -c ui.zip ./packages/ui/dist",
