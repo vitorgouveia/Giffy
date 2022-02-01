@@ -14,6 +14,7 @@ export type FeaturedProps = {
   createdAt: string
   readTime: string
   tagsPath: string
+  variant?: 'small' | 'medium' | 'large'
 }
 
 export const Featured: React.FC<FeaturedProps> = ({
@@ -24,19 +25,25 @@ export const Featured: React.FC<FeaturedProps> = ({
   description,
   createdAt,
   readTime,
+  variant,
 }) => {
   const smallFormattedDescription = `${description.substr(0, 120)}...`
   const formattedDescription = `${description.substr(0, 500)}...`
 
   const formattedDate = dateToString(createdAt)
 
-  return (
-    <div className="featured-post">
-      <div className="featured-post-image" />
+  const prefix = 'giffy_css'
+  // const className = !!variant
+  //   ? `${prefix}-featured-post-${variant}`
+  //   : `${prefix}-featured-post`
 
-      <header className="featured-post-information">
-        <div className="featured-post-information-main">
-          <ul className="featured-post-information-main-tags">
+  return (
+    <div className={`${prefix}-featured-post ${prefix}-${variant}`}>
+      <div className="image" />
+
+      <header className="information">
+        <div className="main">
+          <ul className="tags">
             <List<TagProps>
               data={tags.slice(0, 10)}
               keyExtractor={({ label }) => label!}
@@ -49,17 +56,11 @@ export const Featured: React.FC<FeaturedProps> = ({
             </List>
           </ul>
 
-          <div
-            data-size="small"
-            className="featured-post-information-main-type"
-          >
+          <div data-size="small" className="type">
             <strong>{type}</strong>
           </div>
 
-          <div
-            data-size="medium"
-            className="featured-post-information-main-type"
-          >
+          <div data-size="medium" className="type">
             <strong>
               {type} · <span>{formattedDate}</span>
             </strong>
@@ -67,22 +68,16 @@ export const Featured: React.FC<FeaturedProps> = ({
 
           <Heading variant="h2" as="h2" label={title} />
 
-          <div
-            data-size="medium"
-            className="featured-post-information-main-description"
-          >
+          <div data-size="medium" className="description">
             <Text label={formattedDescription} />
           </div>
 
-          <div
-            data-size="small"
-            className="featured-post-information-main-description"
-          >
+          <div data-size="small" className="description">
             <Text label={smallFormattedDescription} />
           </div>
         </div>
 
-        <div className="featured-post-information-footer">
+        <div className="footer">
           <ul>
             <List<TagProps>
               data={tags.slice(0, 4)}

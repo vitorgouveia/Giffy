@@ -1,7 +1,7 @@
 @import "../../lib/hooks/useMediaQuery.scss";
 @import "../../lib/font.scss";
 
-.featured-post {
+@mixin small {
   width: 100%;
   height: 100%;
 
@@ -14,7 +14,7 @@
     height: 50%;
   }
 
-  &-image {
+  .image {
     width: 100%;
     z-index: 5;
 
@@ -23,7 +23,7 @@
     border-radius: 6px;
   }
 
-  &-information {
+  .information {
     margin-top: -6px;
     width: 100%;
     height: max-content;
@@ -42,18 +42,18 @@
 
     gap: 20px;
 
-    &-main {
+    .main {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
 
       gap: 10px;
 
-      &-tags {
+      .tags {
         display: none;
       }
 
-      &-type {
+      .type {
         &[data-size="medium"] {
           display: none;
         }
@@ -69,7 +69,7 @@
         @include Font(24px, 700, 24px);
       }
 
-      &-description {
+      .description {
         display: none;
 
         &[data-size="small"] {
@@ -82,7 +82,7 @@
       }
     }
 
-    &-footer {
+    .footer {
       width: 100%;
 
       display: flex;
@@ -107,208 +107,140 @@
       }
     }
   }
+}
 
-  @include useMediaQuery(tablet) {
-    &-image {
-      height: 70%;
-    }
+@mixin medium {
+  .image {
+    height: 70%;
+  }
 
-    &-information {
-      height: 30%;
-      border: none;
-      padding: 20px 0;
+  .information {
+    height: 30%;
+    border: none;
+    padding: 20px 0;
 
-      &-main {
-        gap: 12px;
+    .main {
+      gap: 12px;
 
-        &-type {
-          &[data-size="small"] {
-            display: none;
-          }
+      .type {
+        &[data-size="small"] {
+          display: none;
+        }
 
-          &[data-size="medium"] {
-            display: flex;
+        &[data-size="medium"] {
+          display: flex;
 
-            strong {
-              span {
-                color: var(--white);
-              }
+          strong {
+            span {
+              color: var(--white);
             }
           }
         }
-
-        h2 {
-          @include Font(28px, 700, 28px);
-        }
-
-        &-description {
-          p {
-            filter: opacity(0.5);
-            @include Font(18px, 400, 16px);
-          }
-
-          &[data-size="small"] {
-            display: flex;
-          }
-        }
       }
 
-      &-footer {
-        display: none;
+      h2 {
+        @include Font(28px, 700, 28px);
       }
+
+      .description {
+        p {
+          filter: opacity(0.5);
+          @include Font(18px, 400, 16px);
+        }
+
+        &[data-size="small"] {
+          display: flex;
+        }
+      }
+    }
+
+    .footer {
+      display: none;
     }
   }
+}
 
-  @include useMediaQuery(laptop) {
-    flex-direction: row;
-    align-items: flex-end;
+@mixin large {
+  flex-direction: row;
+  align-items: flex-end;
 
-    &-image {
-      width: 60%;
-      height: 100%;
-    }
+  .image {
+    width: 60%;
+    height: 100%;
+  }
 
-    &-information {
-      margin-top: 0;
-      width: 40%;
-      height: 100%;
+  .information {
+    margin-top: 0;
+    width: 40%;
+    height: 100%;
 
-      padding: 0px 30px;
+    padding: 0px 30px;
 
-      &-main {
-        &-tags {
+    .main {
+      .tags {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .type {
+        strong {
+          @include Font(18px, 700, 18px);
+        }
+
+        &[data-size="small"] {
           display: flex;
-          align-items: center;
-          gap: 4px;
         }
 
-        &-type {
-          strong {
-            @include Font(18px, 700, 18px);
-          }
-
-          &[data-size="small"] {
-            display: flex;
-          }
-
-          &[data-size="medium"] {
-            display: none;
-          }
-        }
-
-        &-description {
-          &[data-size="small"] {
-            display: none;
-          }
-
-          &[data-size="medium"] {
-            display: flex;
-          }
+        &[data-size="medium"] {
+          display: none;
         }
       }
 
-      &-footer {
-        display: flex;
-
-        ul {
+      .description {
+        &[data-size="small"] {
           display: none;
         }
+
+        &[data-size="medium"] {
+          display: flex;
+        }
+      }
+    }
+
+    .footer {
+      display: flex;
+
+      ul {
+        display: none;
       }
     }
   }
 }
 
-// &-image {
-//     width: 100%;
-//     height: 437px;
-    
-//     border-radius: 6px;
+.small.featured-post {
+  @include small();
+}
 
-//     background: var(--stroke);
-//   }
+.medium.featured-post {
+  @include small();
+  @include medium();
+}
 
-//   &-information {
-//     width: 100%;
-//     height: 100%;
+.large.featured-post {
+  @include small();
+  @include medium();
+  @include large();
+}
 
-//     display: flex;
-//     flex-direction: column;
+.featured-post {
+  @include small();
 
-//     gap: 16px;
-    
-//     padding: 0 30px;
+  @include useMediaQuery(tablet) {
+    @include medium();
+  }
 
-//     &-main {
-//       width: 100%;
-//       height: 80%;
-
-//       display: flex;
-//       flex-direction: column;
-
-//       align-items: flex-start;
-
-//       gap: 22px;
-
-//       &-tags {
-//         display: flex;
-//         align-items: center;
-//         gap: 4px;
-//       }
-
-//       &-description {
-//         &-normal {
-//           display: none;
-//         }
-
-//         &-small {
-//           display: block;
-//         }
-//       }
-//     }
-
-//     &-footer {
-//       display: flex;
-//       align-items: flex-end;
-//       justify-content: flex-start;
-//       height: 20%;
-//       p {
-//         @include Font(20px, 400, 24px);
-//         color: var(--white);
-//       }
-//     }
-//   }
-
-//   @include useMediaQuery(tablet) {
-//     &-information {
-//       &-main {
-//         &-description {
-//           &-normal {
-//             display: block;
-//           }
-
-//           &-small {
-//             display: none;
-//           }
-//         }
-//       }
-//     }
-//   }
-
-//   @include useMediaQuery(laptop) {
-//     height: 430px;
-
-//     gap: 0;
-
-//     flex-direction: row;
-
-//     &-information {
-//       width: 30%;
-
-//       gap: 0;
-//     }
-
-//     &-image {
-//       width: 70%;
-//       height: 100%;
-//     }
-//   }
+  @include useMediaQuery(laptop) {
+    @include large();
+  }
+}

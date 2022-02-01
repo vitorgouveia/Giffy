@@ -15,23 +15,20 @@ export default {
 } as ComponentMeta<typeof Featured>
 
 const Template: ComponentStory<typeof Featured> = (args: FeaturedProps) => (
-  <Featured {...args} />
-)
-
-export const Default = Template.bind({})
-Default.args = {
-  createdAt: '2022-01-26T05:03:52.518Z',
-  type: 'post',
-  readTime: '10 min',
-  tags: [
-    { label: 'javascript', tagsPath: '/blog/tags' },
-    { label: 'graphql', tagsPath: '/blog/tags' },
-    { label: 'reactjs', tagsPath: '/blog/tags' },
-    { label: 'html', tagsPath: '/blog/tags' },
-    { label: 'jsx', tagsPath: '/blog/tags' },
-  ],
-  title: 'This is my first post uhuuuu',
-  description: `
+  <Featured
+    {...args}
+    createdAt="2022-01-26T05:03:52.518Z"
+    type="post"
+    readTime="10 min"
+    tags={[
+      { label: 'javascript', tagsPath: '/blog/tags' },
+      { label: 'graphql', tagsPath: '/blog/tags' },
+      { label: 'reactjs', tagsPath: '/blog/tags' },
+      { label: 'html', tagsPath: '/blog/tags' },
+      { label: 'jsx', tagsPath: '/blog/tags' },
+    ]}
+    title="This is my first post uhuuuu"
+    description={`
     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     Integer egestas finibus posuere. Vivamus molestie ut lacus
     maximus ornare. Mauris rhoncus, metus sit amet scelerisque
@@ -54,5 +51,24 @@ Default.args = {
     faucibus. Maecenas ultrices rutrum luctus. Curabitur
     ac nibh aliquam, laoreet erat ut, facilisis magna. 
     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-  `,
+  `}
+  />
+)
+
+export const Default = Template.bind({})
+Default.args = {} as FeaturedProps
+
+export const Small = Template.bind({})
+Small.args = {
+  variant: 'small',
+} as FeaturedProps
+
+export const Medium = Template.bind({})
+Medium.args = {
+  variant: 'medium',
+} as FeaturedProps
+
+export const Large = Template.bind({})
+Large.args = {
+  variant: 'large',
 } as FeaturedProps
