@@ -3,8 +3,8 @@ import React from 'react'
 import { Text } from '../Text'
 import { Heading } from '../Heading'
 
-import AppleLogo from '../../assets/apple.svg'
-import GooglePlayLogo from '../../assets/google.svg'
+import { Apple } from '../../icons/apple'
+import { Google } from '../../icons/google'
 
 export type DownloadButtonProps = {
   store: 'App Store' | 'Google Play'
@@ -28,7 +28,7 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({
       </header>
 
       <div className="download-button-store-logo">
-        {isApple ? <AppleLogo /> : <GooglePlayLogo />}
+        {isApple ? <Apple /> : <Google />}
       </div>
     </button>
   )

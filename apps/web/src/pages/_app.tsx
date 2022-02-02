@@ -5,15 +5,11 @@ import { DefaultSeo } from 'next-seo'
 
 import { prefixClassNames } from '@utils/prefixClassNames'
 import { ThemeProvider } from 'styled-components'
+import { UIProvider } from '@giffy/ui'
+import { defaultTitle, titleTemplate, author, description } from '@lib/seo'
+
 import '@giffy/styles'
 import { theme } from '@styles/theme'
-import {
-  defaultTitle,
-  titleTemplate,
-  author,
-  description,
-  blog,
-} from '@lib/seo'
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   useEffect(() => {
@@ -49,7 +45,13 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
       />
 
       <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
+        <UIProvider
+          blog={{ tagsPath: '/blog/tags', postsPath: '/blog/post' }}
+          homepage="/"
+          prefix="giffy_css"
+        >
+          <Component {...pageProps} />
+        </UIProvider>
       </ThemeProvider>
     </React.Fragment>
   )

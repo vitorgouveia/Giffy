@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Header, Footer } from '@giffy/ui'
-import { Post } from '@lib/posts'
+import { Post } from '@giffy/types'
 
 type BlogLayoutProps = {
   post?: Post

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import LogoImg from '../assets/logo.png'
+import LogoImg from '../icons/logo.png'
 
 export const Logo: React.FC = () => {
   return (

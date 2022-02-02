@@ -2,7 +2,8 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { MDXRemote } from 'next-mdx-remote'
 import { NextSeo, ArticleJsonLd } from 'next-seo'
 
-import { Post, getAllPosts, getPostBySlug, MDX } from '@lib/posts'
+import { getAllPosts, getPostBySlug, MDX } from '@lib/posts'
+import { Post } from '@giffy/types'
 import { components } from '@modules/blog/components'
 import { BlogLayout } from '@modules/layout/BlogLayout'
 

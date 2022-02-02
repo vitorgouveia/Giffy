@@ -1,7 +1,7 @@
 import React from 'react'
 import { FiMail } from 'react-icons/fi'
 
-import Mailbox from '@assets/mailbox.svg'
+import { Mailbox } from '../../../icons/mailbox'
 import { Heading } from '../../Heading'
 import { Text } from '../../Text'
 import { Input } from '../../Input'
@@ -24,7 +24,6 @@ export const Newsletter: React.FC<NewsletterProps> = ({
   description = 'Enter the newsletter and get to know when new posts are published and receive exclusive newsletter-only content.',
   onSubmit,
 }) => {
-  console.log(Mailbox)
   const emailFieldId = 'newsletter-email'
 
   async function handleFormSubmit(data: FormSchema) {
@@ -63,7 +62,6 @@ export const Newsletter: React.FC<NewsletterProps> = ({
         </Form>
       </header>
 
-      {/* <Mailbox /> */}
       <Mailbox className="newsletter-img" />
     </section>
   )
