@@ -2,7 +2,7 @@
   "presets": ["next/babel"],
   "plugins": [
     ["styled-components", {
-      "ssr": false
+      "ssr": true
     }]
   ]
 }

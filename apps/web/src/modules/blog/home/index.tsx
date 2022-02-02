@@ -1,4 +1,5 @@
 import React from 'react'
+import { NextSeo, ArticleJsonLd } from 'next-seo'
 
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
@@ -56,9 +57,68 @@ export const Home: React.FC<HomeProps> = ({ featured, posts }) => {
     return tags
   }, [posts])
 
+  const title = 'Explore the latest and greatest from Giffy Developer Team!'
+  const description =
+    'Join other Devs and enter our tech blog, explore tutorials, product design principles, app architecture, data layers and more.'
+  const defaultTitle = 'Giffy Blog'
+  const baseURL = 'https://vitorgouveia.github.io/Giffy'
+  const authors = featured.post.metadata.authors
+    .map(author =>
+      author.replace(' ', '-').toLocaleLowerCase().normalize('NFD')
+    )
+    .map(
+      formattedAuthorName => `${baseURL}/blog/authors/${formattedAuthorName}`
+    )
+  /**
+   * Vitor Neves Gomes Gouveia -> https://vitorgouveia.github.io/Giffy/blog/authors/vitor-neves-gomes-gouveia
+   */
+
   return (
     <React.Fragment>
       {/* here goes SEO config */}
+      <ArticleJsonLd
+        type="Blog"
+        url={`${baseURL}/blog`}
+        title={`${title} | ${defaultTitle}`}
+        description={description}
+        images={[featured.post.metadata.thumbnailUrl]}
+        datePublished={new Date(featured.post.metadata.createdAt).toISOString()}
+        dateModified={new Date(featured.post.metadata.updatedAt).toISOString()}
+        authorName={featured.post.metadata.authors}
+      />
+
+      <NextSeo
+        title={title}
+        defaultTitle={defaultTitle}
+        titleTemplate={`%s | ${defaultTitle}`}
+        description={description}
+        openGraph={{
+          title: `${title} | ${title}`,
+          description,
+          url: `${baseURL}/blog`,
+          type: 'article',
+          site_name: 'Giffy',
+          article: {
+            publishedTime: new Date(
+              featured.post.metadata.createdAt
+            ).toISOString(),
+            modifiedTime: new Date(
+              featured.post.metadata.updatedAt
+            ).toISOString(),
+            section: featured.post.metadata.type,
+            authors,
+            tags: featured.post.metadata.tags,
+          },
+          images: [
+            {
+              url: featured.post.metadata.thumbnailUrl,
+              width: 1160,
+              height: 400,
+              alt: 'Thumbnail URL',
+            },
+          ],
+        }}
+      />
 
       <Header />
 
