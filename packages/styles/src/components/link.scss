@@ -18,7 +18,5 @@
 
   &:visited, &[data-visited=true] {
     color: var(--accent-dark);
-    background-image: linear-gradient(var(--accent-dark), var(--accent-dark));
-    background-size: 100% 1px;
   }
 }

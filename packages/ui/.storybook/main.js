@@ -1,3 +1,5 @@
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
+
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
@@ -18,6 +20,14 @@ module.exports = {
         },
       ],
     })
+
+    config.module.rules.push({
+      test: /\.svg$/,
+      exclude: /node_modules/,
+      loader: 'svg-inline-loader',
+    })
+
+    config.resolve.plugins.push(new TsconfigPathsPlugin())
 
     return config
   },

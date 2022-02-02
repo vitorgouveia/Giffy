@@ -5,6 +5,7 @@ import typescript from '@rollup/plugin-typescript'
 import files from '@rollup/plugin-image'
 import { terser } from 'rollup-plugin-terser'
 import progress from 'rollup-plugin-progress'
+import { typescriptPaths } from 'rollup-plugin-typescript-paths'
 
 export default [
   {
@@ -23,6 +24,7 @@ export default [
       files(),
       terser(),
       progress(),
+      typescriptPaths(),
     ],
   },
 ]

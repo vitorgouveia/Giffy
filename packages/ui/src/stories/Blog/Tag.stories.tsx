@@ -1,8 +1,8 @@
 import React from 'react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { UIProvider } from '@context/UIContext'
 
 import { Tag, TagProps } from '../../components/Blog/Tag'
-
-import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 export default {
   title: 'Blog/Tag',
@@ -10,7 +10,13 @@ export default {
 } as ComponentMeta<typeof Tag>
 
 const Template: ComponentStory<typeof Tag> = (args: TagProps) => (
-  <Tag {...args} />
+  <UIProvider
+    prefix="giffy_css"
+    homepage="/blog"
+    blog={{ tagsPath: '/blog/tags', postsPath: '/blog/posts' }}
+  >
+    <Tag {...args} />
+  </UIProvider>
 )
 
 export const Default = Template.bind({})

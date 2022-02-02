@@ -23,6 +23,7 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
+    "@giffy/types": "*",
     "@mdx-js/react": "^1.6.22",
     "@rollup/plugin-image": "^2.1.1",
     "@rollup/plugin-node-resolve": "^13.1.3",
@@ -41,7 +42,9 @@
     "@types/react-dom": "^17.0.11",
     "babel-loader": "^8.2.3",
     "babel-plugin-inline-react-svg": "^2.0.1",
+    "babel-plugin-module-resolver": "^4.1.0",
     "babel-preset-minify": "^0.5.1",
+    "next": "12.0.8",
     "npm-run-all": "^4.1.5",
     "react": "17.0.2",
     "react-classname-prefix-loader": "^1.0.8",
@@ -52,10 +55,14 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-progress": "^1.1.2",
     "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript-paths": "^1.3.0",
+    "svg-inline-loader": "^0.8.2",
+    "tsconfig-paths-webpack-plugin": "^3.5.2",
     "typescript": "^4.5.5"
   },
   "peerDependencies": {
     "@giffy/styles": "*",
+    "next": "12.0.8",
     "react": "*",
     "typescript": "^4.5.5"
   },

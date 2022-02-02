@@ -5,7 +5,7 @@ import { Link, LinkProps } from '../../Link'
 import { Heading } from '../../Heading'
 import { Modal } from '../../Modal'
 
-import { List } from '../../../lib/List'
+import { List } from '@lib/List'
 
 export type CategoryProps = {
   label: string

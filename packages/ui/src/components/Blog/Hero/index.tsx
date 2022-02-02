@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import Link from 'next/link'
 
 import { Button } from '../../Button'
 import { Heading } from '../../Heading'
 import { Text } from '../../Text'
-import { Tag, TagProps } from '../Tag'
+import { Tag } from '../Tag'
 import { dateToString } from '../../../utils/dateToString'
 
+import { Post } from '@giffy/types'
 import { List } from '../../../lib/List'
+import { UIContext } from '../../../context/UIContext'
 
 type Button = {
   label: string
@@ -14,19 +17,8 @@ type Button = {
   onClick: () => void | Promise<void>
 }
 
-type Post = {
-  tags: TagProps[]
-  title: string
-  description: string
-  createdAt: string
-  readTime: string
-  thumbnailUrl: string
-}
-
 export type HeroProps = {
   post: Post
-  postHref: string
-  tagsPath: string
   headings: {
     sub: string
     main: string
@@ -34,17 +26,18 @@ export type HeroProps = {
   labels: [Button, Button]
 }
 
-export const Hero: React.FC<HeroProps> = ({
-  labels,
-  headings,
-  post,
-  tagsPath,
-  postHref,
-}) => {
-  const smallFormattedDescription = `${post.description.substr(0, 120)}...`
-  const formattedDescription = `${post.description.substr(0, 320)}...`
+export const Hero: React.FC<HeroProps> = ({ labels, headings, post }) => {
+  const smallFormattedDescription = `${post.metadata.description.substr(
+    0,
+    120
+  )}...`
+  const formattedDescription = `${post.metadata.description.substr(0, 320)}...`
 
   const [left, right] = labels
+
+  const { blog } = useContext(UIContext)
+  const { postsPath } = blog
+  const postLink = `${postsPath}/${post.metadata.slug}`
 
   return (
     <section className="blog-hero">
@@ -60,13 +53,15 @@ export const Hero: React.FC<HeroProps> = ({
         <footer className="blog-hero-header-buttons">
           <List<Button> data={[left, right]} keyExtractor={({ href }) => href}>
             {({ href, onClick, label }, index) => (
-              <a key={href} tabIndex={0} href={href}>
-                <Button
-                  onClick={onClick}
-                  label={label}
-                  variant={index === 0 ? 'primary' : 'outlined'}
-                />
-              </a>
+              <Link key={href} href={href}>
+                <a tabIndex={0}>
+                  <Button
+                    onClick={onClick}
+                    label={label}
+                    variant={index === 0 ? 'primary' : 'outlined'}
+                  />
+                </a>
+              </Link>
             )}
           </List>
         </footer>
@@ -75,28 +70,30 @@ export const Hero: React.FC<HeroProps> = ({
       <main className="blog-hero-content">
         <section className="blog-hero-content-post">
           <div className="blog-hero-content-post-image">
-            <a href={postHref}>
-              <img src={post.thumbnailUrl} alt="Featured Post Thumbnail" />
-            </a>
+            <Link href={postLink}>
+              <a href={postsPath}>
+                <img
+                  src={post.metadata.thumbnailUrl}
+                  alt="Featured Post Thumbnail"
+                />
+              </a>
+            </Link>
           </div>
           <header className="blog-hero-content-post-information">
             <div className="blog-hero-content-post-information-main">
               <ul className="blog-hero-content-post-information-main-tags">
-                <List<TagProps>
-                  data={post.tags}
-                  keyExtractor={({ label }) => label!}
-                >
-                  {({ key, label }) => (
-                    <li key={key}>
-                      <Tag tagsPath={tagsPath} label={label!} />
-                    </li>
-                  )}
-                </List>
+                {post.metadata.tags.map(tag => (
+                  <li key={tag}>
+                    <Tag label={tag} />
+                  </li>
+                ))}
               </ul>
 
-              <a href={postHref}>
-                <Heading variant="h2" as="h2" label={post.title} />
-              </a>
+              <Link href={postLink}>
+                <a tabIndex={0}>
+                  <Heading variant="h2" as="h2" label={post.metadata.title} />
+                </a>
+              </Link>
 
               <div className="blog-hero-content-post-information-main-description-normal">
                 <Text label={formattedDescription} />
@@ -108,7 +105,8 @@ export const Hero: React.FC<HeroProps> = ({
             </div>
             <div className="blog-hero-content-post-information-footer">
               <p>
-                {dateToString(post.createdAt)} · {post.readTime}
+                {dateToString(post.metadata.createdAt)} ·{' '}
+                {post.metadata.readTime}
               </p>
             </div>
           </header>
