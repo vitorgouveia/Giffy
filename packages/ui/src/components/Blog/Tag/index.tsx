@@ -1,21 +1,27 @@
-import React, { AnchorHTMLAttributes } from 'react'
+import React, { AnchorHTMLAttributes, useContext } from 'react'
+import Link from 'next/link'
+
+import { UIContext } from '@context/UIContext'
 
 export type TagProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
-  label?: string
-  tagsPath: string
+  label: string
 }
 
 export const Tag: React.FC<TagProps> = ({
   label,
   children,
   className,
-  href,
-  tagsPath,
+  href: _,
   ...rest
 }) => {
+  const { blog } = useContext(UIContext)
+  const { tagsPath } = blog
+
   return (
-    <a tabIndex={0} href={`${tagsPath}/${label}`} {...rest} className="tag">
-      <strong>{label || children}</strong>
-    </a>
+    <Link href={`${tagsPath}/${label}`}>
+      <a tabIndex={0} {...rest} className="tag">
+        <strong>{label || children}</strong>
+      </a>
+    </Link>
   )
 }

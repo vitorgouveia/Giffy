@@ -15,10 +15,12 @@ const Template: ComponentStory<typeof Tab> = (args: TabProps) => (
 export const Default = Template.bind({})
 Default.args = {
   label: 'Giffy',
-}
+  href: '/my-link',
+} as TabProps
 
 export const Underline = Template.bind({})
 Underline.args = {
   label: 'Giffy',
   underline: true,
-}
+  href: '/my-link',
+} as TabProps

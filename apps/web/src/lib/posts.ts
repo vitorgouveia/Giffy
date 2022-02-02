@@ -1,28 +1,12 @@
-import grayMatter from 'gray-matter'
-import { readdirSync, readFileSync } from 'fs'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 
+import grayMatter from 'gray-matter'
+import { readdirSync, readFileSync } from 'fs'
+
+import { Post, Metadata } from '@giffy/types'
+
 export type MDX = MDXRemoteSerializeResult<Record<string, unknown>>
-
-export type Metadata = {
-  title: string
-  createdAt: number
-  updatedAt: number
-  readTime: string
-  description: string
-  type: string
-  thumbnailUrl: string
-  authors: string[]
-  tags: string[]
-  slug: string
-}
-
-export type Post = {
-  content: string
-
-  metadata: Metadata
-}
 
 export type MDXPost = {
   mdx: MDX

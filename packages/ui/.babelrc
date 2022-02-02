@@ -5,8 +5,6 @@
     "@babel/preset-typescript",
     "minify"
   ],
-  "plugins": [
-    "inline-react-svg"
-  ],
+  "plugins": [],
   "ignore": ["node_modules", "./src/stories", "src/**/*.mdx", "./src/@types"]
 }

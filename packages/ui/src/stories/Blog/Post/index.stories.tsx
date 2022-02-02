@@ -2,26 +2,26 @@ import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { UIProvider } from '@context/UIContext'
 
-import { Featured, FeaturedProps } from '../../../components/Blog/Featured'
+import { Post, PostProps } from '../../../components/Blog/Post'
 import Documentation from './index.mdx'
 
 export default {
-  title: 'Blog/Featured',
-  component: Featured,
+  title: 'Blog/Post',
+  component: Post,
   parameters: {
     docs: {
       page: Documentation,
     },
   },
-} as ComponentMeta<typeof Featured>
+} as ComponentMeta<typeof Post>
 
-const Template: ComponentStory<typeof Featured> = (args: FeaturedProps) => (
+const Template: ComponentStory<typeof Post> = (args: PostProps) => (
   <UIProvider
     prefix="giffy_css"
     homepage="/blog"
     blog={{ tagsPath: '/blog/tags', postsPath: '/blog/posts' }}
   >
-    <Featured
+    <Post
       {...args}
       content="my contnet"
       metadata={{
@@ -42,4 +42,19 @@ const Template: ComponentStory<typeof Featured> = (args: FeaturedProps) => (
 )
 
 export const Default = Template.bind({})
-Default.args = {} as FeaturedProps
+Default.args = {} as PostProps
+
+export const Small = Template.bind({})
+Small.args = {
+  variant: 'small',
+} as PostProps
+
+export const Medium = Template.bind({})
+Medium.args = {
+  variant: 'medium',
+} as PostProps
+
+export const Large = Template.bind({})
+Large.args = {
+  variant: 'large',
+} as PostProps

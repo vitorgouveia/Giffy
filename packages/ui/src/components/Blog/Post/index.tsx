@@ -1,79 +1,64 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import Link from 'next/link'
 
-import { List } from '../../../lib/List'
 import { dateToString } from '../../../utils/dateToString'
 import { Heading } from '../../Heading'
 import { Text } from '../../Text'
-import { Tag, TagProps } from '../Tag'
+import { Tag } from '../Tag'
 
-export type PostProps = {
-  tags: TagProps[]
-  title: string
-  type: string
-  description: string
-  createdAt: string
-  readTime: string
-  tagsPath: string
+import { UIContext } from '@context/UIContext'
+import { Post as IPost } from '@giffy/types'
+
+export type PostProps = IPost & {
   variant?: 'small' | 'medium' | 'large'
-  thumbnailUrl: string
-  postHref: string
 }
 
-export const Post: React.FC<PostProps> = ({
-  tags,
-  tagsPath,
-  type,
-  title,
-  description,
-  createdAt,
-  readTime,
-  variant,
-  thumbnailUrl,
-  postHref,
-}) => {
-  const smallFormattedDescription = `${description.substr(0, 120)}...`
-  const formattedDescription = `${description.substr(0, 500)}...`
+export const Post: React.FC<PostProps> = ({ metadata: post, variant }) => {
+  const { prefix, blog } = useContext(UIContext)
+  const { postsPath } = blog
 
-  const formattedDate = dateToString(createdAt)
+  const smallFormattedDescription = `${post.description.substr(0, 120)}...`
+  const formattedDescription = `${post.description.substr(0, 500)}...`
 
-  const prefix = 'giffy_css'
+  const formattedDate = dateToString(post.createdAt)
+
+  const link = `${postsPath}/${post.slug}`
 
   return (
     <div className={`${prefix}-post ${prefix}-${variant}`}>
       <div className="image">
-        <a href={postHref}>
-          <img src={thumbnailUrl} alt="Post thumbnail" />
-        </a>
+        <Link href={link}>
+          <a>
+            <img src={post.thumbnailUrl} alt="Post thumbnail" />
+          </a>
+        </Link>
       </div>
 
       <header className="information">
         <div className="main">
           <ul className="tags">
-            <List<TagProps>
-              data={tags.slice(0, 10)}
-              keyExtractor={({ label }) => label!}
-            >
-              {({ key, label }) => (
-                <li data-size="small" key={key}>
-                  <Tag tagsPath={tagsPath} href={label} label={label!} />
-                </li>
-              )}
-            </List>
+            {post.tags.map(tag => (
+              <li data-size="small" key={tag}>
+                <Tag label={tag} />
+              </li>
+            ))}
           </ul>
 
           <div data-size="small" className="type">
-            <strong>{type}</strong>
+            <strong>{post.type}</strong>
           </div>
 
           <div data-size="medium" className="type">
             <strong>
-              {type} · <span>{formattedDate}</span>
+              {post.type} · <span>{formattedDate}</span>
             </strong>
           </div>
 
-          <a href={postHref}>
-            <Heading variant="h2" as="h2" label={title} />
-          </a>
+          <Link href={link}>
+            <a>
+              <Heading variant="h2" as="h2" label={post.title} />
+            </a>
+          </Link>
 
           <div data-size="medium" className="description">
             <Text label={formattedDescription} />
@@ -86,19 +71,14 @@ export const Post: React.FC<PostProps> = ({
 
         <div className="footer">
           <ul>
-            <List<TagProps>
-              data={tags.slice(0, 4)}
-              keyExtractor={({ label }) => label!}
-            >
-              {({ key, ...rest }) => (
-                <li key={key}>
-                  <Tag {...rest} />
-                </li>
-              )}
-            </List>
+            {post.tags.slice(0, 3).map(tag => (
+              <li key={tag}>
+                <Tag label={tag} />
+              </li>
+            ))}
           </ul>
 
-          <Text label={`${dateToString(createdAt)} · ${readTime} read`} />
+          <Text label={`${formattedDate} · ${post.readTime} read`} />
         </div>
       </header>
     </div>

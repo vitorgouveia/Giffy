@@ -13,12 +13,13 @@ $filter: brightness(0.8);
 }
 
 .large-logo-container {
-  display: flex;
-  align-items: center;
-
   cursor: pointer;
-
-  gap: 10px;
+  
+  a {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+  }
 
   &:hover {
     .logo-icon {

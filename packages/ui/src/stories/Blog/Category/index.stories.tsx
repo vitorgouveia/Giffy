@@ -1,5 +1,6 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { UIProvider } from '@context/UIContext'
 
 import { Category, CategoryProps } from '../../../components/Blog/Category'
 import Documentation from './docs.mdx'
@@ -15,7 +16,13 @@ export default {
 } as ComponentMeta<typeof Category>
 
 const Template: ComponentStory<typeof Category> = (args: CategoryProps) => (
-  <Category {...args} />
+  <UIProvider
+    prefix="giffy_css"
+    homepage="/blog"
+    blog={{ tagsPath: '/blog/tags', postsPath: '/blog/posts' }}
+  >
+    <Category {...args} />
+  </UIProvider>
 )
 
 export const TopCategories = Template.bind({})
@@ -34,15 +41,19 @@ TopPosts.args = {
   links: [
     {
       label: 'Post 1',
+      href: '/post-1',
     },
     {
       label: 'Post 2',
+      href: '/post-2',
     },
     {
       label: 'Post 3',
+      href: '/post-3',
     },
     {
       label: 'Post 4',
+      href: '/post-4',
     },
   ],
 } as CategoryProps
