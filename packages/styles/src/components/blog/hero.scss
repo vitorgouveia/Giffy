@@ -1,4 +1,5 @@
 @import "../../lib/font.scss";
+@import "../../lib/transition.scss";
 @import "../../lib/hooks/useMediaQuery.scss";
 
 .blog-hero {
@@ -13,7 +14,7 @@
     flex-direction: column;
     align-items: center;
 
-    width: 60%;
+    width: 100%;
 
     gap: 32px;
     
@@ -35,7 +36,8 @@
       gap: 16px;
 
       > * button {
-        height: 40px;
+        height: 48px;
+        padding: 8px 28px;
         width: 100%;
       }
     }
@@ -60,31 +62,60 @@
       &-image {
         width: 100%;
         height: 437px;
+        border-radius: 6px;
+
+        a {
+          filter: brightness(0.8);
+          @include Transition();
+
+          &:hover, &:focus, &:active {
+            filter: brightness(0.9);
+          }
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 6px;
+        }
 
         background: var(--stroke);
       }
 
       &-information {
         width: 100%;
-        height: 100%;
 
         display: flex;
         flex-direction: column;
 
         gap: 16px;
-        
-        padding: 0 30px;
 
         &-main {
           width: 100%;
-          height: 80%;
 
           display: flex;
+          align-items: center;
           flex-direction: column;
 
           align-items: flex-start;
 
           gap: 22px;
+
+          a {
+            h2 {
+              display: inline;
+              background-image: linear-gradient(var(--accent), var(--accent));
+              background-size: 0% 3px;
+              background-repeat: no-repeat;
+              background-position: left bottom;
+              transition: all 357ms ease-out;
+            }
+
+            &:hover h2, &:active h2, &:focus h2 {
+              background-size: 100% 3px;
+            }
+          }
 
           &-tags {
             display: flex;
@@ -93,6 +124,8 @@
           }
 
           &-description {
+            overflow: hidden;
+
             &-normal {
               display: none;
             }
@@ -107,8 +140,9 @@
           display: flex;
           align-items: flex-end;
           justify-content: flex-start;
-          height: 20%;
+
           p {
+            cursor: text;
             @include Font(20px, 400, 24px);
             color: var(--white);
           }
@@ -119,6 +153,8 @@
 
   @include useMediaQuery(tablet) {
     &-header {
+      width: 60%;
+
       &-buttons {
         width: max-content;
         flex-direction: row;
@@ -135,6 +171,8 @@
         &-information {
           &-main {
             &-description {
+              cursor: text;
+
               &-normal {
                 display: block;
               }
@@ -160,8 +198,23 @@
 
         &-information {
           width: 30%;
+          height: 100%;
+          justify-content: space-between;
+
+          padding: 0 30px;
+
 
           gap: 0;
+
+          &-main {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 21px auto 1fr;
+
+            &-description {
+              overflow: hidden;
+            }
+          }
         }
 
         &-image {

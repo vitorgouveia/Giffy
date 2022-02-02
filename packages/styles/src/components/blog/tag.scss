@@ -4,7 +4,7 @@
   width: max-content;
   padding: 4px;
   border-radius: 2px;
-  background: #FF6666;
+  background: var(--accent);
 
   cursor:  pointer;
   transition: filter 200ms;
@@ -12,6 +12,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  ::selection {
+    background: var(--accent-dark);
+  }
 
   &:hover, &:focus, &:active {
     filter: brightness(0.8);

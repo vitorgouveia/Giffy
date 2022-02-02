@@ -4,9 +4,12 @@
 .blog-header {
   width: 100%;
 
-  position: relative;
+  z-index: 50;
 
-  padding: 20px 40px;
+  top: 0px;
+  position: fixed;
+
+  padding: 40px;
 
   display: flex;
   align-items: center;
@@ -39,6 +42,8 @@
   }
 
   @include useMediaQuery(tablet) {
+    padding: 20px 40px;
+
     &-logo {
       strong {
         display: block;

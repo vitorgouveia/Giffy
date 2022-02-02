@@ -1,11 +1,12 @@
 @import "../../lib/hooks/useMediaQuery.scss";
 @import "../../lib/font.scss";
+@import "../../lib/transition.scss";
 
 @mixin small {
   width: 100%;
   height: 100%;
 
-  max-height: 500px;
+  height: max-content;
 
   display: flex;
   flex-direction: column;
@@ -17,6 +18,22 @@
   .image {
     width: 100%;
     z-index: 5;
+    
+    a {
+      filter: brightness(0.8);
+      @include Transition();
+
+      &:hover, &:focus, &:active {
+        filter: brightness(0.9);
+      }
+    }
+    
+    img {
+      border-radius: 6px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
     background: var(--dark-blue);
 
@@ -53,6 +70,21 @@
         display: none;
       }
 
+      a {
+        h2 {
+          display: inline;
+          background-image: linear-gradient(var(--accent), var(--accent));
+          background-size: 0% 3px;
+          background-repeat: no-repeat;
+          background-position: left bottom;
+          transition: all 357ms ease-out;
+        }
+
+        &:hover h2, &:active h2, &:focus h2 {
+          background-size: 100% 3px;
+        }
+      }
+
       .type {
         &[data-size="medium"] {
           display: none;
@@ -64,11 +96,6 @@
         }
       }
 
-
-      h2 {
-        @include Font(24px, 700, 24px);
-      }
-
       .description {
         display: none;
 
@@ -78,6 +105,10 @@
             filter: opacity(0.5);
             @include Font(14px, 400, 14px);
           }
+        }
+        
+        &[data-size="medium"] {
+          display: none;
         }
       }
     }
@@ -138,10 +169,6 @@
         }
       }
 
-      h2 {
-        @include Font(28px, 700, 28px);
-      }
-
       .description {
         p {
           filter: opacity(0.5);
@@ -150,6 +177,10 @@
 
         &[data-size="small"] {
           display: flex;
+        }
+        
+        &[data-size="medium"] {
+          display: none;
         }
       }
     }

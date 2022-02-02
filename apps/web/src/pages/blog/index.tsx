@@ -1,37 +1,31 @@
-import React from 'react'
 import { GetStaticProps } from 'next'
-import Link from 'next/link'
 
-import { getAllPosts, Post } from '@lib/posts'
+import { Home } from '@modules/blog/home'
+import { getAllPosts, getPostBySlug } from '@lib/posts'
 
-type HomeBlogProps = {
-  posts: Post[]
-}
-
-const HomeBlog: React.FC<HomeBlogProps> = ({ posts }) => {
-  return (
-    <div>
-      <p>the home of the blog</p>
-
-      <ul>
-        {posts.map(({ metadata }) => (
-          <li key={metadata.createdAt}>
-            <Link href={`/blog/post/${metadata.slug}`}>{metadata.title}</Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-  )
-}
-
-export default HomeBlog
+export default Home
 
 export const getStaticProps: GetStaticProps = async () => {
   const { posts } = getAllPosts()
+  const featured = await getPostBySlug({
+    slug: 'microfrontends',
+  })
+
+  if (!featured) {
+    // get any post
+    return {
+      props: {
+        featured: posts[0],
+      },
+      revalidate: 1,
+    }
+  }
 
   return {
     props: {
+      featured,
       posts,
     },
+    revalidate: 1,
   }
 }

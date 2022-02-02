@@ -92,3 +92,8 @@ input[data-autocompleted] {
 	color: var(--white);
 	background-color: transparent !important;
 }
+
+::selection {
+	color: var(--white);
+	background-color: var(--accent);
+}

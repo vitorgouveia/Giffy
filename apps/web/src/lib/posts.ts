@@ -8,8 +8,12 @@ export type MDX = MDXRemoteSerializeResult<Record<string, unknown>>
 export type Metadata = {
   title: string
   createdAt: number
+  updatedAt: number
+  readTime: string
   description: string
+  type: string
   thumbnailUrl: string
+  authors: string[]
   tags: string[]
   slug: string
 }
@@ -18,6 +22,11 @@ export type Post = {
   content: string
 
   metadata: Metadata
+}
+
+export type MDXPost = {
+  mdx: MDX
+  post: Post
 }
 
 export function getAllPosts() {

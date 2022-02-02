@@ -15,6 +15,8 @@ export type PostProps = {
   readTime: string
   tagsPath: string
   variant?: 'small' | 'medium' | 'large'
+  thumbnailUrl: string
+  postHref: string
 }
 
 export const Post: React.FC<PostProps> = ({
@@ -26,6 +28,8 @@ export const Post: React.FC<PostProps> = ({
   createdAt,
   readTime,
   variant,
+  thumbnailUrl,
+  postHref,
 }) => {
   const smallFormattedDescription = `${description.substr(0, 120)}...`
   const formattedDescription = `${description.substr(0, 500)}...`
@@ -36,7 +40,11 @@ export const Post: React.FC<PostProps> = ({
 
   return (
     <div className={`${prefix}-post ${prefix}-${variant}`}>
-      <div className="image" />
+      <div className="image">
+        <a href={postHref}>
+          <img src={thumbnailUrl} alt="Post thumbnail" />
+        </a>
+      </div>
 
       <header className="information">
         <div className="main">
@@ -63,7 +71,9 @@ export const Post: React.FC<PostProps> = ({
             </strong>
           </div>
 
-          <Heading variant="h2" as="h2" label={title} />
+          <a href={postHref}>
+            <Heading variant="h2" as="h2" label={title} />
+          </a>
 
           <div data-size="medium" className="description">
             <Text label={formattedDescription} />

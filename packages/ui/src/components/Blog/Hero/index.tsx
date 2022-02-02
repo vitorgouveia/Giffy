@@ -20,10 +20,12 @@ type Post = {
   description: string
   createdAt: string
   readTime: string
+  thumbnailUrl: string
 }
 
 export type HeroProps = {
   post: Post
+  postHref: string
   tagsPath: string
   headings: {
     sub: string
@@ -37,6 +39,7 @@ export const Hero: React.FC<HeroProps> = ({
   headings,
   post,
   tagsPath,
+  postHref,
 }) => {
   const smallFormattedDescription = `${post.description.substr(0, 120)}...`
   const formattedDescription = `${post.description.substr(0, 320)}...`
@@ -71,8 +74,11 @@ export const Hero: React.FC<HeroProps> = ({
 
       <main className="blog-hero-content">
         <section className="blog-hero-content-post">
-          <div className="blog-hero-content-post-image" />
-
+          <div className="blog-hero-content-post-image">
+            <a href={postHref}>
+              <img src={post.thumbnailUrl} alt="Featured Post Thumbnail" />
+            </a>
+          </div>
           <header className="blog-hero-content-post-information">
             <div className="blog-hero-content-post-information-main">
               <ul className="blog-hero-content-post-information-main-tags">
@@ -88,7 +94,9 @@ export const Hero: React.FC<HeroProps> = ({
                 </List>
               </ul>
 
-              <Heading variant="h2" as="h2" label={post.title} />
+              <a href={postHref}>
+                <Heading variant="h2" as="h2" label={post.title} />
+              </a>
 
               <div className="blog-hero-content-post-information-main-description-normal">
                 <Text label={formattedDescription} />
@@ -98,7 +106,6 @@ export const Hero: React.FC<HeroProps> = ({
                 <Text label={smallFormattedDescription} />
               </div>
             </div>
-
             <div className="blog-hero-content-post-information-footer">
               <p>
                 {dateToString(post.createdAt)} · {post.readTime}

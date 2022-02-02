@@ -1,16 +1,53 @@
 @import "../lib/font.scss";
+@import "../lib/hooks/useMediaQuery.scss";
 
 .heading-h1, h1 {
-  @include Font(56px, 700, 66px);
+  @include Font(36px, 700, 66px);
   color: var(--white);
+  
+  @include useMediaQuery(tablet) {
+    @include Font(42px, 700, 66px);
+  }
+  
+  @include useMediaQuery(laptop) {
+    @include Font(48px, 700, 66px);
+  }
+  
+  @include useMediaQuery(desktop) {
+    @include Font(56px, 700, 66px);
+  }
 }
 
 .heading-h2, h2 {
-  @include Font(30px, 600,  35px);
+  @include Font(24px, 600,  35px);
   color: var(--white);
+
+  @include useMediaQuery(tablet) {
+    @include Font(26px, 600,  35px);
+  }
+  
+  @include useMediaQuery(laptop) {
+    @include Font(28px, 600,  35px);
+  }
+  
+  @include useMediaQuery(desktop) {
+    @include Font(30px, 600,  35px);
+  }
 }
 
 .heading-h3, h3 {
-  @include Font(24px, 700, 28px);
+  @include Font(14px, 700, 28px);
   color: var(--white);
+  
+  @include useMediaQuery(tablet) {
+    @include Font(16px, 600,  35px);
+  }
+  
+  @include useMediaQuery(laptop) {
+    @include Font(18px, 600,  35px);
+  }
+  
+  @include useMediaQuery(desktop) {
+    @include Font(24px, 700, 28px);
+  }
 }

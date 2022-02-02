@@ -1,0 +1,17 @@
+import { generateMedia } from 'styled-media-query'
+
+const customMedia = generateMedia({
+  tablet: '42em', // 672px
+  laptop: '60em', // 672px
+  desktop: '81em', // 672px
+})
+
+export const theme = {
+  title: 'dark',
+
+  media: customMedia,
+
+  colors: {
+    background: '#151515',
+  },
+}
