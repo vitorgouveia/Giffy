@@ -12,7 +12,6 @@ export default {
 
 const LargeTemplate: ComponentStory<typeof LargeLogo> = () => (
   <UIProvider
-    prefix="giffy_css"
     homepage="/"
     blog={{ tagsPath: '/blog/tags', postsPath: '/blog/posts' }}
   >

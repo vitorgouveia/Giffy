@@ -14,7 +14,7 @@ export type PostProps = IPost & {
 }
 
 export const Post: React.FC<PostProps> = ({ metadata: post, variant }) => {
-  const { prefix, blog } = useContext(UIContext)
+  const { blog } = useContext(UIContext)
   const { postsPath } = blog
 
   const smallFormattedDescription = `${post.description.substr(0, 120)}...`
@@ -25,7 +25,7 @@ export const Post: React.FC<PostProps> = ({ metadata: post, variant }) => {
   const link = `${postsPath}/${post.slug}`
 
   return (
-    <div className={`${prefix}-post ${prefix}-${variant}`}>
+    <div className={`post ${variant}`}>
       <div className="image">
         <Link href={link}>
           <a>

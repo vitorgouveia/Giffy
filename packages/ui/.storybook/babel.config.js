@@ -20,7 +20,6 @@ module.exports = {
     'minify',
   ],
   plugins: [
-    'inline-react-svg',
     [
       'module-resolver',
       {
