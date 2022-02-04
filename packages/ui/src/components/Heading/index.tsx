@@ -14,11 +14,9 @@ export const Heading: React.FC<HeadingProps> = ({
   children,
   ...rest
 }) => {
-  const prefix = 'giffy_css'
-
   if (as === 'h1') {
     return (
-      <h1 className={`${prefix}-heading-${variant} ${className}`} {...rest}>
+      <h1 className={`heading-${variant} ${className}`} {...rest}>
         {label || children}
       </h1>
     )
@@ -26,7 +24,7 @@ export const Heading: React.FC<HeadingProps> = ({
 
   if (as === 'h2') {
     return (
-      <h2 className={`${prefix}-heading-${variant} ${className}`} {...rest}>
+      <h2 className={`heading-${variant} ${className}`} {...rest}>
         {label || children}
       </h2>
     )
@@ -34,7 +32,7 @@ export const Heading: React.FC<HeadingProps> = ({
 
   if (as === 'h3') {
     return (
-      <h3 className={`${prefix}-heading-${variant} ${className}`} {...rest}>
+      <h3 className={`heading-${variant} ${className}`} {...rest}>
         {label || children}
       </h3>
     )
@@ -42,7 +40,7 @@ export const Heading: React.FC<HeadingProps> = ({
 
   if (as === 'strong') {
     return (
-      <strong className={`${prefix}-heading-${variant} ${className}`} {...rest}>
+      <strong className={`heading-${variant} ${className}`} {...rest}>
         {label || children}
       </strong>
     )
@@ -50,7 +48,7 @@ export const Heading: React.FC<HeadingProps> = ({
 
   return (
     <h1
-      className={`${prefix}-heading-${variant} ${className} ${className}`}
+      className={`heading-${variant} ${className} ${className}`}
       {...rest}
     >
       {label || children}

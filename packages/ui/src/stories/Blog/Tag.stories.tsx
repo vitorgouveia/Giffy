@@ -11,7 +11,6 @@ export default {
 
 const Template: ComponentStory<typeof Tag> = (args: TagProps) => (
   <UIProvider
-    prefix="giffy_css"
     homepage="/blog"
     blog={{ tagsPath: '/blog/tags', postsPath: '/blog/posts' }}
   >

@@ -11,10 +11,6 @@ type UIContextProps = {
      */
     tagsPath: string
   }
-  /**
-   * the classes prefix name
-   */
-  prefix: string
   homepage: string
 }
 
