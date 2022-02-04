@@ -75,26 +75,22 @@ export function getAllPosts() {
 }
 
 export async function getPostBySlug({ slug }: { slug: string | undefined }) {
-  const file = readFileSync(`./src/posts/${slug}.mdx`, 'utf-8')
+  const { posts } = getAllPosts()
 
-  if (!file) {
+  const post = posts.find(post => post.metadata.slug === slug)
+
+  if (!post) {
     return {
       post: null,
       mdx: null,
     }
   }
 
-  const { content, data: metadata } = grayMatter(file)
+  const { content } = post
   const mdx = await serialize(content)
 
   return {
     mdx,
-    post: {
-      content,
-      metadata: {
-        ...(metadata as Omit<Metadata, 'slug'>),
-        slug,
-      },
-    },
+    post,
   }
 }
