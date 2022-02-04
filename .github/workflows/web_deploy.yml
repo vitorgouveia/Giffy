@@ -51,10 +51,14 @@ jobs:
       - name: Build @giffy/web
         working-directory: ./apps/web
         run: yarn gh-build
+        env:
+          NEXT_PUBLIC_FORM_URL: ${{ secrets.NEXT_PUBLIC_FORM_URL }}
 
       - name: Export static files
         working-directory: ./apps/web
         run: yarn export
+        env:
+          NEXT_PUBLIC_FORM_URL: ${{ secrets.NEXT_PUBLIC_FORM_URL }}
 
       - name: Add .nojekyll file
         working-directory: ./apps/web
