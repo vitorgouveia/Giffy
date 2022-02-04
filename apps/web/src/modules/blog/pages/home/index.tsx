@@ -36,7 +36,7 @@ export const Home: React.FC<HomeProps> = ({ featured, posts }) => {
         },
       }}
     >
-      <Section data-styled>
+      <Section>
         <Hero
           headings={{
             sub: 'Our Blog',
@@ -63,14 +63,14 @@ export const Home: React.FC<HomeProps> = ({ featured, posts }) => {
         />
       </Section>
 
-      <PostSection data-styled>
+      <PostSection>
         {/* get the first two posts */}
         {posts.slice(0, 2).map(({ metadata }) => (
           <Post key={metadata.createdAt} metadata={metadata} variant="medium" />
         ))}
       </PostSection>
 
-      <PostsGrid data-styled>
+      <PostsGrid>
         <main>
           {posts.map(({ metadata }) => (
             <Post key={metadata.createdAt} metadata={metadata} />
@@ -95,7 +95,7 @@ export const Home: React.FC<HomeProps> = ({ featured, posts }) => {
         </aside>
       </PostsGrid>
 
-      <Section data-styled>
+      <Section>
         <Newsletter />
       </Section>
     </BlogLayout>
