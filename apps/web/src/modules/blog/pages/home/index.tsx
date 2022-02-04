@@ -21,7 +21,13 @@ export const Home: React.FC<HomeProps> = ({ featured, posts }) => {
     let tags: string[] = []
 
     posts.forEach(post => {
-      post.metadata.tags.forEach(tag => tags.push(tag))
+      post.metadata.tags.forEach(tag => {
+        const tagAlreadyStored = !!tags.find(_tag => _tag === tag)
+
+        if (!tagAlreadyStored) {
+          tags.push(tag)
+        }
+      })
     })
 
     return tags
