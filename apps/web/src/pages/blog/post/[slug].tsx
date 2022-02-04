@@ -1,82 +1,10 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
-import { MDXRemote } from 'next-mdx-remote'
-import { NextSeo, ArticleJsonLd } from 'next-seo'
 
-import { getAllPosts, getPostBySlug, MDX } from '@lib/posts'
 import { Post } from '@giffy/types'
-import { components } from '@modules/blog/components'
-import { BlogLayout } from '@modules/layout/BlogLayout'
+import { getAllPosts, getPostBySlug } from '@lib/posts'
+import { PostPage } from '@modules/blog/pages/post'
 
-type PostProps = {
-  mdx: MDX
-  post: Post
-}
-
-export default function PostPage({ post, mdx }: PostProps) {
-  const { metadata } = post
-  const title = `${metadata.title}`
-  const blogName = 'Giffy Blog'
-  const description = metadata.description
-  const baseURL = 'https://vitorgouveia.github.io/Giffy'
-  const expirationTime = 1896197030051
-  const authors = metadata.authors
-    .map(author =>
-      author.replace(' ', '-').toLocaleLowerCase().normalize('NFD')
-    )
-    .map(
-      formattedAuthorName => `${baseURL}/blog/authors/${formattedAuthorName}`
-    )
-  /**
-   * Vitor Neves Gomes Gouveia -> https://vitorgouveia.github.io/Giffy/blog/authors/vitor-neves-gomes-gouveia
-   */
-
-  return (
-    <BlogLayout post={post}>
-      <ArticleJsonLd
-        type="Blog"
-        url={`${baseURL}/blog`}
-        title={`${title} | ${blogName}`}
-        description={description}
-        images={[metadata.thumbnailUrl]}
-        datePublished={new Date(metadata.createdAt).toISOString()}
-        dateModified={new Date(metadata.updatedAt).toISOString()}
-        authorName={metadata.authors}
-      />
-
-      <NextSeo
-        title={title}
-        defaultTitle={blogName}
-        titleTemplate={`%s | ${blogName}`}
-        description={description}
-        openGraph={{
-          title: `${title} | ${blogName}`,
-          description,
-          url: `${baseURL}/blog/post/${metadata.slug}`,
-          type: 'article',
-          site_name: 'Giffy',
-          article: {
-            publishedTime: new Date(metadata.createdAt).toISOString(),
-            modifiedTime: new Date(metadata.updatedAt).toISOString(),
-            expirationTime: new Date(expirationTime).toISOString(),
-            section: metadata.type,
-            authors,
-            tags: metadata.tags,
-          },
-          images: [
-            {
-              url: metadata.thumbnailUrl,
-              width: 1160,
-              height: 400,
-              alt: 'Thumbnail URL',
-            },
-          ],
-        }}
-      />
-
-      <MDXRemote {...mdx} components={components} />
-    </BlogLayout>
-  )
-}
+export default PostPage
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const { posts } = getAllPosts()
@@ -106,10 +34,21 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     }
   }
 
+  const { posts } = getAllPosts()
+  const similarPosts: Post[] = []
+
+  posts.forEach(_post => {
+    if (_post.metadata.type === post.metadata.type) {
+      similarPosts.push(_post)
+    }
+  })
+
   return {
     props: {
       mdx,
       post,
+      similarPosts,
     },
+    revalidate: 1,
   }
 }

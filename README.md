@@ -8,6 +8,10 @@
   <a href="https://www.figma.com/file/JrvfChRpuKFnxZopbbAi3M/Giffy?node-id=2%3A20">
   figma
   </a>
+
+  <a href="https://www.notion.so/vitorgouveia/Giffy-gif-recording-made-easy-ff614376b87347aab94b628126627ac9">
+  notion
+  </a>
 </div>
 
 <br />

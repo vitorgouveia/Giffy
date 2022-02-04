@@ -1,6 +1,6 @@
 import { GetStaticProps } from 'next'
 
-import { Home } from '@modules/blog/home'
+import { Home } from '@modules/blog/pages/home'
 import { getAllPosts, getPostBySlug } from '@lib/posts'
 
 export default Home

@@ -12,6 +12,7 @@ export const theme = {
   media: customMedia,
 
   colors: {
+    accent: '#FD4D4D',
     background: '#151515',
   },
 }
