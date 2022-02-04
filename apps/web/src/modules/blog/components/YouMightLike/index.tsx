@@ -13,7 +13,7 @@ type YouMightLikeProps = {
 
 export const YouMightLike: React.FC<YouMightLikeProps> = ({ similarPosts }) => {
   return (
-    <Container data-styled>
+    <Container>
       <Heading as="h3" variant="h3" label="You might like" />
 
       <ul>

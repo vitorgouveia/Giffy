@@ -3,7 +3,6 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { DefaultSeo } from 'next-seo'
 
-import { prefixClassNames } from '@utils/prefixClassNames'
 import { ThemeProvider } from 'styled-components'
 import { UIProvider } from '@giffy/ui'
 import { defaultTitle, titleTemplate, author, description } from '@lib/seo'
@@ -12,10 +11,6 @@ import '@giffy/styles'
 import { theme } from '@styles/theme'
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
-  useEffect(() => {
-    prefixClassNames()
-  }, [])
-
   return (
     <React.Fragment>
       <Head>
@@ -48,7 +43,6 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
         <UIProvider
           blog={{ tagsPath: '/blog/tags', postsPath: '/blog/post' }}
           homepage="/"
-          prefix="giffy_css"
         >
           <Component {...pageProps} />
         </UIProvider>

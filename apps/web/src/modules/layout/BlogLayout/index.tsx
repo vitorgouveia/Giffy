@@ -166,8 +166,8 @@ export const BlogLayout: React.FC<BlogLayoutProps> = ({
       <Header />
 
       {post && (
-        <PostHeader thumbnailUrl={post.metadata.thumbnailUrl} data-styled>
-          <PostHeaderTitles data-styled>
+        <PostHeader thumbnailUrl={post.metadata.thumbnailUrl}>
+          <PostHeaderTitles>
             <Heading variant="h3" as="strong" label={post.metadata.type} />
             <Heading variant="h1" as="h1" label={post.metadata.title} />
             <Heading
@@ -179,7 +179,7 @@ export const BlogLayout: React.FC<BlogLayoutProps> = ({
         </PostHeader>
       )}
 
-      <Container data-styled>{children}</Container>
+      <Container>{children}</Container>
 
       <Footer />
     </React.Fragment>
