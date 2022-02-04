@@ -2,10 +2,13 @@ import React from 'react'
 
 import { BlogLayout } from '@modules/layout/BlogLayout'
 
-import { Post } from '@giffy/types'
+import { Newsletter } from '@modules/blog/controllers/Newsletter'
+import { Heading, Text, Post } from '@giffy/ui'
+import { Post as IPost } from '@giffy/types'
+import { HeadingContainer } from './styles'
 
 type AnnouncementsProps = {
-  posts: Post[]
+  posts: IPost[]
 }
 
 export const Announcements: React.FC<AnnouncementsProps> = ({ posts }) => {
@@ -18,11 +21,17 @@ export const Announcements: React.FC<AnnouncementsProps> = ({ posts }) => {
         },
       }}
     >
-      <p>announcements</p>
+      <HeadingContainer>
+        <Heading as="h1" variant="h1" label="Giffy's official announcements" />
 
-      {posts.map(post => (
-        <div key={post.metadata.createdAt}>{post.metadata.title}</div>
+        <Text label="Keep up-to-date with the latest announcements from the official Giffy developer team :)." />
+      </HeadingContainer>
+
+      {posts.map(({ metadata }) => (
+        <Post key={metadata.createdAt} metadata={metadata} />
       ))}
+
+      <Newsletter />
     </BlogLayout>
   )
 }
