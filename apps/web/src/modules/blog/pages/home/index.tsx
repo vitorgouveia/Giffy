@@ -56,7 +56,7 @@ export const Home: React.FC<HomeProps> = ({ featured, posts }) => {
           }}
           labels={[
             {
-              href: '/blog/posts',
+              href: '/blog/post/microfrontends',
               label: 'Get Started',
               onClick: () => {},
             },
