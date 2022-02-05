@@ -102,6 +102,10 @@
   <img src="https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=000" />
 </a>
 
+<a href="https://prettier.io/">
+  <img src="https://img.shields.io/badge/Styled Components-DB7093?style=for-the-badge&logo=styled-components&logoColor=FFF" />
+</a>
+
 <br />
 <br />
 <br />
@@ -123,6 +127,7 @@ The project is still in development and the next updates will be:
 ---
 
 ## Contributing
+
 See [contributing.md](CONTRIBUTING.md)
 
 <br />
