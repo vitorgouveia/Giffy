@@ -61,7 +61,7 @@ export const Home: React.FC<HomeProps> = ({ featured, posts }) => {
               onClick: () => {},
             },
             {
-              href: '/blog/newsletter',
+              href: '/newsletter',
               label: 'Subscribe',
               onClick: () => {},
             },
