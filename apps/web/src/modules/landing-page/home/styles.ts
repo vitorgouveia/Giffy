@@ -12,6 +12,7 @@ export const Section = styled.section<SectionProps>`
   background: ${({ theme, backgroundColor }) => theme.colors[backgroundColor]};
 
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 `
@@ -76,6 +77,19 @@ export const Box = styled.main<BoxProps>`
     `}
 
   ${props => props.layout === 'column' && ColumnBox}
+
+  .hero {
+    ${props => props.theme.media.lessThan('laptop')`
+      &-left {
+        width: 70%;
+        grid-template-columns: 100%;
+      }
+
+      &-right {
+        display: none;
+      }
+    `}
+  }
 `
 
 export const Left = styled.div`
@@ -119,11 +133,25 @@ export const Highlighted = styled.span`
 export const FormWrapper = styled.section`
   form {
     width: 100%;
+    height: 48px;
 
     display: flex;
+    align-items: stretch;
     justify-content: space-between;
 
     gap: 8px;
+
+    ${props => props.theme.media.lessThan('desktop')`
+      flex-direction: column;
+
+      #subscribe-input {
+        width: 100%;
+      }
+    `}
+
+    ${props => props.theme.media.lessThan('tablet')`
+      height: auto;
+    `}
 
     /* input div */
     #subscribe-input {
@@ -138,15 +166,54 @@ export const FormWrapper = styled.section`
 
 export const ButtonWrapper = styled.div`
   width: 100%;
+  height: 48px;
 
   display: flex;
   align-items: stretch;
 
   gap: 8px;
 
+  ${props => props.theme.media.lessThan('tablet')`
+    height: auto;
+  `}
+
   > button {
     flex: 1;
   }
+`
+
+export const DownloadButtonWrapper = styled.div`
+  width: 100%;
+
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+
+  button {
+    justify-content: center;
+    padding: 12px 20px;
+
+    /* removing the gap from between 'Download on' and the store name */
+    header {
+      gap: 1px;
+    }
+  }
+
+  ${props => props.theme.media.lessThan('desktop')`
+    flex-direction: column;
+    gap: 12px;
+  `}
+
+  ${props => props.theme.media.lessThan('laptop')`
+    flex-direction: row;
+    justify-content: space-between;
+  `}
+
+  ${props => props.theme.media.lessThan('tablet')`
+    padding-top: 50px;
+    flex-direction: column;
+    gap: 12px;
+  `}
 `
 
 /**

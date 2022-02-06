@@ -8,7 +8,7 @@ import { AiFillApple, AiFillWindows } from 'react-icons/ai'
 import { FaGooglePlay } from 'react-icons/fa'
 import { SiPwa, SiLinux } from 'react-icons/si'
 
-import { Heading, Text, Input, Form, Button } from '@giffy/ui'
+import { Heading, Text, Input, Form, Button, DownloadButton } from '@giffy/ui'
 import { Newsletter } from '@modules/blog/controllers/Newsletter'
 
 import {
@@ -21,6 +21,7 @@ import {
   Highlighted,
   FormWrapper,
   ButtonWrapper,
+  DownloadButtonWrapper,
 } from './styles'
 
 type ISection = {
@@ -191,13 +192,14 @@ export const Home: React.FC<HomeProps> = ({ hasLaunched }) => {
 
   return (
     <React.Fragment>
-      <Section backgroundColor="black">
+      <Section style={{ paddingBottom: 0 }} backgroundColor="black">
         <Box
+          className="hero"
           justifyContent="space-between"
           layout="row"
           backgroundColor="black"
         >
-          <Left>
+          <Left className="hero-left">
             <Heading variant="h1" as="h1">
               The easiest way to record GIFs.
             </Heading>
@@ -244,16 +246,36 @@ export const Home: React.FC<HomeProps> = ({ hasLaunched }) => {
             )}
           </Left>
 
-          <Right>
+          <Right className="hero-right" style={{ flexShrink: 2 }}>
             <Image
               src="/neon_logo.png"
-              height={400}
-              width={400}
+              height={300}
+              width={300}
               alt="Giffy logo neon version"
             />
           </Right>
         </Box>
       </Section>
+
+      {!hasLaunched && (
+        <Section style={{ paddingTop: 0 }} backgroundColor="black">
+          <Box
+            style={{ height: 'auto' }}
+            className="hero"
+            backgroundColor="black"
+            layout="row"
+          >
+            <Left className="hero-left">
+              <DownloadButtonWrapper>
+                <DownloadButton onClick={() => {}} store="App Store" />
+                <DownloadButton onClick={() => {}} store="Google Play" />
+              </DownloadButtonWrapper>
+            </Left>
+
+            <Right className="hero-right" />
+          </Box>
+        </Section>
+      )}
 
       {Sections.map(
         ({ id, section, box, heading, description, image, overflow }) => (
