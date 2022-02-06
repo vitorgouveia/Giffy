@@ -270,11 +270,60 @@ export const TrustedBy = styled.ul`
   animation: ${HorizontalLoop} 10s linear infinite;
 
   li {
+    font-size: 20px;
     white-space: nowrap;
     color: ${props => props.theme.colors.stroke};
+    text-transform: uppercase;
+    font-weight: 700;
 
     &:nth-child(even) {
       color: #504e55;
     }
   }
+`
+
+export const FeatureCards = styled.div`
+  width: 70%;
+  margin: auto;
+
+  padding-top: 50px;
+
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+
+  > * {
+    zoom: 0.8;
+    width: 250px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+  }
+
+  strong,
+  p {
+    text-align: center;
+  }
+
+  flex-wrap: wrap;
+
+  ${props => props.theme.media.lessThan('desktop')`
+    flex-direction: column;
+    align-items: strecth;
+    gap: 2rem;
+
+    > * {
+      zoom: 1;
+      width: 100%;
+
+      p {
+        width: 60%;
+        margin: auto;
+      }
+    }
+  `}
 `

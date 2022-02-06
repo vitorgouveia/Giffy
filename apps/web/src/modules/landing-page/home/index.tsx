@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { FormEvent, useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 
@@ -15,7 +15,7 @@ import {
   Form,
   Button,
   DownloadButton,
-  Link,
+  Modal,
 } from '@giffy/ui'
 import { Newsletter } from '@modules/blog/controllers/Newsletter'
 
@@ -32,6 +32,7 @@ import {
   DownloadButtonWrapper,
   ImageWrapper,
   TrustedBy,
+  FeatureCards,
 } from './styles'
 
 type ISection = {
@@ -219,10 +220,13 @@ export const Home: React.FC<HomeProps> = ({ hasLaunched }) => {
             <Heading variant="h1" as="h1">
               The easiest way to record GIFs.
             </Heading>
-            <Text>
-              Enter your e-mail and we will notify you when{' '}
-              <Highlighted>Giffy</Highlighted> launches.
-            </Text>
+
+            {!hasLaunched && (
+              <Text>
+                Enter your e-mail and we will notify you when{' '}
+                <Highlighted>Giffy</Highlighted> launches.
+              </Text>
+            )}
 
             {!hasLaunched ? (
               <FormWrapper>
@@ -240,7 +244,7 @@ export const Home: React.FC<HomeProps> = ({ hasLaunched }) => {
             ) : platform === 'Unknown' ? (
               <Button
                 onClick={() => {
-                  push('/download')
+                  push('/downloads')
                 }}
               >
                 Download
@@ -255,7 +259,12 @@ export const Home: React.FC<HomeProps> = ({ hasLaunched }) => {
                   Download
                 </Button>
 
-                <Button variant="outlined" onClick={() => {}}>
+                <Button
+                  variant="outlined"
+                  onClick={() => {
+                    push('/downloads')
+                  }}
+                >
                   More Downloads
                 </Button>
               </ButtonWrapper>
@@ -315,11 +324,69 @@ export const Home: React.FC<HomeProps> = ({ hasLaunched }) => {
 
           <TrustedBy>
             {Array(20)
-              .fill('some streamer')
+              .fill('your name here')
               .map((streamer, idx) => (
                 <li key={idx}>{streamer}</li>
               ))}
           </TrustedBy>
+        </Box>
+      </Section>
+
+      <Section backgroundColor="black">
+        <Box layout="column" backgroundColor="black">
+          <Left>
+            <Heading style={{ textAlign: 'center' }} variant="h3" as="strong">
+              <Highlighted>FEATURES</Highlighted>
+            </Heading>
+
+            <Heading style={{ textAlign: 'center' }} variant="h1" as="h2">
+              A fit for all your needs
+            </Heading>
+
+            <Text style={{ textAlign: 'center', width: '80%', margin: 'auto' }}>
+              Create scenes, record multiple screens, blur out sensitive
+              information, zoom in into your content, edit your GIF, all in one
+              app
+            </Text>
+
+            <Button
+              style={{ width: 'max-content', margin: 'auto' }}
+              iconPosition="left"
+              icon={osIcons[platform]}
+              onClick={handleDownload}
+            >
+              Download
+            </Button>
+          </Left>
+
+          <Right>
+            <FeatureCards>
+              <Modal>
+                <Heading variant="h3" as="strong">
+                  Multi-Platform
+                </Heading>
+                <Text>
+                  Use it on any operational system, Windows, MacOS or Linux
+                </Text>
+              </Modal>
+              <Modal>
+                <Heading variant="h3" as="strong">
+                  Scene Management
+                </Heading>
+                <Text>
+                  Organize your workspace and create scenes like you’re used to
+                </Text>
+              </Modal>
+              <Modal>
+                <Heading variant="h3" as="strong">
+                  Native Shortcuts
+                </Heading>
+                <Text>
+                  We come with pre-configured shortcuts for all your needs
+                </Text>
+              </Modal>
+            </FeatureCards>
+          </Right>
         </Box>
       </Section>
 
