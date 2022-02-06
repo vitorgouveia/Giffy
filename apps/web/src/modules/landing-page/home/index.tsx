@@ -1,12 +1,27 @@
 /* eslint-disable @next/next/no-img-element */
-import React from 'react'
+import React, { FormEvent, useCallback, useEffect, useState } from 'react'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 
-import { Heading, Text } from '@giffy/ui'
-import { DefaultLayout } from '@modules/layout/DefaultLayout'
+import { FiMail } from 'react-icons/fi'
+import { AiFillApple, AiFillWindows } from 'react-icons/ai'
+import { FaGooglePlay } from 'react-icons/fa'
+import { SiPwa, SiLinux } from 'react-icons/si'
+
+import { Heading, Text, Input, Form, Button } from '@giffy/ui'
 import { Newsletter } from '@modules/blog/controllers/Newsletter'
 
-import { Section, Box, Left, Right, BoxProps, SectionProps } from './styles'
+import {
+  Section,
+  Box,
+  Left,
+  Right,
+  BoxProps,
+  SectionProps,
+  Highlighted,
+  FormWrapper,
+  ButtonWrapper,
+} from './styles'
 
 type ISection = {
   id: string
@@ -132,9 +147,114 @@ type HomeProps = {
   hasLaunched: boolean
 }
 
+const osIcons = {
+  Android: <FaGooglePlay size={24} />,
+  'Chrome OS': <FaGooglePlay size={24} />,
+  iOS: <AiFillApple size={24} />,
+  Linux: <SiLinux size={24} />,
+  macOS: <AiFillApple size={24} />,
+  Windows: <AiFillWindows size={24} />,
+  Unknown: <SiPwa size={24} />,
+}
+
 export const Home: React.FC<HomeProps> = ({ hasLaunched }) => {
+  type Platform = Window['navigator']['userAgentData']['platform']
+  const [platform, setPlatform] = useState<Platform>('Windows')
+  const { push } = useRouter()
+
+  useEffect(() => {
+    setPlatform(window.navigator.userAgentData.platform)
+  }, [])
+
+  const handleFormSubmit = useCallback(async (event?: FormEvent) => {
+    event?.preventDefault()
+  }, [])
+
+  const handleDownload = () => {
+    switch (platform) {
+      case 'Android':
+        break
+      case 'Chrome OS':
+        break
+      case 'iOS':
+        break
+      case 'Linux':
+        break
+      case 'macOS':
+        break
+      case 'Windows':
+        break
+      case 'Unknown':
+        break
+    }
+  }
+
   return (
     <React.Fragment>
+      <Section backgroundColor="black">
+        <Box
+          justifyContent="space-between"
+          layout="row"
+          backgroundColor="black"
+        >
+          <Left>
+            <Heading variant="h1" as="h1">
+              The easiest way to record GIFs.
+            </Heading>
+            <Text>
+              Enter your e-mail and we will notify you when{' '}
+              <Highlighted>Giffy</Highlighted> launches.
+            </Text>
+
+            {!hasLaunched ? (
+              <FormWrapper>
+                <Form onSubmit={handleFormSubmit}>
+                  <Input
+                    icon={FiMail}
+                    iconPosition="left"
+                    id="subscribe-input"
+                    name="email"
+                    placeholder="Your Best E-mail"
+                  />
+                  <Button onClick={handleFormSubmit}>Subscribe</Button>
+                </Form>
+              </FormWrapper>
+            ) : platform === 'Unknown' ? (
+              <Button
+                onClick={() => {
+                  push('/download')
+                }}
+              >
+                Download
+              </Button>
+            ) : (
+              <ButtonWrapper>
+                <Button
+                  iconPosition="left"
+                  icon={osIcons[platform]}
+                  onClick={handleDownload}
+                >
+                  Download
+                </Button>
+
+                <Button variant="outlined" onClick={() => {}}>
+                  Tutorials
+                </Button>
+              </ButtonWrapper>
+            )}
+          </Left>
+
+          <Right>
+            <Image
+              src="/neon_logo.png"
+              height={400}
+              width={400}
+              alt="Giffy logo neon version"
+            />
+          </Right>
+        </Box>
+      </Section>
+
       {Sections.map(
         ({ id, section, box, heading, description, image, overflow }) => (
           <Section

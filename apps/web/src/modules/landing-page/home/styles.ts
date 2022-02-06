@@ -19,6 +19,7 @@ export const Section = styled.section<SectionProps>`
 export type BoxProps = {
   layout: 'column' | 'row-reverse' | 'row'
   backgroundColor: Colors
+  justifyContent?: 'space-between'
 }
 
 const ColumnBox = css`
@@ -38,6 +39,12 @@ export const Box = styled.main<BoxProps>`
   /* do not add height auto, in co */
   height: 580px;
   max-width: 1160px;
+
+  ${props =>
+    props.justifyContent === 'space-between' &&
+    css`
+      justify-content: space-between;
+    `}
 
   background: ${({ theme, backgroundColor }) => theme.colors[backgroundColor]};
 
@@ -102,6 +109,43 @@ export const Right = styled.div`
   img {
     object-fit: cover;
     height: 100%;
+  }
+`
+
+export const Highlighted = styled.span`
+  color: ${props => props.theme.colors.accent};
+`
+
+export const FormWrapper = styled.section`
+  form {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+
+    gap: 8px;
+
+    /* input div */
+    #subscribe-input {
+      flex: 1;
+
+      input {
+        width: calc(100% - 14px - 20px - 10px);
+      }
+    }
+  }
+`
+
+export const ButtonWrapper = styled.div`
+  width: 100%;
+
+  display: flex;
+  align-items: stretch;
+
+  gap: 8px;
+
+  > button {
+    flex: 1;
   }
 `
 
