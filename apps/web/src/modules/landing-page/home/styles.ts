@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 import { Colors } from '@styles/theme'
 
 export type SectionProps = {
@@ -33,11 +33,34 @@ const ColumnBox = css`
     height: auto;
     flex-shrink: 1;
   }
+
+  &.generic {
+    /* left div */
+    > div:nth-child(1) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      padding: 20px 12px;
+
+      h1,
+      h2,
+      h3,
+      p {
+        text-align: center;
+      }
+
+      p {
+        width: 70%;
+      }
+    }
+  }
 `
 
 export const Box = styled.main<BoxProps>`
   width: 100%;
-  /* do not add height auto, in co */
+  overflow: hidden;
   height: 580px;
   max-width: 1160px;
 
@@ -216,6 +239,42 @@ export const DownloadButtonWrapper = styled.div`
   `}
 `
 
-/**
- * section -> box -> left & right
- */
+export const ImageWrapper = styled.div`
+  width: 100%;
+  height: 480px !important;
+  background: gray;
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+`
+
+const HorizontalLoop = keyframes`
+  from {
+    transform: translate3d(0, 0, 0)
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0)
+  }
+`
+
+export const TrustedBy = styled.ul`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  animation: ${HorizontalLoop} 10s linear infinite;
+
+  li {
+    white-space: nowrap;
+    color: ${props => props.theme.colors.stroke};
+
+    &:nth-child(even) {
+      color: #504e55;
+    }
+  }
+`

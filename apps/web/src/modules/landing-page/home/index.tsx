@@ -8,7 +8,15 @@ import { AiFillApple, AiFillWindows } from 'react-icons/ai'
 import { FaGooglePlay } from 'react-icons/fa'
 import { SiPwa, SiLinux } from 'react-icons/si'
 
-import { Heading, Text, Input, Form, Button, DownloadButton } from '@giffy/ui'
+import {
+  Heading,
+  Text,
+  Input,
+  Form,
+  Button,
+  DownloadButton,
+  Link,
+} from '@giffy/ui'
 import { Newsletter } from '@modules/blog/controllers/Newsletter'
 
 import {
@@ -22,6 +30,8 @@ import {
   FormWrapper,
   ButtonWrapper,
   DownloadButtonWrapper,
+  ImageWrapper,
+  TrustedBy,
 } from './styles'
 
 type ISection = {
@@ -158,6 +168,10 @@ const osIcons = {
   Unknown: <SiPwa size={24} />,
 }
 
+type FormSchema = {
+  email: string
+}
+
 export const Home: React.FC<HomeProps> = ({ hasLaunched }) => {
   type Platform = Window['navigator']['userAgentData']['platform']
   const [platform, setPlatform] = useState<Platform>('Windows')
@@ -167,27 +181,29 @@ export const Home: React.FC<HomeProps> = ({ hasLaunched }) => {
     setPlatform(window.navigator.userAgentData.platform)
   }, [])
 
-  const handleFormSubmit = useCallback(async (event?: FormEvent) => {
-    event?.preventDefault()
+  const handleFormSubmit = useCallback(async ({ email }: FormSchema) => {
+    const formURL = process.env.NEXT_PUBLIC_FORM_URL
+
+    try {
+      const response = await fetch(formURL, {
+        method: 'POST',
+        body: JSON.stringify({
+          email,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+
+      const data = await response.text()
+      console.log({ data })
+    } catch (error) {
+      console.log({ error })
+    }
   }, [])
 
   const handleDownload = () => {
-    switch (platform) {
-      case 'Android':
-        break
-      case 'Chrome OS':
-        break
-      case 'iOS':
-        break
-      case 'Linux':
-        break
-      case 'macOS':
-        break
-      case 'Windows':
-        break
-      case 'Unknown':
-        break
-    }
+    push(`/download#${platform}`)
   }
 
   return (
@@ -210,7 +226,7 @@ export const Home: React.FC<HomeProps> = ({ hasLaunched }) => {
 
             {!hasLaunched ? (
               <FormWrapper>
-                <Form onSubmit={handleFormSubmit}>
+                <Form<FormSchema> onSubmit={handleFormSubmit}>
                   <Input
                     icon={FiMail}
                     iconPosition="left"
@@ -218,7 +234,7 @@ export const Home: React.FC<HomeProps> = ({ hasLaunched }) => {
                     name="email"
                     placeholder="Your Best E-mail"
                   />
-                  <Button onClick={handleFormSubmit}>Subscribe</Button>
+                  <Button onClick={() => {}}>Subscribe</Button>
                 </Form>
               </FormWrapper>
             ) : platform === 'Unknown' ? (
@@ -240,7 +256,7 @@ export const Home: React.FC<HomeProps> = ({ hasLaunched }) => {
                 </Button>
 
                 <Button variant="outlined" onClick={() => {}}>
-                  Tutorials
+                  More Downloads
                 </Button>
               </ButtonWrapper>
             )}
@@ -277,6 +293,36 @@ export const Home: React.FC<HomeProps> = ({ hasLaunched }) => {
         </Section>
       )}
 
+      <Section style={{ padding: 0 }} backgroundColor="black">
+        <Box layout="column" backgroundColor="black">
+          <ImageWrapper>
+            <img
+              src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F17085d69-04f3-41e5-bdc4-adffd0d4d896%2FCover.jpg?table=block&id=ff614376-b873-47aa-b94b-628126627ac9"
+              alt="Banner image"
+            />
+          </ImageWrapper>
+        </Box>
+      </Section>
+
+      <Section
+        style={{ paddingLeft: 0, paddingRight: 0 }}
+        backgroundColor="black"
+      >
+        <Box layout="column" backgroundColor="black">
+          <Heading variant="h2" as="h2">
+            Trusted By
+          </Heading>
+
+          <TrustedBy>
+            {Array(20)
+              .fill('some streamer')
+              .map((streamer, idx) => (
+                <li key={idx}>{streamer}</li>
+              ))}
+          </TrustedBy>
+        </Box>
+      </Section>
+
       {Sections.map(
         ({ id, section, box, heading, description, image, overflow }) => (
           <Section
@@ -284,7 +330,7 @@ export const Home: React.FC<HomeProps> = ({ hasLaunched }) => {
             {...section}
             style={overflow === true ? { marginTop: '-69px' } : {}}
           >
-            <Box {...box}>
+            <Box {...box} className="generic">
               <Left>
                 <Heading variant="h2" as="h3" label={heading} />
 
