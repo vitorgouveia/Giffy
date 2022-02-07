@@ -330,8 +330,7 @@ export const Home: React.FC<HomeProps> = ({
           <Right className="hero-right" style={{ flexShrink: 2 }}>
             <img
               src="/neon_logo.png"
-              height={300}
-              width={300}
+              style={{ width: '300px', height: '300px' }}
               alt="Giffy logo neon version"
             />
           </Right>
