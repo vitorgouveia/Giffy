@@ -53,12 +53,16 @@ jobs:
         run: yarn gh-build
         env:
           NEXT_PUBLIC_FORM_URL: ${{ secrets.NEXT_PUBLIC_FORM_URL }}
+          NEXT_PUBLIC_GIFFY_STUDIO_PAYMENT_LINK: ${{ secrets.NEXT_PUBLIC_GIFFY_STUDIO_PAYMENT_LINK }}
+          NEXT_PUBLIC_GIFFY_BUSINESS_PAYMENT_LINK: ${{ secrets.NEXT_PUBLIC_GIFFY_BUSINESS_PAYMENT_LINK }}
 
       - name: Export static files
         working-directory: ./apps/web
         run: yarn export
         env:
           NEXT_PUBLIC_FORM_URL: ${{ secrets.NEXT_PUBLIC_FORM_URL }}
+          NEXT_PUBLIC_GIFFY_STUDIO_PAYMENT_LINK: ${{ secrets.NEXT_PUBLIC_GIFFY_STUDIO_PAYMENT_LINK }}
+          NEXT_PUBLIC_GIFFY_BUSINESS_PAYMENT_LINK: ${{ secrets.NEXT_PUBLIC_GIFFY_BUSINESS_PAYMENT_LINK }}
 
       - name: Add .nojekyll file
         working-directory: ./apps/web

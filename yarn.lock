@@ -1888,6 +1888,7 @@ __metadata:
     preact-render-to-string: ^5.1.19
     react: 17.0.2
     react-dom: 17.0.2
+    stripe: ^8.202.0
     styled-components: ^5.3.3
     styled-media-query: ^2.1.2
     typescript: ^4.5.5
@@ -4164,6 +4165,13 @@ __metadata:
   version: 17.0.10
   resolution: "@types/node@npm:17.0.10"
   checksum: 979e83d642a2b4f18fa1a4233f884822c05abc7acd0836024aa964187f8446432b21f7913e72fe2b3927c4a811c27a0b6cd60ac7c4ac6a6762cfbab70782aa6a
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:>=8.1.0":
+  version: 17.0.16
+  resolution: "@types/node@npm:17.0.16"
+  checksum: 2d452a9e0ee7ec83d447d66dd2baf4dd05ef2fbcda39b06f73d86b36d5150d86c43a733d534d77467e7782104756944d42a35ed4b64113bda341b8334ee4d01d
   languageName: node
   linkType: hard
 
@@ -16383,6 +16391,16 @@ __metadata:
   version: 2.0.1
   resolution: "strip-json-comments@npm:2.0.1"
   checksum: 1074ccb63270d32ca28edfb0a281c96b94dc679077828135141f27d52a5a398ef5e78bcf22809d23cadc2b81dfbe345eb5fd8699b385c8b1128907dec4a7d1e1
+  languageName: node
+  linkType: hard
+
+"stripe@npm:^8.202.0":
+  version: 8.202.0
+  resolution: "stripe@npm:8.202.0"
+  dependencies:
+    "@types/node": ">=8.1.0"
+    qs: ^6.6.0
+  checksum: f313f7d9f9154440dc1bd712a6a567e55346711d6075c66a926f58a3432b0ca46509a7b315ae0275dff272b0325b0dba3823e8664f1e55783e4bc8247078b2e0
   languageName: node
   linkType: hard
 

@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react'
+import { NextSeo } from 'next-seo'
 
 import { Heading, Button, Divider, Link } from '@giffy/ui'
 import {
@@ -18,6 +19,7 @@ type Plan = {
   title: string
   price: string
   buttonLabel: string
+  paymentLink?: string
 
   features: string[]
 }
@@ -42,7 +44,8 @@ const plans: Plan[] = [
     type: 'studio',
     title: 'Giffy Studio',
     price: '$19.99',
-    buttonLabel: 'Start Free Trial',
+    buttonLabel: 'Buy Studio',
+    paymentLink: process.env.NEXT_PUBLIC_GIFFY_STUDIO_PAYMENT_LINK,
 
     features: [
       'Blurring of areas',
@@ -58,7 +61,8 @@ const plans: Plan[] = [
     type: 'business',
     title: 'Giffy Business',
     price: '$69.99',
-    buttonLabel: 'Contact Us',
+    buttonLabel: 'Buy Business',
+    paymentLink: process.env.NEXT_PUBLIC_GIFFY_BUSINESS_PAYMENT_LINK,
 
     features: ['Faster issue solving', 'Direct team contact'],
   },
@@ -332,39 +336,50 @@ export const Download: React.FC = () => {
 
   return (
     <React.Fragment>
+      <NextSeo
+        title="Installation"
+        titleTemplate="%s | Giffy"
+        defaultTitle="Download Giffy App"
+        description="Giffy can be installed on MacOS, Windows and Linux, it's Open Source and Free!"
+      />
+
       <Header thumbnailUrl={''}>
         <HeaderTitles>
           <Heading variant="h1" as="h1">
             Free GIF recorder App
           </Heading>
 
-          <Button onClick={() => {}}>Download</Button>
+          <Link href="#lite">
+            <Button onClick={() => {}}>Download</Button>
+          </Link>
         </HeaderTitles>
       </Header>
       <PricingSection>
-        {plans.map(({ id, title, price, buttonLabel, features, type }) => (
-          <PricingCard type={type} key={id}>
-            <Heading variant="h2" as="h2">
-              {title}
-            </Heading>
+        {plans.map(
+          ({ id, title, price, buttonLabel, features, type, paymentLink }) => (
+            <PricingCard type={type} key={id}>
+              <Heading variant="h2" as="h2">
+                {title}
+              </Heading>
 
-            <Heading variant="h1" as="h1">
-              {price}
-            </Heading>
+              <Heading variant="h1" as="h1">
+                {price}
+              </Heading>
 
-            <Link href={`#${type}`}>
-              <Button onClick={() => {}}>{buttonLabel}</Button>
-            </Link>
+              <Link href={paymentLink || '#lite'}>
+                <Button onClick={() => {}}>{buttonLabel}</Button>
+              </Link>
 
-            <Divider />
+              <Divider />
 
-            <ul>
-              {features.map(feature => (
-                <li key={feature}>{feature}</li>
-              ))}
-            </ul>
-          </PricingCard>
-        ))}
+              <ul>
+                {features.map(feature => (
+                  <li key={feature}>{feature}</li>
+                ))}
+              </ul>
+            </PricingCard>
+          )
+        )}
       </PricingSection>
 
       {downloads.map(({ title, backgroundColor, type, platforms }) => (
