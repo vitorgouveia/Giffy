@@ -328,7 +328,7 @@ export const Home: React.FC<HomeProps> = ({
           </Left>
 
           <Right className="hero-right" style={{ flexShrink: 2 }}>
-            <Image
+            <img
               src="/neon_logo.png"
               height={300}
               width={300}
