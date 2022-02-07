@@ -2,7 +2,9 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import { NextSeo } from 'next-seo'
 
+import { defaultTitle, titleTemplate, description, author } from '@lib/seo'
 import { FiMail } from 'react-icons/fi'
 import { AiFillApple, AiFillWindows } from 'react-icons/ai'
 import { FaGooglePlay } from 'react-icons/fa'
@@ -237,6 +239,32 @@ export const Home: React.FC<HomeProps> = ({
 
   return (
     <React.Fragment>
+      <NextSeo
+        title={defaultTitle}
+        defaultTitle={defaultTitle}
+        titleTemplate={titleTemplate}
+        description={description}
+        openGraph={{
+          url: 'https://vitorgouveia.github.io/Giffy',
+          title: `${defaultTitle} | Giffy`,
+          description,
+          site_name: 'Giffy',
+          locale: 'en_US',
+
+          images: [
+            {
+              url: 'https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F17085d69-04f3-41e5-bdc4-adffd0d4d896%2FCover.jpg?table=block&id=ff614376-b873-47aa-b94b-628126627ac9',
+              type: 'image/jpeg',
+            },
+          ],
+        }}
+        twitter={{
+          cardType: 'summary_large_image',
+          site: 'https://vitorgouveia.github.io/Giffy',
+        }}
+        // defaultTitle, titleTemplate, description, author
+      />
+
       <Section style={{ paddingBottom: 0 }} backgroundColor="black">
         <Box
           className="hero"

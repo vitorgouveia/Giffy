@@ -381,7 +381,7 @@ export const SponsorRow = styled.div`
   }
 
   &:nth-child(4) {
-    animation-duration: 540s;
+    animation-duration: 70s;
   }
 
   &:nth-child(5) {
