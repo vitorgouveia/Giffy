@@ -35,6 +35,9 @@ import {
   ImageWrapper,
   TrustedBy,
   FeatureCards,
+  SponsorRow,
+  SponsorsWrapper,
+  NewsletterWrapper,
 } from './styles'
 
 type ISection = {
@@ -157,6 +160,12 @@ const Sections: ISection[] = [
   },
 ]
 
+type Sponsor = {
+  id: string
+  name: string
+}
+type Sponsors = Sponsor[]
+
 export type User = {
   id: string
   name: string
@@ -165,7 +174,7 @@ export type User = {
 type HomeProps = {
   hasLaunched: boolean
   users: User[]
-  sponsors: User[]
+  sponsors: Sponsors[]
   post: IPost
 }
 
@@ -216,6 +225,10 @@ export const Home: React.FC<HomeProps> = ({
     } catch (error) {
       console.log({ error })
     }
+  }, [])
+
+  const randomNum = useCallback((max: number, min: number) => {
+    return Math.floor(Math.random() * (max - min + 1) + min)
   }, [])
 
   const handleDownload = () => {
@@ -406,6 +419,47 @@ export const Home: React.FC<HomeProps> = ({
       <Section backgroundColor="black">
         <Box layout="column" backgroundColor="black">
           <Left>
+            <Heading style={{ textAlign: 'center' }} variant="h1" as="h2">
+              <Highlighted>SPONSORS</Highlighted>
+            </Heading>
+          </Left>
+        </Box>
+      </Section>
+
+      <Section
+        style={{ overflow: 'hidden', height: '500px', padding: 0 }}
+        backgroundColor="black"
+      >
+        <SponsorsWrapper>
+          {sponsors.map((sponsorArray, idx) => (
+            <SponsorRow key={idx}>
+              {sponsorArray.map(({ id, name }, idx) => {
+                const randomizer = randomNum(0, 4)
+
+                return (
+                  <Heading key={id} variant="h3" as="strong">
+                    <span
+                      className={
+                        randomizer === 1
+                          ? ''
+                          : randomizer === 2
+                          ? 'outlined'
+                          : 'dark'
+                      }
+                    >
+                      {name}
+                    </span>
+                  </Heading>
+                )
+              })}
+            </SponsorRow>
+          ))}
+        </SponsorsWrapper>
+      </Section>
+
+      <Section backgroundColor="black">
+        <Box layout="column" backgroundColor="black">
+          <Left>
             <Heading style={{ textAlign: 'center' }} variant="h2" as="h3">
               Why Giffy
             </Heading>
@@ -447,7 +501,9 @@ export const Home: React.FC<HomeProps> = ({
 
       <Section backgroundColor="background">
         <Box backgroundColor="background" layout="row">
-          <Newsletter />
+          <NewsletterWrapper>
+            <Newsletter />
+          </NewsletterWrapper>
         </Box>
       </Section>
     </React.Fragment>

@@ -327,3 +327,122 @@ export const FeatureCards = styled.div`
     }
   `}
 `
+
+export const SponsorsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transform: rotate(-15deg);
+`
+
+const SponsorRowSlideForward = keyframes`
+  0%,100% {
+    transform: translate3d(35%, 0, 0)
+  }
+
+  50% {
+    transform: translate3d(-20%, 0, 0)
+  }
+`
+
+const SponsorRowSlideBackward = keyframes`
+  0%,100% {
+    transform: translate3d(-10%, 0, 0)
+  }
+  
+  50% {
+    transform: translate3d(30%, 0, 0)
+  }
+`
+
+export const SponsorRow = styled.div`
+  width: 100%;
+  filter: opacity(0.62);
+
+  &:nth-child(even) {
+    animation: ${SponsorRowSlideForward} 100s linear infinite;
+  }
+
+  &:nth-child(odd) {
+    animation: ${SponsorRowSlideBackward} 100s linear infinite;
+  }
+
+  &:nth-child(1) {
+    animation-duration: 100s;
+  }
+
+  &:nth-child(2) {
+    animation-duration: 189s;
+  }
+
+  &:nth-child(3) {
+    animation-duration: 270s;
+  }
+
+  &:nth-child(4) {
+    animation-duration: 540s;
+  }
+
+  &:nth-child(5) {
+    animation-duration: 150s;
+  }
+
+  &:nth-child(6) {
+    animation-duration: 333s;
+  }
+
+  &:nth-child(7) {
+    animation-duration: 90s;
+  }
+
+  &:nth-child(8) {
+    animation-duration: 69.42s;
+  }
+
+  &:nth-child(9) {
+    animation-duration: 30s;
+  }
+
+  &:hover {
+    animation-play-state: paused;
+  }
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  strong span {
+    text-transform: uppercase;
+    font-size: 100px;
+
+    ${props => props.theme.media.lessThan('tablet')`
+      font-size: 12vw;
+    `}
+
+    font-weight: 500;
+    color: #fff;
+
+    &.outlined {
+      color: transparent;
+      -webkit-text-stroke: 1px #fff;
+    }
+
+    &.dark {
+      color: #404040;
+    }
+  }
+`
+
+export const NewsletterWrapper = styled.div`
+  .newsletter {
+    form {
+      ${props => props.theme.media.lessThan('tablet')` 
+        height: auto;
+
+        display: flex;
+        flex-direction: column;
+      `}
+    }
+  }
+`

@@ -7,9 +7,15 @@ import { Post } from '@giffy/types'
 
 export default Home
 
+type Sponsor = {
+  id: string
+  name: string
+}
+type Sponsors = Sponsor[]
+
 type Props = {
   users: User[]
-  sponsors: User[]
+  sponsors: Sponsors[]
   post: Post
   hasLaunched: boolean
 }
@@ -34,12 +40,41 @@ export const getStaticProps: GetStaticProps = async (): Promise<
       name: user,
     }))
 
-  const sponsors: User[] = Array(30)
-    .fill('your company/name here')
-    .map(sponsor => ({
-      id: uuid(),
-      name: sponsor,
-    }))
+  /**
+   * [
+   *  ['item', 'item'],
+   *  ['item', 'item'],
+   *  ['item', 'item'],
+   *  ['item', 'item'],
+   *  ['item', 'item'],
+   * ]
+   */
+  let sponsors: Sponsors[] = Array(6)
+
+  const randomNum = (max: number, min: number) => {
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  }
+
+  let mapHeight = 10
+  for (let i = 0; i < mapHeight; i++) {
+    const names = [
+      'twitter',
+      'meta',
+      'youtube',
+      'twitch',
+      'logitech',
+      'microsoft',
+    ]
+
+    sponsors[i] = []
+
+    for (let j = 0; j <= names.length * 1.5; j++) {
+      sponsors[i][j] = { id: '', name: '' }
+
+      sponsors[i][j].id = uuid()
+      sponsors[i][j].name = names[randomNum(0, names.length)]
+    }
+  }
 
   const { post } = await getPostBySlug({
     slug: 'introduction',
