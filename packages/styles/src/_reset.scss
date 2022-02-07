@@ -47,6 +47,7 @@ html,
 body,
 #__next,
 #root {
+	scroll-behavior: smooth;
   height: 100% !important;
   width: 100% !important;
 

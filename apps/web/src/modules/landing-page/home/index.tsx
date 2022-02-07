@@ -234,7 +234,7 @@ export const Home: React.FC<HomeProps> = ({
   }, [])
 
   const handleDownload = () => {
-    push(`/download#${platform}`)
+    push(`/download`)
   }
 
   return (
@@ -300,7 +300,7 @@ export const Home: React.FC<HomeProps> = ({
             ) : platform === 'Unknown' ? (
               <Button
                 onClick={() => {
-                  push('/downloads')
+                  push('/download')
                 }}
               >
                 Download
@@ -318,7 +318,7 @@ export const Home: React.FC<HomeProps> = ({
                 <Button
                   variant="outlined"
                   onClick={() => {
-                    push('/downloads')
+                    push('/download')
                   }}
                 >
                   More Downloads
