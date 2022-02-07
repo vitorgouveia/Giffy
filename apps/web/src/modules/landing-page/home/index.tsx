@@ -16,7 +16,9 @@ import {
   Button,
   DownloadButton,
   Modal,
+  Post,
 } from '@giffy/ui'
+import { Post as IPost } from '@giffy/types'
 import { Newsletter } from '@modules/blog/controllers/Newsletter'
 
 import {
@@ -155,8 +157,16 @@ const Sections: ISection[] = [
   },
 ]
 
+export type User = {
+  id: string
+  name: string
+}
+
 type HomeProps = {
   hasLaunched: boolean
+  users: User[]
+  sponsors: User[]
+  post: IPost
 }
 
 const osIcons = {
@@ -173,7 +183,12 @@ type FormSchema = {
   email: string
 }
 
-export const Home: React.FC<HomeProps> = ({ hasLaunched }) => {
+export const Home: React.FC<HomeProps> = ({
+  hasLaunched,
+  post,
+  sponsors,
+  users,
+}) => {
   type Platform = Window['navigator']['userAgentData']['platform']
   const [platform, setPlatform] = useState<Platform>('Windows')
   const { push } = useRouter()
@@ -323,11 +338,9 @@ export const Home: React.FC<HomeProps> = ({ hasLaunched }) => {
           </Heading>
 
           <TrustedBy>
-            {Array(20)
-              .fill('your name here')
-              .map((streamer, idx) => (
-                <li key={idx}>{streamer}</li>
-              ))}
+            {users.map(({ id, name }) => (
+              <li key={id}>{name}</li>
+            ))}
           </TrustedBy>
         </Box>
       </Section>
@@ -386,6 +399,25 @@ export const Home: React.FC<HomeProps> = ({ hasLaunched }) => {
                 </Text>
               </Modal>
             </FeatureCards>
+          </Right>
+        </Box>
+      </Section>
+
+      <Section backgroundColor="black">
+        <Box layout="column" backgroundColor="black">
+          <Left>
+            <Heading style={{ textAlign: 'center' }} variant="h2" as="h3">
+              Why Giffy
+            </Heading>
+
+            <Text style={{ textAlign: 'center', width: '70%', margin: 'auto' }}>
+              If you don’t know why you should use Giffy, check out our blog and
+              see all our stories
+            </Text>
+          </Left>
+
+          <Right>
+            <Post metadata={post.metadata} />
           </Right>
         </Box>
       </Section>

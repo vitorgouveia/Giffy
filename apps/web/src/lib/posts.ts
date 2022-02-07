@@ -17,7 +17,6 @@ function getFileContent(path: string) {
   const fileContent = readFileSync(path, 'utf-8')
 
   const { content, data: metadata } = grayMatter(fileContent)
-  console.log('filename')
 
   /**                        0  1    2   4 or -1
    * ./src/posts/post.mdx -> . src posts post.mdx -> post.mdx
