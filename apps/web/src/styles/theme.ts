@@ -14,5 +14,9 @@ export const theme = {
   colors: {
     accent: '#FD4D4D',
     background: '#151515',
+    stroke: '#363539',
+    black: '#171717',
   },
 }
+
+export type Colors = keyof typeof theme.colors

@@ -3,10 +3,11 @@ import { NextSeo, ArticleJsonLd } from 'next-seo'
 
 import { Post } from '@giffy/types'
 import { Heading, dateToString } from '@giffy/ui'
+import { Container } from '@styles/container'
 import { Header } from '@modules/blog/controllers/Header'
 import { Footer } from '@modules/blog/controllers/Footer'
 
-import { Container, PostHeader, PostHeaderTitles } from './styles'
+import { PostHeader, PostHeaderTitles } from './styles'
 
 type BlogLayoutProps = {
   homepage?: {
