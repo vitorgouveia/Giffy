@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useCallback, useEffect, useState } from 'react'
-import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { NextSeo } from 'next-seo'
 
-import { defaultTitle, titleTemplate, description, author } from '@lib/seo'
+import { NeonLogo } from './NeonLogo'
+import { defaultTitle, titleTemplate, description } from '@lib/seo'
 import { FiMail } from 'react-icons/fi'
 import { AiFillApple, AiFillWindows } from 'react-icons/ai'
 import { FaGooglePlay } from 'react-icons/fa'
@@ -328,11 +328,7 @@ export const Home: React.FC<HomeProps> = ({
           </Left>
 
           <Right className="hero-right" style={{ flexShrink: 2 }}>
-            <img
-              src="/neon_logo.png"
-              style={{ width: '300px', height: '300px' }}
-              alt="Giffy logo neon version"
-            />
+            <NeonLogo style={{ width: '300px', height: '300px' }} />
           </Right>
         </Box>
       </Section>
