@@ -9,17 +9,25 @@
   "main": "./dist/main.js",
   "packageManager": "yarn@3.1.1",
   "scripts": {
-    "dev:electron": "rimraf dist && node esbuild/electron.esbuild.mjs && electron dist/index.js",
-    "dev:react": "esbuild src/index.tsx --bundle --platform=browser --splitting --format=esm --tree-shaking=true --outdir=dist/react --servedir=./"
+    "dev": "NODE_ENV=development concurrently \"yarn dev:react\"  \"yarn dev:electron\"",
+    "electron:wait": "wait-on http-get://localhost:8000/",
+    "dev:electron": "yarn electron:wait && rimraf dist && node esbuild/electron.esbuild.mjs && electron dist/index.js",
+    "dev:react": "esbuild src/index.tsx --bundle --platform=browser --splitting --format=esm --tree-shaking=true --outdir=dist/react --servedir=./",
+
+    "start": "NODE_ENV=production yarn start:react && yarn start:electron",
+    "start:electron": "node esbuild/electron.esbuild.mjs && electron dist/index.js",
+    "start:react": "esbuild src/index.tsx --bundle --platform=browser --splitting --format=esm --tree-shaking=true --outdir=dist/react"
   },
   "devDependencies": {
     "@chialab/esbuild-plugin-html": "^0.14.17",
+    "concurrently": "^7.0.0",
     "cross-env": "^7.0.3",
     "electron": "^17.0.0",
     "electron-builder": "^22.14.13",
     "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.2",
-    "typescript": "^4.5.5"
+    "typescript": "^4.5.5",
+    "wait-on": "^6.0.0"
   },
   "dependencies": {
     "esbuild": "^0.14.20",
