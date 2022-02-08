@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@screens/*": [
+        "./screens/*"
+      ],
+      "@layouts/*": [
+        "./layouts/*"
+      ],
+      "@components/*": [
+        "./components/*"
+      ]
+    }
+  }
+}

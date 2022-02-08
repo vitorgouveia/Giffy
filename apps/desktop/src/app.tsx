@@ -1,9 +1,12 @@
 import React from 'react'
 
+import '@giffy/styles'
+import { Screen } from '@screens/main'
+
 export function App() {
   return (
-    <div>
-      <p>my app</p>
-    </div>
+    <React.Fragment>
+      <Screen />
+    </React.Fragment>
   )
 }

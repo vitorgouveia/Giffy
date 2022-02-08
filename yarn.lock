@@ -1879,6 +1879,7 @@ __metadata:
   resolution: "@giffy/desktop@workspace:apps/desktop"
   dependencies:
     "@chialab/esbuild-plugin-html": ^0.14.17
+    "@types/styled-components": ^5.1.22
     concurrently: ^7.0.0
     cross-env: ^7.0.3
     electron: 17.0.0
@@ -1888,6 +1889,7 @@ __metadata:
     react: ^17.0.2
     react-dom: ^17.0.2
     rimraf: ^3.0.2
+    styled-components: ^5.3.3
     typescript: ^4.5.5
     wait-on: ^6.0.0
   languageName: unknown
@@ -4533,6 +4535,17 @@ __metadata:
     "@types/react": "*"
     csstype: ^3.0.2
   checksum: d53065f65052dd407516f1d37cc9bce33df6f4da31cbc7ef5a6b1e1fed6f14497456a13d809c065c15b963d73dc9b877613e3fb8dfa66074bfac60a94e561b04
+  languageName: node
+  linkType: hard
+
+"@types/styled-components@npm:^5.1.22":
+  version: 5.1.22
+  resolution: "@types/styled-components@npm:5.1.22"
+  dependencies:
+    "@types/hoist-non-react-statics": "*"
+    "@types/react": "*"
+    csstype: ^3.0.2
+  checksum: f25850590772ffc3da672a89f89847b92994d78c28f7d37a31a792fee868ae4b2ae040e7be1b9959631dcfbf82296b3ed1f19f4cf28bd0c82e15727c1022f01c
   languageName: node
   linkType: hard
 
