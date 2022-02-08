@@ -1,0 +1,33 @@
+appId: 'com.giffyapp.com'
+productName: 'giffy'
+files:
+  - dist/
+
+# win:
+#   # icon: "path to ico"
+#   target:
+#     - portable
+#     - nsis
+
+# mac:
+#   category: 'public.app-category.video'
+#   # icon: "path to icns"
+#   target:
+#     - dmg
+#     - pkg
+
+linux:
+  # icon: "path to png"
+  category: 'Video'
+  maintainer: 'Vitor Neves Gomes Gouveia'
+  target:
+    # - AppImage
+    # - snap
+    - deb
+    # - rpm
+    # - freebsd
+    # - pacman
+
+directories:
+  buildResources: 'build'
+  output: 'release'

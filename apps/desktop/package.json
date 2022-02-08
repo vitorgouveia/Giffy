@@ -6,26 +6,25 @@
   "repository": "https://github.com/VitorGouveia/Giffy",
   "license": "MIT",
   "private": true,
-  "main": "./dist/main.js",
+  "main": "./dist/index.js",
   "packageManager": "yarn@3.1.1",
   "scripts": {
     "dev": "NODE_ENV=development concurrently \"yarn dev:react\"  \"yarn dev:electron\"",
     "electron:wait": "wait-on http-get://localhost:8000/",
     "dev:electron": "yarn electron:wait && rimraf dist && node esbuild/electron.esbuild.mjs && electron dist/index.js",
     "dev:react": "esbuild src/index.tsx --bundle --platform=browser --splitting --format=esm --tree-shaking=true --outdir=dist/react --servedir=./",
-
     "build": "NODE_ENV=production yarn build:react && yarn build:electron",
     "build:electron": "node esbuild/electron.esbuild.mjs",
     "build:react": "esbuild src/index.tsx --bundle --platform=browser --splitting --format=esm --tree-shaking=true --outdir=dist/react",
-
     "start": "NODE_ENV=production yarn build && yarn start:electron",
-    "start:electron": "electron dist/index.js"
+    "start:electron": "electron dist/index.js",
+    "package": "yarn build && electron-builder build --config electron-builder.yml"
   },
   "devDependencies": {
     "@chialab/esbuild-plugin-html": "^0.14.17",
     "concurrently": "^7.0.0",
     "cross-env": "^7.0.3",
-    "electron": "^17.0.0",
+    "electron": "17.0.0",
     "electron-builder": "^22.14.13",
     "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.2",
