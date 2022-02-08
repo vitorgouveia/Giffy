@@ -14,9 +14,12 @@
     "dev:electron": "yarn electron:wait && rimraf dist && node esbuild/electron.esbuild.mjs && electron dist/index.js",
     "dev:react": "esbuild src/index.tsx --bundle --platform=browser --splitting --format=esm --tree-shaking=true --outdir=dist/react --servedir=./",
 
-    "start": "NODE_ENV=production yarn start:react && yarn start:electron",
-    "start:electron": "node esbuild/electron.esbuild.mjs && electron dist/index.js",
-    "start:react": "esbuild src/index.tsx --bundle --platform=browser --splitting --format=esm --tree-shaking=true --outdir=dist/react"
+    "build": "NODE_ENV=production yarn build:react && yarn build:electron",
+    "build:electron": "node esbuild/electron.esbuild.mjs",
+    "build:react": "esbuild src/index.tsx --bundle --platform=browser --splitting --format=esm --tree-shaking=true --outdir=dist/react",
+
+    "start": "NODE_ENV=production yarn build && yarn start:electron",
+    "start:electron": "electron dist/index.js"
   },
   "devDependencies": {
     "@chialab/esbuild-plugin-html": "^0.14.17",
