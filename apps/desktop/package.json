@@ -1,0 +1,29 @@
+{
+  "name": "@giffy/desktop",
+  "version": "0.0.1",
+  "description": "Giffy's Desktop App",
+  "author": "Vitor Gouveia <vitorneves.gouveia10@gmail.com>",
+  "repository": "https://github.com/VitorGouveia/Giffy",
+  "license": "MIT",
+  "private": true,
+  "main": "./dist/main.js",
+  "packageManager": "yarn@3.1.1",
+  "scripts": {
+    "dev:electron": "rimraf dist && node esbuild/electron.esbuild.mjs && electron dist/index.js",
+    "dev:react": "esbuild src/index.tsx --bundle --platform=browser --splitting --format=esm --tree-shaking=true --outdir=dist/react --servedir=./"
+  },
+  "devDependencies": {
+    "@chialab/esbuild-plugin-html": "^0.14.17",
+    "cross-env": "^7.0.3",
+    "electron": "^17.0.0",
+    "electron-builder": "^22.14.13",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "esbuild": "^0.14.20",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
