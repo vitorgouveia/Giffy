@@ -9,9 +9,9 @@
   "main": "./dist/index.js",
   "packageManager": "yarn@3.1.1",
   "scripts": {
-    "dev": "NODE_ENV=development concurrently \"yarn dev:react\"  \"yarn dev:electron\"",
+    "dev": "cross-env NODE_ENV=development concurrently \"yarn dev:react\"  \"yarn dev:electron\"",
     "electron:wait": "wait-on http-get://localhost:8000/",
-    "dev:electron": "yarn electron:wait && rimraf dist && node esbuild/electron.esbuild.mjs && electron dist/index.js",
+    "dev:electron": "cross-env APP_TYPE=lite yarn electron:wait && rimraf dist && node esbuild/electron.esbuild.mjs && electron dist/index.js",
     "dev:react": "esbuild src/index.tsx --bundle --platform=browser --splitting --format=esm --loader:.css=css --tree-shaking=true --outdir=dist/react --servedir=./",
     "build": "NODE_ENV=production yarn build:react && yarn build:electron",
     "build:electron": "node esbuild/electron.esbuild.mjs",
@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "@chialab/esbuild-plugin-html": "^0.14.17",
+    "@types/node": "^17.0.16",
     "@types/styled-components": "^5.1.22",
     "concurrently": "^7.0.0",
     "cross-env": "^7.0.3",
@@ -35,6 +36,7 @@
   "dependencies": {
     "@giffy/styles": "*",
     "@giffy/ui": "*",
+    "dotenv": "^16.0.0",
     "esbuild": "^0.14.20",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

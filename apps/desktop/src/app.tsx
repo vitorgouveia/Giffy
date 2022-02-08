@@ -1,12 +1,17 @@
 import React from 'react'
 
-import '@giffy/styles'
+import { ThemeProvider } from 'styled-components'
+
+import { theme } from '@styles/theme/default'
+
 import { Screen } from '@screens/main'
 
 export function App() {
   return (
     <React.Fragment>
-      <Screen />
+      <ThemeProvider theme={theme}>
+        <Screen />
+      </ThemeProvider>
     </React.Fragment>
   )
 }

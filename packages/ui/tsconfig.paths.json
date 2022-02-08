@@ -2,19 +2,19 @@
   "compilerOptions": {
     "paths": {
       "@utils/*": [
-        "utils/*"
+        "./utils/*"
       ],
       "@lib/*": [
-        "lib/*"
+        "./lib/*"
       ],
       "@context/*": [
-        "context/*"
+        "./context/*"
       ],
       "@components/*": [
-        "components/*"
+        "./components/*"
       ],
       "@assets/*": [
-        "assets/*"
+        "./assets/*"
       ]
     }
   }

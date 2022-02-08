@@ -9,5 +9,5 @@ await esbuild.build({
   treeShaking: true,
   outdir: 'dist',
   minifyWhitespace: true,
-  external: ['electron'],
+  external: ['electron', 'dotenv'],
 })
