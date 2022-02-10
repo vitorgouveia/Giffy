@@ -1,11 +1,11 @@
-import { nativeImage, Tray } from 'electron'
-import { resolve, join } from 'path'
+import { Tray } from 'electron'
+import { resolve } from 'path'
 
-const iconPath = resolve(__dirname, '..', 'icons', 'instagram.png')
+const iconPath = resolve(__dirname, '..', 'icons', 'tray.png')
 
-export const createTray = () => {
+export const createTray = ({ appName }: { appName: string }) => {
   const tray = new Tray(iconPath)
-  tray.setToolTip('Giffy lite')
+  tray.setToolTip(appName)
 
   return tray
 }

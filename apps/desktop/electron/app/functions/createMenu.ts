@@ -2,32 +2,24 @@ import { BrowserWindow, Menu } from 'electron'
 
 type createMenuProps = {
   window: BrowserWindow
-  aboutWindow: BrowserWindow
+  appName: string
 }
 
-export const createMenu = ({ window, aboutWindow }: createMenuProps) => {
+export const createMenu = ({ window, appName }: createMenuProps) => {
   const menu = Menu.buildFromTemplate([
     {
-      label: 'Open Giffy Lite',
+      id: 'open_app',
+      label: `Open ${appName}`,
       click: () => {
         window.show()
       },
     },
     { type: 'separator' },
     {
-      role: 'about',
-      label: 'Giffy Lite information',
-      click: () => {
-        aboutWindow.show()
-      },
-    },
-    { type: 'separator' },
-    {
       role: 'quit',
-      label: 'Quit Giffy Lite',
+      label: `Quit ${appName}`,
       click: () => {
         window.close()
-        aboutWindow.close()
       },
     },
   ])
