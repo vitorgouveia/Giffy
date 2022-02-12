@@ -16,6 +16,14 @@
 
 <br />
 
+---
+
+<h4 align="center">
+  🚧 Giffy is under development and not ready yet to be downloaded 🚧
+</h4>
+
+---
+
 <div align="center">
   <img src="https://img.shields.io/github/repo-size/vitorgouveia/giffy?style=for-the-badge" />
   <img src="https://img.shields.io/github/languages/count/vitorgouveia/giffy?style=for-the-badge" />
@@ -119,12 +127,6 @@ The project is still in development and the next updates will be:
 - [ ] Desktop and Mobile App
 - [ ] Account System
 - [ ] 💸 Monetization
-
----
-
-🚧 Giffy is under development and not ready yet to be downloaded 🚧
-
----
 
 ## Contributing
 
